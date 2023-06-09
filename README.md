@@ -2,5 +2,6 @@
 
 By Brandon Alba and Brandon Huynh
 
-| Project Overview |
-|-------------------|
+# Project Overview 
+
+The project that we have created is 
