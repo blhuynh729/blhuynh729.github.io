@@ -26,7 +26,7 @@ Detects motion using infrared radiation from warm objects.
 
 ## Example Code
 
-{% highlight c++ %}
+```cpp
 int pirPin = 7;
 
 void setup() {
@@ -41,5 +41,5 @@ void loop() {
   }
   delay(500);
 }
-{% endhighlight %}
+```
 

@@ -1,0 +1,55 @@
+
+/* --- Mac terminal-style code block with language label --- */
+
+div.highlighter-rouge {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+/* Header bar with centered language label */
+div.highlighter-rouge::before {
+  content: attr(data-lang);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 34px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+
+  background: #2b2b2b;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Mac "traffic light" buttons on the left */
+div.highlighter-rouge::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 16px 0 0 #ffbd2e, 32px 0 0 #27c93f;
+}
+
+/* The code area */
+div.highlighter-rouge pre.highlight {
+  margin: 0;
+  padding: 14px 16px 16px 16px;
+  background: #1e1e1e;
+  overflow: auto;
+}
+
+div.highlighter-rouge pre.highlight code {
+  background: transparent;
+  color: #e6e6e6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
