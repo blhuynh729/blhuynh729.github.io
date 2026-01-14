@@ -1,6 +1,7 @@
 ---
 title: PIR Motion Sensor
 parent: Movement and Location
+layout: page
 nav_order: 2
 ---
 
@@ -25,7 +26,7 @@ Detects motion using infrared radiation from warm objects.
 
 ## Example Code
 
-```cpp
+{% highlight c++ %}
 int pirPin = 7;
 
 void setup() {
@@ -40,5 +41,5 @@ void loop() {
   }
   delay(500);
 }
-
+{% endhighlight %}
 
