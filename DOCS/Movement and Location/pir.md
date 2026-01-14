@@ -1,7 +1,7 @@
 ---
 title: PIR Motion Sensor
 parent: Movement and Location
-nav_order: 1
+nav_order: 2
 ---
 
 # PIR Motion Sensor
