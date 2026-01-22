@@ -9,8 +9,8 @@ aux_links:
 
 nav_enabled: true
 
-# For copy button on code
-enable_copy_code_button: true
+# We provide our own (styled) copy buttons via assets/js/ui.js
+enable_copy_code_button: false
 
 # Color 
 color_scheme: light

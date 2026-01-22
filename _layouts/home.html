@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<section class="home-hero">
+  <div class="home-hero__inner">
+    <div class="home-hero__copy">
+      <div class="home-hero__kicker">Arduino course docs</div>
+      <h1 class="home-hero__title">{{ site.title }}</h1>
+      <p class="home-hero__subtitle">
+        Clear, practical guides for wiring, sensors, and Arduino programming—built for undergrads.
+      </p>
+
+      <div class="home-hero__cta">
+        <a class="btn btn-primary" href="{{ site.baseurl }}{% link DOCS/Setup/Setup.md %}">Start with Setup</a>
+        <a class="btn btn-ghost" href="{{ site.baseurl }}{% link DOCS/sensors/index.md %}">Browse Sensors</a>
+      </div>
+
+      <div class="home-hero__chips" aria-label="Quick links">
+        <a class="chip" href="{{ site.baseurl }}{% link DOCS/sensors/Movement-and-Location/index.md %}">Movement &amp; Location</a>
+        <a class="chip" href="{{ site.baseurl }}{% link DOCS/sensors/Stuff-in-the-Air/index.md %}">Stuff in the Air</a>
+        <a class="chip" href="{{ site.baseurl }}{% link DOCS/Setup/index.md %}">Troubleshooting</a>
+      </div>
+    </div>
+
+    <div class="home-hero__art" aria-hidden="true">
+      <div class="hero-card hero-card--top">
+        <div class="hero-card__title">Wiring first</div>
+        <div class="hero-card__line"></div>
+        <div class="hero-card__mono">5V → VCC • GND → GND</div>
+      </div>
+      <div class="hero-card hero-card--mid">
+        <div class="hero-card__title">Then code</div>
+        <div class="hero-card__line"></div>
+        <div class="hero-card__mono">Serial.print(sensorValue);</div>
+      </div>
+      <div class="hero-orb"></div>
+    </div>
+  </div>
+</section>
+
+<section class="home-grid" aria-label="Highlights">
+  <a class="home-card" href="{{ site.baseurl }}{% link DOCS/Setup/Setup.md %}">
+    <div class="home-card__icon" aria-hidden="true">⚙️</div>
+    <div class="home-card__title">Setup</div>
+    <div class="home-card__desc">Install the IDE, test your board, and learn the workflow.</div>
+  </a>
+  <a class="home-card" href="{{ site.baseurl }}{% link DOCS/sensors/index.md %}">
+    <div class="home-card__icon" aria-hidden="true">🧭</div>
+    <div class="home-card__title">Sensors</div>
+    <div class="home-card__desc">Step-by-step wiring + example sketches with copy buttons.</div>
+  </a>
+  <a class="home-card" href="{{ site.baseurl }}{% link DOCS/Setup/index.md %}">
+    <div class="home-card__icon" aria-hidden="true">🛠️</div>
+    <div class="home-card__title">Troubleshooting</div>
+    <div class="home-card__desc">Common errors, quick fixes, and lab-proven tips.</div>
+  </a>
+</section>
+
+<section class="home-content">
+  {{ content }}
+</section>
