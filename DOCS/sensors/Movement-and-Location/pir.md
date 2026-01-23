@@ -11,16 +11,51 @@ PIR stands for [“passive infrared” or “passive IR”](https://learn.adafru
 
 All bodies emit infrared light, but warm bodies emit more infrared light. The PIR sensor has two pyroelectric sensors that detect infrared light; when the difference between the pyroelectric sensors changes, the PIR sensor registers this as detecting motion.
 
+<figure align="center">
+    <img src = "../../../assets/images/sensors/PIR_sensor_image_1.png">
+    <figcaption>
+        Fig 1: Image of ["PIR sensor"](https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor/overview)
+    </figcaption>
+</figure>
 
-## Parts Required
-- Arduino
-- PIR sensor
-- Breadboard
-- Jumper wires
+<figure align="center">
+    <img src = "../../../assets/images/sensors/PIR_sensor_image_2.png">
+    <figcaption>
+        Fig 1: A look under the plastic dome, revealing the pyroelectric sensor
+    </figcaption>
+</figure>
+
+## Pinout
+<figure align="center">
+    <img src = "../../../assets/images/pinouts/PIR_pinout.png">
+    <figcaption>
+        Fig 1: Pinout of PIR sensor
+    </figcaption>
+</figure>
+
+A standard PIR sensor has 3 pins: VCC, OUT, and GND
+
+| Pin Name | Function | Description |
+|---------|----------|-------------|
+| VCC | Power | Supplies +5 V to the sensor |
+| OUT | Output | If movement is detected, the pin goes **HIGH** (3.3 V). When no movement is detected, the pin stays **LOW** (0 V). |
+| GND | Ground | Common ground |
+
+
+
 
 ## Wiring
 
-| PIR Pin | Arduino Pin |
+<figure align="center">
+    <img src = "../../../assets/images/wiring/PIR_wiring.png">
+    <figcaption>
+        Fig 1: Wiring for PIR sensor with Arduino
+    </figcaption>
+</figure>
+
+
+
+| Pin Name | Arduino Pin |
 |--------|------------|
 | VCC | 5V |
 | OUT | 7 |
