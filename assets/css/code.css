@@ -1,0 +1,137 @@
+
+div.highlighter-rouge {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+
+  /* subtle Mac-like shadow */
+  box-shadow: 0 10px 26px rgba(0,0,0,0.14);
+  border: 1px solid rgba(0,0,0,0.10);
+  background: #ffffff;
+}
+
+/* Header bar with centered language label */
+div.highlighter-rouge::before {
+  content: attr(data-lang);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 34px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+
+  /* Mac titlebar feel */
+  color: rgba(0,0,0,0.55);
+  background: linear-gradient(#f6f6f6, #e9e9e9);
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+
+/* Mac "traffic light" buttons on the left */
+div.highlighter-rouge::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 16px 0 0 #ffbd2e, 32px 0 0 #27c93f;
+}
+
+/* The code area */
+div.highlighter-rouge pre.highlight {
+  margin: 0;
+  padding: 14px 16px 16px 16px;
+
+  /* Terminal light panel */
+  background: #fbfbfb;
+  overflow: auto;
+}
+
+/* Inline code inside the block */
+div.highlighter-rouge pre.highlight code {
+  background: transparent;
+
+  color: #111827;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+/* ===== Arduino IDE–style syntax highlighting (Rouge) ===== */
+
+/* Keywords: void, if, for, while */
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt {
+  color: #0057ae; /* Arduino keyword blue */
+  font-weight: 600;
+}
+
+/* Types: int, float, long, boolean */
+.highlight .kt {
+  color: #00979c; /* Arduino teal */
+}
+
+/* Function names */
+.highlight .nf {
+  color: #d35400;
+}
+
+/* Strings */
+.highlight .s, 
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .s1,
+.highlight .ss {
+  color: #d35400; /* Arduino orange */
+}
+
+/* Numbers */
+.highlight .m,
+.highlight .mi,
+.highlight .mf,
+.highlight .mh,
+.highlight .mo {
+  color: #7b3fe4; /* Arduino purple */
+}
+
+/* Comments */
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs {
+  color: #6a737d;
+  font-style: italic;
+}
+
+/* Constants: HIGH, LOW, INPUT, OUTPUT */
+.highlight .no {
+  color: #a31515;
+  font-weight: 600;
+}
+
+/* Operators */
+.highlight .o {
+  color: #333333;
+}
+
+/* Variables */
+.highlight .n {
+  color: #111827;
+}

@@ -1,0 +1,12 @@
+<figure class="doc-figure" align="center">
+  <img
+    src="{{ include.src }}"
+    alt="{{ include.alt | default: include.caption }}"
+    {% if include.width %}width="{{ include.width }}"{% endif %}
+  >
+  {% if include.caption %}
+  <figcaption>
+    {{ include.caption }}
+  </figcaption>
+  {% endif %}
+</figure>

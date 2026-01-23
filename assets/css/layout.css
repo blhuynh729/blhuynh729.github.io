@@ -1,0 +1,9 @@
+.side-bar { width: 320px; }
+
+@media (min-width: 50rem) {
+  .main { margin-left: 320px; }
+}
+
+.main-content {
+  max-width: 2000px;
+}

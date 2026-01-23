@@ -1,0 +1,32 @@
+/* ===== Standard figure styling ===== */
+
+.doc-figure {
+  margin: 1.5rem auto;
+}
+
+.doc-figure img {
+  max-width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.15);
+}
+
+.doc-figure figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(0,0,0,0.65);
+}
+
+
+/* ===== Auto figure numbering (per page) ===== */
+.main-content {
+  counter-reset: figure;
+}
+
+.doc-figure {
+  counter-increment: figure;
+}
+
+.doc-figure figcaption::before {
+  content: "Fig " counter(figure) ": ";
+  font-weight: 700;
+}
