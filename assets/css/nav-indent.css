@@ -1,0 +1,95 @@
+/* ===== Sidebar Navigation — DIMENSIONS (spacing, alignment, hierarchy) ===== */
+
+/* Remove default indentation so tabs can touch sidebar edge */
+.side-bar,
+.side-bar .site-header,
+.side-bar .site-nav,
+.side-bar .nav-list,
+.side-bar .nav-list .nav-list {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Left-align site title container */
+.side-bar .site-header {
+  justify-content: flex-start !important;
+  padding-left: 0 !important;
+}
+
+/* Title alignment (no color here) */
+.site-title,
+.site-title a {
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  line-height: 1.2;
+}
+
+/* Each nav row full width, no extra offsets */
+.side-bar .nav-list-item {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Full-width tab behavior */
+.side-bar .nav-list-item > a {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  /* base tab padding */
+  padding: 10px 12px !important;
+
+  text-align: left !important;
+  border-radius: 12px !important;
+
+  /* smooth feel */
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+/* Hierarchy indentation */
+/* Top-level (parents) */
+.side-bar .nav-list > .nav-list-item > a {
+  padding-left: 12px !important;
+  font-weight: 700;
+  --indent: 12px;
+}
+
+/* Level 1 children */
+.side-bar .nav-list .nav-list > .nav-list-item > a {
+  padding-left: 28px !important;
+  font-weight: 600;
+  font-size: 0.95em;
+   --indent: 22px;
+}
+
+/* Level 2 children (if any) */
+.side-bar .nav-list .nav-list .nav-list > .nav-list-item > a {
+  padding-left: 44px !important;
+  font-weight: 500;
+  font-size: 0.92em;
+  --indent: 32px;
+}
+
+
+/* Parents */
+.side-bar .nav-list > .nav-list-item > a {
+  padding-left: 12px !important;
+  --active-bar-left: 12px;
+}
+
+/* Children */
+.side-bar .nav-list .nav-list > .nav-list-item > a {
+  padding-left: 28px !important;
+  font-size: 14px !important;
+  --active-bar-left: 22px;
+}
+
+/* Grandchildren */
+.side-bar .nav-list .nav-list .nav-list > .nav-list-item > a {
+  padding-left: 44px !important;
+  font-size: 14px !important;
+  --active-bar-left: 32px;
+}
