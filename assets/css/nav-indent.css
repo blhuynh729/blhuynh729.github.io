@@ -74,22 +74,3 @@
 }
 
 
-/* Parents */
-.side-bar .nav-list > .nav-list-item > a {
-  padding-left: 12px !important;
-  --active-bar-left: 12px;
-}
-
-/* Children */
-.side-bar .nav-list .nav-list > .nav-list-item > a {
-  padding-left: 28px !important;
-  font-size: 14px !important;
-  --active-bar-left: 22px;
-}
-
-/* Grandchildren */
-.side-bar .nav-list .nav-list .nav-list > .nav-list-item > a {
-  padding-left: 44px !important;
-  font-size: 14px !important;
-  --active-bar-left: 32px;
-}
