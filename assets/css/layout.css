@@ -1,6 +1,6 @@
+.side-bar { width: 340px; }
 
 @media (min-width: 50rem) {
-  .main { margin-left: 320px; }
   .main { margin-left: 340px; }
 }
 

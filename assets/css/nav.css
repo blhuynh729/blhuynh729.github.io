@@ -1,3 +1,4 @@
+/* ===== UC Davis Sidebar Navigation — DESIGN (colors, states) ===== */
 
 :root {
   --ucd-blue: #022851;        /* Aggie Blue */
@@ -5,21 +6,27 @@
   --ucd-gold-soft: #ffe08a;   /* Hover gold */
 }
 
+/* Sidebar background color */
 .side-bar {
   background-color: var(--ucd-blue) !important;
 }
 
+/* Site title color + weight */
 .site-title,
 .site-title a {
   color: var(--ucd-gold) !important;
   font-weight: 800;
   text-decoration: none !important;
+}
 
 /* Link color baseline */
 .side-bar a,
+.side-bar .nav-list a {
   color: var(--ucd-gold) !important;
+  text-decoration: none !important;
 }
 
+/* Hover highlight (visual only; width/padding handled in nav-indent.css) */
 .side-bar .nav-list-item > a:hover {
   color: var(--ucd-gold-soft) !important;
   background: linear-gradient(
@@ -29,6 +36,7 @@
   ) !important;
 }
 
+/* Active page styling (visual only) */
 .side-bar .nav-list-item.active > a {
   color: var(--ucd-gold) !important;
   font-weight: 800 !important;
@@ -39,8 +47,11 @@
     rgba(255,191,0,0.00)
   ) !important;
 
+  position: relative;     /* needed for ::before */
+  overflow: hidden;       /* keeps bar clean with rounded corners */
 }
 
+/* Chevrons/toggles */
 .side-bar .nav-list-expander,
 .side-bar .nav-list-expander svg {
   color: var(--ucd-gold) !important;
