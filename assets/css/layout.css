@@ -1,9 +1,24 @@
-.side-bar { width: 340px; }
+.side-bar { 
+  width: 340px; 
+  left: 0 !important;
+}
 
 @media (min-width: 50rem) {
   .main { margin-left: 340px; }
+  
 }
 
 .main-content {
   max-width: 2000px;
+}
+
+/* ===== Remove left gutter so sidebar hugs screen edge ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrap {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }

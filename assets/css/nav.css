@@ -57,4 +57,35 @@
   color: var(--ucd-gold) !important;
 }
 
+/* ===== Arduino-like per-item bar for child tabs ===== */
 
+/* Only apply to children (items inside a nested nav-list) */
+.side-bar .nav-list .nav-list .nav-list-item > a {
+  position: relative;
+}
+
+/* Default small bar (light gray) */
+.side-bar .nav-list .nav-list .nav-list-item > a::before {
+  content: "";
+  position: absolute;
+  left: -12px;              /* sits on top of the container line area */
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18); /* light gray */
+  opacity: 0;               /* hidden until hover/active */
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+/* Hover: darker gray */
+.side-bar .nav-list .nav-list .nav-list-item > a:hover::before {
+  opacity: 1;
+  background: rgba(255,255,255,0.35);
+}
+
+/* Active: UC Davis gold */
+.side-bar .nav-list .nav-list .nav-list-item.active > a::before {
+  opacity: 1;
+  background: rgba(255,255,255,0.35);
+}

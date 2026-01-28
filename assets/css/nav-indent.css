@@ -1,32 +1,30 @@
 /* ===== Sidebar Navigation — DIMENSIONS (spacing, alignment, hierarchy) ===== */
 
-/* Remove default indentation so tabs can touch sidebar edge */
+/* Remove default indentation so sidebar can hug the left edge */
 .side-bar,
 .side-bar .site-header,
 .side-bar .site-nav,
 .side-bar .nav-list,
 .side-bar .nav-list .nav-list {
-  padding-left: 0 !important;
   margin-left: 0 !important;
-  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 
 /* Left-align site title container */
 .side-bar .site-header {
   justify-content: flex-start !important;
-  padding-left: 0 !important;
 }
 
 /* Title alignment (no color here) */
 .site-title,
 .site-title a {
   text-align: left !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
   line-height: 1.2;
 }
 
-/* Each nav row full width, no extra offsets */
+/* Each nav row full width */
 .side-bar .nav-list-item {
   width: 100% !important;
   padding: 0 !important;
@@ -42,35 +40,41 @@
   /* base tab padding */
   padding: 10px 12px !important;
 
+  /* reserve space for dropdown chevron */
+  padding-right: 34px !important;
+
   text-align: left !important;
   border-radius: 12px !important;
-
-  /* smooth feel */
-  transition: background 0.18s ease, color 0.18s ease;
+  white-space: normal;
 }
 
-/* Hierarchy indentation */
+/* ===== Optional: child guide line (Arduino-style) ===== */
+/* Comment this block out if you don't want the vertical line */
+.side-bar .nav-list .nav-list {
+  position: relative;
+  margin-left: 12px !important;      /* how far child group shifts right */
+  padding-left: 14px !important;     /* space between line and text */
+  
+}
+
+/* ===== Hierarchy indentation ===== */
+
 /* Top-level (parents) */
 .side-bar .nav-list > .nav-list-item > a {
   padding-left: 12px !important;
-  font-weight: 700;
   --indent: 12px;
 }
 
 /* Level 1 children */
 .side-bar .nav-list .nav-list > .nav-list-item > a {
-  padding-left: 28px !important;
-  font-weight: 600;
+  padding-left: 22px !important;
   font-size: 0.95em;
-   --indent: 22px;
+  --indent: 22px;
 }
 
-/* Level 2 children (if any) */
+/* Level 2 children */
 .side-bar .nav-list .nav-list .nav-list > .nav-list-item > a {
-  padding-left: 44px !important;
-  font-weight: 500;
-  font-size: 0.92em;
-  --indent: 32px;
+  padding-left: 20px !important;
+  font-size: 1em;
+  --indent: 20px;
 }
-
-
