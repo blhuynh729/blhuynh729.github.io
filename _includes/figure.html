@@ -1,12 +1,40 @@
-<figure class="doc-figure" align="center">
-  <img
-    src="{{ include.src }}"
-    alt="{{ include.alt | default: include.caption }}"
-    {% if include.width %}width="{{ include.width }}"{% endif %}
-  >
-  {% if include.caption %}
-  <figcaption>
-    {{ include.caption }}
-  </figcaption>
+{% assign uid = include.id | default: include.src | slugify %}
+{% assign zoom_enabled = true %}
+{% if include.zoom == "false" %}
+  {% assign zoom_enabled = false %}
+{% endif %}
+
+<figure align="center">
+  {% if zoom_enabled %}
+    <a href="#lb-{{ uid }}" class="jd-lightbox-thumb" aria-label="Zoom image">
+      <img
+        src="{{ include.src | relative_url }}"
+        alt="{{ include.alt | default: include.caption }}"
+        style="width: {{ include.width | default: '100%' }}; box-shadow: 5px 5px 10px #888; border-radius: 8px; cursor: zoom-in;"
+      />
+    </a>
+
+    <div id="lb-{{ uid }}" class="jd-lightbox">
+      <a href="#" class="jd-lightbox-close" aria-label="Close"></a>
+      <img
+        src="{{ include.src | relative_url }}"
+        alt="{{ include.alt | default: include.caption }}"
+      />
+    </div>
+  {% else %}
+    <img
+      src="{{ include.src | relative_url }}"
+      alt="{{ include.alt | default: include.caption }}"
+      style="width: {{ include.width | default: '100%' }}; box-shadow: 5px 5px 10px #888; border-radius: 8px;"
+    />
   {% endif %}
+
+  <figcaption>
+    {{ include.caption_prefix | default: "Fig 1:" }}
+    {% if include.link %}
+      <a href="{{ include.link }}" target="_blank" rel="noopener noreferrer">{{ include.caption }}</a>
+    {% else %}
+      {{ include.caption }}
+    {% endif %}
+  </figcaption>
 </figure>

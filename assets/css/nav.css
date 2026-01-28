@@ -1,4 +1,4 @@
-/* ===== UC Davis Sidebar Navigation (Just the Docs) ===== */
+/* ===== UC Davis Sidebar Navigation — DESIGN (colors, states) ===== */
 
 :root {
   --ucd-blue: #022851;        /* Aggie Blue */
@@ -6,55 +6,27 @@
   --ucd-gold-soft: #ffe08a;   /* Hover gold */
 }
 
-/* Sidebar background */
+/* Sidebar background color */
 .side-bar {
   background-color: var(--ucd-blue) !important;
 }
 
-/* Site title (top-left) */
+/* Site title color + weight */
 .site-title,
 .site-title a {
   color: var(--ucd-gold) !important;
   font-weight: 800;
-}
-
-/* Remove default indentation so tabs can touch left edge */
-.side-bar .nav-list,
-.side-bar .nav-list .nav-list {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* Each nav row should be full width */
-.side-bar .nav-list-item {
-  width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Full-width "tab" links */
-.side-bar .nav-list-item > a {
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-
-  /* internal spacing (left padding gives breathing room) */
-  padding: 12px 14px 12px 16px !important;
-
-  margin: 0 !important;
-  text-align: left !important;
   text-decoration: none !important;
-
-  border-radius: 12px !important;
-
-  color: var(--ucd-gold) !important;
-  font-weight: 600;
-
-  transition: background 0.18s ease, color 0.18s ease;
 }
 
-/* Hover highlight */
+/* Link color baseline */
+.side-bar a,
+.side-bar .nav-list a {
+  color: var(--ucd-gold) !important;
+  text-decoration: none !important;
+}
+
+/* Hover highlight (visual only; width/padding handled in nav-indent.css) */
 .side-bar .nav-list-item > a:hover {
   color: var(--ucd-gold-soft) !important;
   background: linear-gradient(
@@ -64,7 +36,7 @@
   ) !important;
 }
 
-/* Active page: gradient + inset gold bar (doesn't shift layout) */
+/* Active page styling (visual only) */
 .side-bar .nav-list-item.active > a {
   color: var(--ucd-gold) !important;
   font-weight: 800 !important;
@@ -75,77 +47,45 @@
     rgba(255,191,0,0.00)
   ) !important;
 
-  box-shadow: inset 4px 0 0 var(--ucd-gold);
+  position: relative;     /* needed for ::before */
+  overflow: hidden;       /* keeps bar clean with rounded corners */
 }
 
-
-
-/* Optional: chevrons/toggles in gold */
+/* Chevrons/toggles */
 .side-bar .nav-list-expander,
 .side-bar .nav-list-expander svg {
   color: var(--ucd-gold) !important;
 }
 
+/* ===== Arduino-like per-item bar for child tabs ===== */
 
-/* ===== Compact hierarchical indentation (closer to left) ===== */
-
-/* Base nav tab spacing (tight) */
-.side-bar .nav-list-item > a {
-  padding: 10px 12px 10px 12px !important;
+/* Only apply to children (items inside a nested nav-list) */
+.side-bar .nav-list .nav-list .nav-list-item > a {
+  position: relative;
 }
 
-/* Level 0 (top-level) */
-.side-bar .nav-list > .nav-list-item > a {
-  padding-left: 12px !important;
+/* Default small bar (light gray) */
+.side-bar .nav-list .nav-list .nav-list-item > a::before {
+  content: "";
+  position: absolute;
+  left: -12px;              /* sits on top of the container line area */
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18); /* light gray */
+  opacity: 0;               /* hidden until hover/active */
+  transition: opacity 0.15s ease, background 0.15s ease;
 }
 
-/* Level 1 (children) */
-.side-bar .nav-list .nav-list > .nav-list-item > a {
-  padding-left: 22px !important;
-  font-size: 14px;
+/* Hover: darker gray */
+.side-bar .nav-list .nav-list .nav-list-item > a:hover::before {
+  opacity: 1;
+  background: rgba(255,255,255,0.35);
 }
 
-/* Level 2 (grandchildren) */
-.side-bar .nav-list .nav-list .nav-list > .nav-list-item > a {
-  padding-left: 32px !important;
-  font-size: 14px ;
-}
-
-/* ===== Left-align site title in sidebar ===== */
-
-/* Sidebar header container */
-.side-bar .site-header {
-  justify-content: flex-start !important;
-  padding-left: 12px !important;
-}
-
-/* Title text itself */
-.site-title,
-.site-title a {
-  text-align: left !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  line-height: 1.2;
-}
-
-/* ===== Remove ALL left padding from sidebar nav ===== */
-
-/* Sidebar inner containers */
-.side-bar,
-.side-bar .site-header,
-.side-bar .site-nav,
-.side-bar .nav-list {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-/* Nav list items */
-.side-bar .nav-list-item {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-/* Nav links: control spacing ONLY via padding here */
-.side-bar .nav-list-item > a {
-  padding-left: 12px !important;  /* adjust this number to taste */
+/* Active: UC Davis gold */
+.side-bar .nav-list .nav-list .nav-list-item.active > a::before {
+  opacity: 1;
+  background: rgba(255,255,255,0.35);
 }

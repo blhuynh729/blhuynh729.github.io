@@ -1,0 +1,28 @@
+/* Click-to-zoom lightbox */
+.jd-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+}
+
+.jd-lightbox:target {
+  display: flex;
+}
+
+.jd-lightbox img {
+  max-width: 95vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  cursor: zoom-out;
+}
+
+.jd-lightbox-close {
+  position: absolute;
+  inset: 0;
+}
