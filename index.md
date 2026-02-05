@@ -6,8 +6,14 @@ nav_order: 1
 
 # Welcome to ENG 03!
 
-Welcome to the official documentation site for **ENG 03**.  
-This site will guide you through the hardware, wiring, and programming concepts used in this course, with step-by-step instructions, example code, and troubleshooting tips.
+Welcome to the documentation site for **ENG 03**.  
+
+In this site, you will be able to find some of the most commonly asked/used sensors and components for your class project. With that said, this will not cover all of your “sensing” needs, but should address a large portion of what you’ll use throughout the course.
+The sensors are organized by use case, and each section includes basic module information such as pinouts, wiring diagrams, and example code.
+This document is still a work in progress, but it will be updated as more sensors and examples are added.
+
+Good luck and happy building! :)
+
 
 ---
 
@@ -15,7 +21,6 @@ This site will guide you through the hardware, wiring, and programming concepts 
 
 **Course:** ENG 03  
 **Professor:** Vivian Vuong
-**Focus:** Arduino-based sensing, electronics, and basic programming
 
 ---
 
@@ -44,7 +49,7 @@ Each sensor page includes:
 - Parts required
 - Wiring diagrams and tables
 - Example Arduino code
-- Common mistakes and solutions
+
 
 ---
 
@@ -59,4 +64,4 @@ If this is your first time using Arduino:
 
 ---
 
-We’re excited to have you in the course — let’s start building! 🚀
+We’re excited to have you in the course — let’s start building! 

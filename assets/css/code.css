@@ -113,26 +113,43 @@ div.highlighter-rouge:hover .copy-code-btn {
 
 /* ===== Arduino IDE–style syntax highlighting (Rouge) ===== */
 
-/* Keywords: void, if, for, while */
+/* ===== Arduino IDE (classic) Light-ish syntax palette =====
+   Keywords (blue):      #0057AE
+   Types (teal):         #00979C
+   Functions (orange):   #D35400
+   Strings (green):      #00979C   (Arduino tends to show strings teal-ish)
+   Numbers (blue):       #006699
+   Comments (gray):      #6A737D
+   Constants (blue):     #006699
+*/
+
+/* Keywords: void, if, for, while, return, etc. */
 .highlight .k,
 .highlight .kd,
 .highlight .kn,
 .highlight .kp,
-.highlight .kr,
-.highlight .kt {
-  color: #0057ae; /* Arduino keyword blue */
+.highlight .kr {
+  color: #0057ae;
   font-weight: 600;
 }
 
-/* Types: int, float, long, boolean */
+/* Types: int, float, long, boolean, etc. */
 .highlight .kt {
-  color: #00979c; /* Arduino teal */
+  color: #00979c;
 }
 
 /* Function names */
+/* Built-in / library function names (pinMode, digitalWrite, delay, etc.) */
 .highlight .nf {
   color: #d35400;
+
 }
+
+.highlight .arduino-fn {
+  color: #d35400;
+  font-weight: 600;
+}
+
 
 /* Strings */
 .highlight .s, 
@@ -147,7 +164,7 @@ div.highlighter-rouge:hover .copy-code-btn {
 .highlight .sr,
 .highlight .s1,
 .highlight .ss {
-  color: #d35400; /* Arduino orange */
+  color: #00979c;
 }
 
 /* Numbers */
@@ -156,7 +173,7 @@ div.highlighter-rouge:hover .copy-code-btn {
 .highlight .mf,
 .highlight .mh,
 .highlight .mo {
-  color: #7b3fe4; /* Arduino purple */
+  color: #006699;
 }
 
 /* Comments */
@@ -170,7 +187,7 @@ div.highlighter-rouge:hover .copy-code-btn {
 
 /* Constants: HIGH, LOW, INPUT, OUTPUT */
 .highlight .no {
-  color: #a31515;
+  color: #006699;
   font-weight: 600;
 }
 
@@ -179,7 +196,7 @@ div.highlighter-rouge:hover .copy-code-btn {
   color: #333333;
 }
 
-/* Variables */
+/* Variables / identifiers */
 .highlight .n {
   color: #111827;
 }
