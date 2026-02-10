@@ -1,11 +1,13 @@
 .side-bar { 
-  width: 340px; 
+  width: 320px; 
   left: 0 !important;
+  padding: 20px; /* Add some space inside the sidebar */
 }
 
 @media (min-width: 50rem) {
-  .main { margin-left: 340px; }
-  
+  .main { 
+    margin-left: 320px;
+  }  
 }
 
 .main-content {
@@ -13,12 +15,15 @@
 }
 
 /* ===== Remove left gutter so sidebar hugs screen edge ===== */
-html, body {
-  margin: 0;
-  padding: 0;
+/* Small, controlled gutter between screen edge and sidebar */
+.page-wrap {
+  padding-left: 4px !important;  /* try 0px, 4px, 6px, 8px */
+  margin-left: 0 !important;
 }
 
-.page-wrap {
-  margin-left: 0 !important;
-  padding-left: 0 !important;
+/* Keep browser default margin from reintroducing a gap */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
 }
+
