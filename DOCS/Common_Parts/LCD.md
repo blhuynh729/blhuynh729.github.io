@@ -33,6 +33,7 @@ Wire the LCD display by connecting the 5V to VCC and GND to GND. Connect SDA and
 
 
 # Code example for LCD: 
+---
 
 The LCD is arranged like a small grid of columns and rows. For example, a 16×2 LCD has 16 columns (characters across) and 2 rows (lines down). When you position text, you use setCursor(column, row), where the column is how far left-to-right you want to start (0 to 15 on a 16-column display) and the row selects the line (row 0 is the top line, row 1 is the bottom line). So setCursor(0, 0) moves to the top-left corner, while setCursor(0, 1) moves to the start of the second line.
 

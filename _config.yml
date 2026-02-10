@@ -13,7 +13,7 @@ favicon_ico: "/assets/images/favicon.ico"
 nav_enabled: true
 
 # For copy button on code
-enable_copy_code_button: true
+enable_copy_code_button: false
 
 # Color 
-color_scheme: light
+color_scheme: light 

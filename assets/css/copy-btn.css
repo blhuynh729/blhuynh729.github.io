@@ -1,0 +1,58 @@
+/* ===== ChatGPT-style copy code button ===== */
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 72px;
+  justify-content: center;
+
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  white-space: nowrap;
+  transition: none;
+}
+
+
+/* Hover / focus state */
+.copy-code-btn:hover {
+  cursor: pointer;
+}
+
+
+/* Icon size */
+.copy-code-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Force the link-style cursor and ensure pointer-events for all states.
+   This uses high specificity and !important to override theme defaults. */
+.copy-code-btn,
+.copy-code-btn:hover,
+.copy-code-btn:focus,
+.copy-code-btn:active {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure no focus ring appears after click by overriding focus/active/focus-visible */
+.copy-code-btn:focus,
+.copy-code-btn:active,
+.copy-code-btn:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}

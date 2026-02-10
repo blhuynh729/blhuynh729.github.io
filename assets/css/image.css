@@ -26,3 +26,9 @@
   position: absolute;
   inset: 0;
 }
+
+/* Temporary class added by JS to force-hide a :target lightbox when closing via ESC */
+.jd-lightbox.jd-hidden-by-js {
+  display: none !important;
+}
+
