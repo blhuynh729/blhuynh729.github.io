@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>ENG 003 Parts Manual</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <noscript>
+    <div class="noscript">
+      This page needs JavaScript to render the manual and enable search/copy.
+      You can still open the original PDF: <a href="ENG_003_Draft.pdf">ENG_003_Draft.pdf</a>
+    </div>
+  </noscript>
+
+  <div class="layout" id="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__brand">
+        <div class="brand">
+          <div class="brand__title">ENG 003</div>
+          <div class="brand__subtitle">Parts Manual</div>
+        </div>
+
+        <a class="btn btn--ghost" href="ENG_003_Draft.pdf" target="_blank" rel="noopener">
+          Open PDF
+        </a>
+      </div>
+
+      <div class="sidebar__search">
+        <label class="sr-only" for="searchInput">Search parts</label>
+        <div class="searchbox">
+          <input id="searchInput" type="search" placeholder="Search parts (e.g., “DHT11”, “motor”, “A0”)" autocomplete="off" />
+          <button id="clearSearchBtn" class="icon-btn" type="button" aria-label="Clear search">×</button>
+        </div>
+        <div id="searchMeta" class="sidebar__searchmeta" aria-live="polite"></div>
+      </div>
+
+      <nav class="toc" id="toc" aria-label="Table of contents"></nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn topbar__menu" id="menuBtn" type="button" aria-label="Toggle sidebar">☰</button>
+
+        <div class="topbar__title">
+          <h1 id="pageTitle" class="topbar__h1">ENG 003 Parts Manual</h1>
+          <p id="pageSubtitle" class="topbar__subtitle">Searchable web version of the course parts manual PDF.</p>
+        </div>
+
+        <div class="topbar__actions">
+          <a class="btn" href="ENG_003_Draft.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </div>
+      </header>
+
+      <section class="content" id="content">
+        <div class="loading" role="status" aria-live="polite">Loading manual…</div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div>ENG 003 Parts Manual • Source: <a href="ENG_003_Draft.pdf" target="_blank" rel="noopener">ENG_003_Draft.pdf</a></div>
+          <div class="footer__hint">Tip: press <kbd>/</kbd> to focus search, <kbd>Esc</kbd> to clear.</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
