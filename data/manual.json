@@ -1,0 +1,1564 @@
+{
+  "meta": {
+    "course": "ENG 003",
+    "title": "Parts Manual",
+    "sourcePdf": "ENG_003_Draft.pdf",
+    "versionNote": "Draft PDF mapped into a searchable website."
+  },
+  "intro": [
+    {
+      "type": "p",
+      "text": "Welcome to the ENG 003 parts manual! This site is a cleaned-up, searchable web version of the course parts manual PDF. Use the search bar to find sensors, motors, and example code fast."
+    },
+    {
+      "type": "p",
+      "text": "Tip: Click any part in the sidebar to jump to it. Each part includes wiring notes and copyable Arduino example code (when provided in the PDF)."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Original PDF",
+      "text": "You can open the original PDF any time to see the source layout, diagrams, and page context."
+    }
+  ],
+  "quickNav": {
+    "title": "What are you interested in detecting?",
+    "items": [
+      {
+        "label": "Movement and location",
+        "targets": [
+          "ultrasonic-sensor",
+          "pir-sensor",
+          "lsm303-accelerometer-compass",
+          "tilt-sensor"
+        ]
+      },
+      {
+        "label": "Environmental sensing",
+        "targets": [
+          "mq-135-gas-sensor",
+          "dust-sensor",
+          "dht11-humidity-sensor",
+          "rain-sensor",
+          "soil-moisture-sensor",
+          "water-level-sensor",
+          "flow-sensor",
+          "tds-sensor",
+          "submerged-temperature-sensor",
+          "tmp36-ambient-temperature",
+          "uv-sensors"
+        ]
+      },
+      {
+        "label": "Force / touch",
+        "targets": [
+          "fsr",
+          "touch-sensor",
+          "buttons"
+        ]
+      },
+      {
+        "label": "Human input / controls",
+        "targets": [
+          "rotary-encoder",
+          "keypad"
+        ]
+      },
+      {
+        "label": "Displays",
+        "targets": [
+          "lcd-16x2-i2c",
+          "lcd-4pin-i2c"
+        ]
+      },
+      {
+        "label": "Motors",
+        "targets": [
+          "dc-motors",
+          "stepper-motor",
+          "stepper-motor-uln2003"
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "common-components",
+      "title": "Commonly Used Components",
+      "description": "Motors and displays used frequently in ENG 003.",
+      "parts": [
+        {
+          "id": "dc-motors",
+          "title": "DC Motors (with L293D driver)",
+          "tags": [
+            "motors",
+            "movement",
+            "driver",
+            "L293D"
+          ],
+          "pageRange": [
+            4,
+            12
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "DC motors are motors that spin at high speed. To get a DC motor to move in a controlled way with an Arduino, you typically use a motor driver module."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p004.png",
+              "alt": "DC motor photo",
+              "caption": "DC motor (source PDF p.4)"
+            },
+            {
+              "type": "h3",
+              "text": "Pinout / terminals"
+            },
+            {
+              "type": "p",
+              "text": "A standard DC motor has two terminals (positive and negative). Swapping the polarity reverses the spin direction."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p005.png",
+              "alt": "DC motor terminals / pinout",
+              "caption": "Motor terminals / pinout (source PDF p.5)"
+            },
+            {
+              "type": "callout",
+              "variant": "warning",
+              "title": "Important",
+              "text": "A DC motor should never be powered directly from an Arduino I/O pin. Use a driver and an external power supply sized for the motor, and always share ground between the Arduino and the motor power supply."
+            },
+            {
+              "type": "h3",
+              "text": "Motor driver: L293D"
+            },
+            {
+              "type": "p",
+              "text": "The L293D is a dual H-bridge motor driver IC that can control two DC motors. It uses a separate motor supply (often labeled +12V / VCC2) and a logic supply (+5V / VCC1). The enable pins can be driven with PWM to control speed."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p007.png",
+              "alt": "L293D pinout",
+              "caption": "L293D pinout diagram (source PDF p.7)"
+            },
+            {
+              "type": "h3",
+              "text": "Wiring"
+            },
+            {
+              "type": "table",
+              "headers": [
+                "Connection",
+                "Notes"
+              ],
+              "rows": [
+                [
+                  "Arduino 5V → L293D +5V (VCC1)",
+                  "Logic power"
+                ],
+                [
+                  "Arduino GND → L293D GND",
+                  "Common ground"
+                ],
+                [
+                  "External PSU + → L293D +12V (VCC2)",
+                  "Motor power (3–12V typical)"
+                ],
+                [
+                  "External PSU GND → L293D GND",
+                  "Tie grounds together"
+                ],
+                [
+                  "Motor A leads → L293D OUT1 / OUT2",
+                  "Either direction; swap to reverse"
+                ],
+                [
+                  "Motor B leads → L293D OUT3 / OUT4",
+                  "Either direction; swap to reverse"
+                ],
+                [
+                  "Arduino D8 → L293D IN1",
+                  "Motor A direction"
+                ],
+                [
+                  "Arduino D7 → L293D IN2",
+                  "Motor A direction"
+                ],
+                [
+                  "Arduino D9 (PWM) → L293D EN1,2",
+                  "Motor A enable / speed"
+                ],
+                [
+                  "Arduino D5 → L293D IN3",
+                  "Motor B direction"
+                ],
+                [
+                  "Arduino D4 → L293D IN4",
+                  "Motor B direction"
+                ],
+                [
+                  "Arduino D6 (PWM) → L293D EN3,4",
+                  "Motor B enable / speed"
+                ]
+              ],
+              "caption": "Arduino ↔ L293D mapping (based on the PDF wiring notes)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p008.png",
+              "alt": "L293D wiring diagram",
+              "caption": "Example wiring diagram (source PDF p.8)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Two DC motors with an L293D (from LastMinuteEngineers)",
+              "language": "cpp",
+              "code": "// Code from LastMinuteEngineers\n// https://lastminuteengineers.com/l293d-dc-motor-arduino-tutorial/\n\n// Motor A connections\nint enA = 9;\nint in1 = 8;\nint in2 = 7;\n\n// Motor B connections\nint enB = 6;\nint in3 = 5;\nint in4 = 4;\n\nvoid setup() {\n  // Set all the motor control pins to outputs\n  pinMode(enA, OUTPUT);\n  pinMode(enB, OUTPUT);\n  pinMode(in1, OUTPUT);\n  pinMode(in2, OUTPUT);\n  pinMode(in3, OUTPUT);\n  pinMode(in4, OUTPUT);\n\n  // Turn off motors - Initial state\n  digitalWrite(in1, LOW);\n  digitalWrite(in2, LOW);\n  digitalWrite(in3, LOW);\n  digitalWrite(in4, LOW);\n}\n\nvoid loop() {\n  directionControl();\n  delay(1000);\n  speedControl();\n  delay(1000);\n}\n\n// This function lets you control spinning direction of motors\nvoid directionControl() {\n  // Set motors to maximum speed\n  digitalWrite(enA, HIGH);\n  digitalWrite(enB, HIGH);\n\n  // Turn on motor A & B\n  digitalWrite(in1, HIGH);\n  digitalWrite(in2, LOW);\n  digitalWrite(in3, HIGH);\n  digitalWrite(in4, LOW);\n  delay(2000);\n\n  // Now change motor directions\n  digitalWrite(in1, LOW);\n  digitalWrite(in2, HIGH);\n  digitalWrite(in3, LOW);\n  digitalWrite(in4, HIGH);\n  delay(2000);\n\n  // Turn off motors\n  digitalWrite(in1, LOW);\n  digitalWrite(in2, LOW);\n  digitalWrite(in3, LOW);\n  digitalWrite(in4, LOW);\n}\n\n// This function lets you control speed of the motors\nvoid speedControl() {\n  // Turn on motors\n  digitalWrite(in1, LOW);\n  digitalWrite(in2, HIGH);\n  digitalWrite(in3, LOW);\n  digitalWrite(in4, HIGH);\n\n  // Accelerate from zero to maximum speed\n  for (int i = 0; i < 256; i++) {\n    analogWrite(enA, i);\n    analogWrite(enB, i);\n    delay(20);\n  }\n\n  // Decelerate from maximum speed to zero\n  for (int i = 255; i >= 0; --i) {\n    analogWrite(enA, i);\n    analogWrite(enB, i);\n    delay(20);\n  }\n\n  // Now turn off motors\n  digitalWrite(in1, LOW);\n  digitalWrite(in2, LOW);\n  digitalWrite(in3, LOW);\n  digitalWrite(in4, LOW);\n}\n",
+              "source": "https://lastminuteengineers.com/l293d-dc-motor-arduino-tutorial/"
+            }
+          ],
+          "resources": [
+            {
+              "label": "L293D DC motor tutorial (LastMinuteEngineers)",
+              "url": "https://lastminuteengineers.com/l293d-dc-motor-arduino-tutorial/"
+            }
+          ]
+        },
+        {
+          "id": "stepper-motor",
+          "title": "Stepper Motor (28BYJ-48 + driver)",
+          "tags": [
+            "motors",
+            "stepper",
+            "position"
+          ],
+          "pageRange": [
+            13,
+            15
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "Stepper motors rotate in discrete steps rather than spinning freely. This makes them useful for precise positioning."
+            },
+            {
+              "type": "p",
+              "text": "The example in the PDF uses the Arduino Stepper library and a 28BYJ-48 style stepper motor with a small driver board."
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Stepper motor example (Stepper.h)",
+              "language": "cpp",
+              "code": "/*\n--------------------------------------------------------------------------\n----\n* This is example code of how to use the Stepper Motor with the Arduino.\n--------------------------------------------------------------------------\n----\n* INSTALL LIBRARY Stepper.h\n*\n* Wiring directions\n* IN1 -> Pin 8\n* IN2 -> Pin 9\n* IN3 -> Pin 10\n* IN4 -> Pin 11\n* (+) -> Arduino 5V\n* (-) -> Arduino GND\n*/\n\n#include \"Stepper.h\"\n\n// Define number of steps per rotation:\nconst int stepsPerRevolution = 2048; // DO NOT CHANGE THIS\n\n// Create stepper object called 'myStepper', note the pin order:\nStepper myStepper = Stepper(stepsPerRevolution, 8, 10, 9, 11); // Yes, the order is supposed to be 8, 10, 9, 11\n\nvoid setup() {\n  // Set the speed to 10 rpm:\n  myStepper.setSpeed(10); // MAXIMUM SPEED IS 25\n\n  // Begin Serial communication at a baud rate of 9600:\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  int angleDeg = 720; // This is how many degrees you want the stepper motor to turn/rotate\n  int steps = map(angleDeg, 0, 360, 0, stepsPerRevolution); // Converts angle in degrees to the number of steps you want to take\n\n  Serial.println(angleDeg);\n\n  // Step one revolution in one direction:\n  Serial.println(\"clockwise\");\n  myStepper.step(steps);\n  delay(500);\n\n  // Step one revolution in the other direction:\n  Serial.println(\"counterclockwise\");\n  myStepper.step(-steps);\n  delay(500);\n}\n"
+            },
+            {
+              "type": "callout",
+              "variant": "tip",
+              "title": "Note",
+              "text": "The pin order in the Stepper constructor matters. The PDF notes that the order should be 8, 10, 9, 11 for this motor/driver setup."
+            }
+          ]
+        },
+        {
+          "id": "lcd-16x2-i2c",
+          "title": "16×2 LCD Display (I2C)",
+          "tags": [
+            "display",
+            "lcd",
+            "i2c"
+          ],
+          "pageRange": [
+            16,
+            20
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "This LCD screen is a 16×2 character display with an I2C backpack, so it can be wired with only four connections: power + SDA/SCL."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p016.png",
+              "alt": "LCD module photo",
+              "caption": "LCD module (source PDF p.16)"
+            },
+            {
+              "type": "h3",
+              "text": "Pinout"
+            },
+            {
+              "type": "table",
+              "headers": [
+                "LCD pin",
+                "Arduino pin",
+                "Notes"
+              ],
+              "rows": [
+                [
+                  "VCC",
+                  "5V",
+                  "Power"
+                ],
+                [
+                  "GND",
+                  "GND",
+                  "Ground"
+                ],
+                [
+                  "SDA",
+                  "SDA",
+                  "I2C data (UNO: A4)"
+                ],
+                [
+                  "SCL",
+                  "SCL",
+                  "I2C clock (UNO: A5)"
+                ]
+              ],
+              "caption": "LCD I2C pinout (from the PDF)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p017.png",
+              "alt": "LCD pinout",
+              "caption": "LCD pinout image (source PDF p.17)"
+            },
+            {
+              "type": "h3",
+              "text": "Wiring"
+            },
+            {
+              "type": "p",
+              "text": "I2C is a shared bus, so multiple devices can use the same SDA/SCL wires as long as each device has a unique I2C address."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p018.png",
+              "alt": "LCD wiring diagram",
+              "caption": "Example wiring diagram (source PDF p.18)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "LCD example (Adafruit_LiquidCrystal)",
+              "language": "cpp",
+              "code": "#include <Adafruit_LiquidCrystal.h>\n\nint seconds = 0;\n\nAdafruit_LiquidCrystal lcd_1(0);\n\nvoid setup()\n{\n  lcd_1.begin(16, 2);\n  lcd_1.setBacklight(1);\n}\n\nvoid loop()\n{\n  lcd_1.clear();\n\n  // Row 0 (top)\n  lcd_1.setCursor(0, 0);\n  lcd_1.print(\"Welcome to ENG3!\");\n\n  // Row 1 (bottom)\n  lcd_1.setCursor(0, 1);\n  lcd_1.print(\":)\");\n\n  delay(1000);\n}\n"
+            }
+          ],
+          "resources": [
+            {
+              "label": "Adafruit LiquidCrystal / I2C LCD libraries",
+              "url": "https://learn.adafruit.com/i2c-spi-lcd-backpack"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "movement-location",
+      "title": "Movement and Location",
+      "description": "Sensors for distance, motion detection, orientation, and vibration.",
+      "parts": [
+        {
+          "id": "ultrasonic-sensor",
+          "title": "Ultrasonic Distance Sensor (HC-SR04)",
+          "tags": [
+            "distance",
+            "ultrasonic",
+            "motion"
+          ],
+          "pageRange": [
+            21,
+            25
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "Ultrasonic sensors measure distance by emitting a short ultrasonic pulse (typically 40 kHz) and timing how long it takes for the echo to return."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p021.png",
+              "alt": "Ultrasonic sensor",
+              "caption": "Ultrasonic sensor section (source PDF p.21)"
+            },
+            {
+              "type": "h3",
+              "text": "Pinout"
+            },
+            {
+              "type": "table",
+              "headers": [
+                "Sensor pin",
+                "Arduino pin (example)",
+                "Notes"
+              ],
+              "rows": [
+                [
+                  "VCC",
+                  "5V",
+                  "Power"
+                ],
+                [
+                  "GND",
+                  "GND",
+                  "Ground"
+                ],
+                [
+                  "TRIG",
+                  "D10",
+                  "Trigger pin used in the example code"
+                ],
+                [
+                  "ECHO",
+                  "D9",
+                  "Echo pin used in the example code"
+                ]
+              ],
+              "caption": "HC-SR04 pinout used by the example sketch."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p022.png",
+              "alt": "HC-SR04 pinout",
+              "caption": "HC-SR04 pinout image (source PDF p.22)"
+            },
+            {
+              "type": "h3",
+              "text": "Wiring"
+            },
+            {
+              "type": "p",
+              "text": "Connect VCC to 5V, GND to GND, TRIG to a digital output pin, and ECHO to a digital input pin (matching your code)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p023.png",
+              "alt": "HC-SR04 wiring diagram",
+              "caption": "Example wiring diagram (source PDF p.23)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Ultrasonic distance example",
+              "language": "cpp",
+              "code": "const int trigPin = 10;\nconst int echoPin = 9;\nlong duration;\nint distance;\n\nvoid setup() {\n  pinMode(trigPin, OUTPUT);\n  pinMode(echoPin, INPUT);\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  // Clears the trigPin\n  digitalWrite(trigPin, LOW);\n  delayMicroseconds(2);\n\n  // Sets the trigPin on HIGH state for 10 microseconds\n  digitalWrite(trigPin, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(trigPin, LOW);\n\n  // Reads the echoPin, returns the sound wave travel time in microseconds\n  duration = pulseIn(echoPin, HIGH);\n\n  // Calculating the distance\n  distance = duration * 0.034 / 2;\n\n  // Prints the distance on the Serial Monitor\n  Serial.print(\"Distance: \");\n  Serial.println(distance);\n}\n"
+            }
+          ],
+          "resources": [
+            {
+              "label": "HC-SR04 wiring tutorial (LastMinuteEngineers)",
+              "url": "https://lastminuteengineers.com/arduino-ultrasonic-sensor-tutorial/"
+            }
+          ]
+        },
+        {
+          "id": "pir-sensor",
+          "title": "PIR Motion Sensor",
+          "tags": [
+            "motion",
+            "pir",
+            "infrared"
+          ],
+          "pageRange": [
+            25,
+            29
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "PIR (passive infrared) sensors detect motion by sensing changes in infrared radiation in their field of view. They typically output HIGH when motion is detected."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p025.png",
+              "alt": "PIR sensor",
+              "caption": "PIR sensor section (source PDF p.25)"
+            },
+            {
+              "type": "h3",
+              "text": "Inside the PIR sensor"
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p026.png",
+              "alt": "PIR internals and pinout",
+              "caption": "PIR sensor internals / pinout images (source PDF p.26)"
+            },
+            {
+              "type": "h3",
+              "text": "Pinout & wiring"
+            },
+            {
+              "type": "table",
+              "headers": [
+                "Sensor pin",
+                "Arduino pin (example)",
+                "Notes"
+              ],
+              "rows": [
+                [
+                  "VCC",
+                  "5V",
+                  "Power"
+                ],
+                [
+                  "OUT",
+                  "D2",
+                  "Digital output used in the example code"
+                ],
+                [
+                  "GND",
+                  "GND",
+                  "Ground"
+                ]
+              ],
+              "caption": "Typical PIR wiring (matches the example sketch)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p027.png",
+              "alt": "PIR wiring diagram",
+              "caption": "PIR wiring diagram (source PDF p.27)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "PIR motion detection example",
+              "language": "cpp",
+              "code": "int PIRInputPin = 2; // choose the input pin (for PIR sensor)\nint pirState = LOW;  // we start, assuming no motion detected\n\nvoid setup() {\n  pinMode(PIRInputPin, INPUT); // declare sensor as input\n  Serial.begin(9600);          // Starts serial communication\n}\n\nvoid loop() {\n  int val = digitalRead(PIRInputPin); // read input value\n\n  if (val == HIGH && pirState == LOW) {\n    Serial.println(\"Motion detected!\");\n    pirState = HIGH;\n  }\n  else if (val == LOW && pirState == HIGH) {\n    Serial.println(\"Motion ended!\");\n    pirState = LOW;\n  }\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "lsm303-accelerometer-compass",
+          "title": "Accelerometer + Compass (LSM303)",
+          "tags": [
+            "accelerometer",
+            "compass",
+            "i2c",
+            "orientation"
+          ],
+          "pageRange": [
+            29,
+            34
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "The LSM303 combines a 3-axis accelerometer and a 3-axis magnetometer (compass). It communicates via I2C (SDA/SCL)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p029.png",
+              "alt": "LSM303 breakout board",
+              "caption": "LSM303 breakout board (source PDF p.29)"
+            },
+            {
+              "type": "h3",
+              "text": "Wiring"
+            },
+            {
+              "type": "p",
+              "text": "Connect VIN/5V to 5V, GND to ground, and connect SDA/SCL to the Arduino’s I2C pins (UNO: A4/A5; some boards also expose SDA/SCL near AREF)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p030.png",
+              "alt": "Arduino I2C pins",
+              "caption": "Arduino SDA/SCL pins highlighted (source PDF p.30)"
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Libraries",
+              "text": "This example uses Adafruit libraries: Adafruit_Sensor, Adafruit_LSM303_U, and Wire."
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "LSM303 accelerometer + magnetometer example",
+              "language": "cpp",
+              "code": "#include <Wire.h>\n#include <Adafruit_Sensor.h>\n#include <Adafruit_LSM303_U.h>\n\n// This is the desired direction of travel\n// expressed as a 0-360 degree compass heading\n// 0.0 = North\n// 90.0 = East\n// 180.0 = South\n// 270 = West\nconst float targetHeading = 0.0;\nconst float Pi = 3.14159;\n\n/* Assign a unique ID to this sensor at the same time */\nAdafruit_LSM303_Accel_Unified accel = Adafruit_LSM303_Accel_Unified(54321);\n\n/* Assign a unique ID to this sensor at the same time */\nAdafruit_LSM303_Mag_Unified mag = Adafruit_LSM303_Mag_Unified(12345);\n\nvoid setup(void)\n{\n#ifndef ESP8266\n  while (!Serial); // will pause Zero, Leonardo, etc until serial console opens\n#endif\n  Serial.begin(9600);\n  Serial.println(\"Accelerometer Test\"); \n  Serial.println(\"\");\n\n  /* Initialise the sensor */\n  if (!accel.begin())\n  {\n    /* There was a problem detecting the ADXL345 ... check your connections */\n    Serial.println(\"Ooops, no LSM303 detected ... Check your wiring!\");\n    while (1);\n  }\n\n  mag.enableAutoRange(true);\n\n  /* Initialise the sensor */\n  if (!mag.begin())\n  {\n    /* There was a problem detecting the LSM303 ... check your connections */\n    Serial.println(\"Ooops, no LSM303 detected ... Check your wiring!\");\n    while (1);\n  }\n}\n\nvoid loop(void)\n{\n  /* Get a new sensor event */\n  sensors_event_t event;\n  accel.getEvent(&event);\n\n  if (event.acceleration.z > 9.5) {\n    digitalWrite(LED_BUILTIN, HIGH);\n  }\n  else {\n    digitalWrite(LED_BUILTIN, LOW);\n  }\n\n  /* Display the results (acceleration is measured in m/s^2) */\n  Serial.print(\"acceleration: \");\n  Serial.print(\"X: \"); Serial.print(event.acceleration.x); Serial.print(\" \");\n  Serial.print(\"Y: \"); Serial.print(event.acceleration.y); Serial.print(\" \");\n  Serial.print(\"Z: \"); Serial.print(event.acceleration.z); Serial.print(\" \");\n  Serial.println(\"m/s^2 \");\n\n  Serial.println(\"\");\n\n  /* Get a new sensor event */\n  sensors_event_t event2;\n  mag.getEvent(&event2);\n\n  /* Display the results (magnetic vector values are in micro-Tesla (uT)) */\n  Serial.print(\"magnetic data: \");\n  Serial.print(\"X: \"); Serial.print(event2.magnetic.x); Serial.print(\" \");\n  Serial.print(\"Y: \"); Serial.print(event2.magnetic.y); Serial.print(\" \");\n  Serial.print(\"Z: \"); Serial.print(event2.magnetic.z); Serial.print(\" \");\n\n  // Calculate the angle of the vector y,x\n  float heading = atan2(event2.magnetic.y, event2.magnetic.x);\n\n  // Normalize to 0-360\n  if (heading < 0) { heading = 360 + heading; }\n\n  Serial.print(\"heading: \"); \n  Serial.println(heading);\n  Serial.println(\"/\");\n\n  /* Delay before the next sample */\n  delay(1000);\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "tilt-sensor",
+          "title": "Digital Tilt Sensor",
+          "tags": [
+            "tilt",
+            "switch",
+            "orientation"
+          ],
+          "pageRange": [
+            34,
+            36
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "A digital tilt sensor behaves like a switch: it outputs HIGH/LOW depending on its orientation (often due to a rolling ball inside)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p034.png",
+              "alt": "Tilt sensor",
+              "caption": "Tilt sensor (source PDF p.34)"
+            },
+            {
+              "type": "h3",
+              "text": "Wiring"
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p035.png",
+              "alt": "Tilt sensor wiring",
+              "caption": "Tilt sensor wiring (source PDF p.35)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Digital tilt sensor example",
+              "language": "cpp",
+              "code": "/*\n--------------------------------------------------------------------------\n----\n* This is example code of how to use the Digital Tilt Sensor with the Arduino.\n--------------------------------------------------------------------------\n----\n* Wiring directions (from LEFT TO RIGHT)\n* OUT -> Pin 3\n* VCC -> Arduino 5V\n* GND -> Arduino GND\n*/\n\nint ledPin = 13;   // Connect LED to pin 13\nint switcher = 3;  // Connect Tilt sensor to Pin 3\n\nvoid setup()\n{\n  pinMode(ledPin, OUTPUT);\n  pinMode(switcher, INPUT);\n}\n\nvoid loop()\n{\n  if (digitalRead(switcher) == HIGH)\n  {\n    digitalWrite(ledPin, HIGH);\n  }\n  else\n  {\n    digitalWrite(ledPin, LOW);\n  }\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "fsr",
+          "title": "Force Sensitive Resistor (FSR)",
+          "tags": [
+            "force",
+            "pressure",
+            "analog"
+          ],
+          "pageRange": [
+            37,
+            40
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "Force Sensitive Resistors (FSRs) change resistance depending on how much force is applied. They’re usually read using a voltage divider into an analog input."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p037.png",
+              "alt": "FSR overview",
+              "caption": "FSR overview (source PDF p.37)"
+            },
+            {
+              "type": "h3",
+              "text": "Pinout / wiring concept"
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p038.png",
+              "alt": "FSR pinout",
+              "caption": "FSR pinout image (source PDF p.38)"
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p039.png",
+              "alt": "FSR wiring example",
+              "caption": "FSR wiring example (source PDF p.39)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "FSR analog threshold example",
+              "language": "cpp",
+              "code": "int sensor = 0;\nint led_pin = 8;\n\nvoid setup()\n{\n  pinMode(A0, INPUT);\n  pinMode(led_pin, OUTPUT);\n  Serial.begin(9600);\n}\n\nvoid loop()\n{\n  sensor = analogRead(A0);\n\n  if (sensor > 300) {\n    digitalWrite(led_pin, HIGH);\n  } else {\n    digitalWrite(led_pin, LOW);\n  }\n\n  Serial.print(\"sensor = \");\n  Serial.println(sensor);\n\n  delay(100);\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "vibration-sensor",
+          "title": "Vibration Sensor (Piezo module)",
+          "tags": [
+            "vibration",
+            "analog",
+            "piezo"
+          ],
+          "pageRange": [
+            41,
+            43
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "A piezo-based vibration sensor outputs an analog signal that increases with vibration or impacts."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p041.png",
+              "alt": "Vibration sensor",
+              "caption": "Vibration sensor (source PDF p.41)"
+            },
+            {
+              "type": "h3",
+              "text": "Wiring"
+            },
+            {
+              "type": "p",
+              "text": "The PDF wiring notes reference pins labeled “NC”, “-”, and “S”: connect NC to 5V, “-” to ground, and “S” to an analog input."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p042.png",
+              "alt": "Vibration sensor wiring",
+              "caption": "Vibration sensor wiring diagram (source PDF p.42)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Vibration sensor analog read example",
+              "language": "cpp",
+              "code": "void setup()\n{\n  Serial.begin(9600);  // Open the serial to set the baud rate for 9600bps\n}\n\nvoid loop()\n{\n  int val;\n  val = analogRead(0);  // Connect the analog piezoelectric ceramic vibration sensor to analog interface 0\n  Serial.print(\"Vibration is \");\n  Serial.println(val, DEC);  // Print the analog value read via serial port\n  delay(100);\n}\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "environmental-sensing",
+      "title": "Environmental Sensing",
+      "description": "Gas, dust, water, temperature, humidity, UV, and related environmental sensors.",
+      "parts": [
+        {
+          "id": "mq-135-gas-sensor",
+          "title": "Gas Sensor (MQ-135)",
+          "tags": [
+            "gas",
+            "air quality",
+            "mq-135",
+            "analog"
+          ],
+          "pageRange": [
+            43,
+            51
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "Gas sensors like the MQ series work by changing resistance in the presence of target gases. Many MQ sensors require a warm-up period (several minutes) before readings stabilize."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p044.png",
+              "alt": "MQ-135 module",
+              "caption": "MQ-135 gas sensor (source PDF p.44)"
+            },
+            {
+              "type": "h3",
+              "text": "Reading the sensor"
+            },
+            {
+              "type": "p",
+              "text": "The sensor is typically used in a voltage divider with a load resistance (RL). Using the measured voltage, you can estimate the sensor resistance (Rs). The PDF notes the relationship: Rs = RL * (Vin/Vout - 1)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p045.png",
+              "alt": "MQ sensor sensitivity graph",
+              "caption": "Example sensitivity graph (source PDF p.45)"
+            },
+            {
+              "type": "callout",
+              "variant": "tip",
+              "title": "Warm-up",
+              "text": "The PDF notes a 3–5 minute warm-up time for this type of sensor."
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "MQ-135 multi-gas example (as provided in the PDF)",
+              "language": "cpp",
+              "code": "#define MQ_PIN (0)                 // define which analog input channel you are going to use\n#define RL_VALUE (2)               // define the load resistance on the board, in kilo ohms\n#define CLEANAIRRS_RO (3.51)       // define the RS/RO ratio in clean air, given in datasheet\n\n/********************** Software Related Macros ***********************************/\n#define CALIBARAION_SAMPLE_TIMES (50)        // define how many samples you are going to take in the calibration phase\n#define CALIBRATION_SAMPLE_INTERVAL (500)    // define the time interval (in milliseconds) between each sample in calibration\n#define READ_SAMPLE_INTERVAL (50)            // define the time interval (in milliseconds) between each sample in normal operation\n#define READ_SAMPLE_TIMES (5)                // define how many samples you are going to take in normal operation\n\n/**************************** Globals *********************************************/\nfloat COCurve[2]      = {-3.892, 2.770}; // B and logA for the given gas\nfloat NH4Curve[2]     = {-2.533, 1.999};\nfloat CO2Curve[2]     = {-2.825, 2.027};\nfloat AlcoholCurve[2] = {-3.327, 1.904};\nfloat TolueneCurve[2] = {-3.591, 1.653};\nfloat AcetoneCurve[2] = {-3.282, 1.500};\n\nfloat Ro = 75; // Initializes R0 at 75 kiloohms\n\nvoid setup()\n{\n  Serial.begin(9600); // UART setup, baudrate = 9600bps\n  delay(500);\n\n  Ro = MQCalibration(MQ_PIN, CO2Curve);\n  Serial.print(\" Ro= \");\n  Serial.print(Ro);\n  Serial.print(\" kohm\");\n  delay(2000);\n\n  Serial.print(\" CO2Curve: \");\n  Serial.print(CO2Curve[0]);\n  Serial.print(\" \");\n  Serial.print(CO2Curve[1]);\n  Serial.print(\" Analog Value: \");\n  Serial.print(analogRead(MQ_PIN));\n  Serial.print(\" Sensor Resistance: \");\n  Serial.print(MQRead(MQ_PIN));\n  Serial.print(\" kohm\");\n\n  float TestMath = pow(10, ((log10(400) - CO2Curve[1]) / CO2Curve[0]));\n  float TestRo = MQRead(MQ_PIN) / pow(10, ((log10(400) - CO2Curve[1]) / CO2Curve[0]));\n\n  Serial.print(\" TestMath: \");\n  Serial.print(TestMath);\n  Serial.print(\" TestRo= \");\n  Serial.print(TestRo);\n  Serial.print(\" kohm\");\n  Serial.println(\"\\\\ \");\n}\n\nvoid loop()\n{\n  Serial.print(\"CO2:\");\n  Serial.print(MQGetPercentage(MQRead(MQ_PIN) / Ro, CO2Curve));\n  Serial.print(\"ppm\");\n  Serial.print(\" \");\n\n  Serial.print(\"CO:\");\n  Serial.print(MQGetPercentage(MQRead(MQ_PIN) / Ro, COCurve));\n  Serial.print(\"ppm\");\n  Serial.print(\" \");\n\n  Serial.print(\"NH4:\");\n  Serial.print(MQGetPercentage(MQRead(MQ_PIN) / Ro, NH4Curve));\n  Serial.print(\"ppm\");\n  Serial.print(\" \");\n\n  Serial.print(\"Alcohol:\");\n  Serial.print(MQGetPercentage(MQRead(MQ_PIN) / Ro, AlcoholCurve));\n  Serial.print(\"ppm\");\n\n  Serial.print(\"Toluene\");\n  Serial.print(MQGetPercentage(MQRead(MQ_PIN) / Ro, TolueneCurve));\n  Serial.print(\"ppm\");\n\n  Serial.print(\"Acetone\");\n  Serial.print(MQGetPercentage(MQRead(MQ_PIN) / Ro, AcetoneCurve));\n  Serial.print(\"ppm\");\n\n  Serial.print(MQRead(MQ_PIN) / Ro);\n  Serial.println(\"\\\\ \");\n}\n\n/**************** MQResistanceCalculation ****************************************\nInput: raw_adc - raw value read from adc, which represents the voltage\nOutput: the calculated sensor resistance\nRemarks: The sensor and the load resistor forms a voltage divider. Given\nthe voltage across the load resistor and its resistance, the resistance of the sensor\ncould be derived.\n*******************************************************************************/\nfloat MQResistanceCalculation(int raw_adc)\n{\n  float r;\n  r = ((RL_VALUE * (1023 - raw_adc) / raw_adc));\n  return r;\n}\n\n/*************************** MQRead *******************************************\nInput: mq_pin - analog channel\nOutput: Rs of the sensor\nRemarks: This function uses MQResistanceCalculation to calculate the sensor resistance (Rs).\nThe Rs changes as the sensor is in the different concentration of the target gas.\nThe sample times and the time interval between samples could be configured by changing macros.\n*******************************************************************************/\nfloat MQRead(int mq_pin)\n{\n  int i;\n  float rs = 0;\n\n  for (i = 0; i < READ_SAMPLE_TIMES; i++) {\n    rs += MQResistanceCalculation(analogRead(mq_pin));\n    delay(READ_SAMPLE_INTERVAL);\n  }\n\n  rs = rs / READ_SAMPLE_TIMES;\n  return rs;\n}\n\n/*************************** MQGetPercentage ********************************\nInput: rs_ro_ratio - Rs divided by Ro\npcurve - pointer to the curve of the target gas\nOutput: ppm of the target gas\nRemarks: By using the slope and a point of the line. The x (logarithmic value of ppm)\nof the line could be derived if y (rs_ro_ratio) is provided. As it is a logarithmic coordinate,\npower of 10 is used to convert the result to non-logarithmic value.\n*******************************************************************************/\nint MQGetPercentage(float rs_ro_ratio, float *pcurve)\n{\n  return pow(10, pcurve[1] + pcurve[0] * log10(rs_ro_ratio));\n}\n\n/*************************** MQCalibration **************************************\nInput: mq_pin - analog channel\nOutput: Ro of the sensor\nRemarks: This function assumes that the sensor is in clean air.\nIt uses MQResistanceCalculation to calculate the sensor resistance in clean air\nand then divides it with RO_CLEAN_AIR_FACTOR.\nRO_CLEAN_AIR_FACTOR is about 10, which differs slightly between different sensors.\n*******************************************************************************/\nfloat MQCalibration(int mq_pin, float *pcurve)\n{\n  int i;\n  float ro;\n  float val = 0;\n\n  for (i = 0; i < CALIBARAION_SAMPLE_TIMES; i++) { // take multiple samples\n    val += MQResistanceCalculation(analogRead(mq_pin));\n    delay(CALIBRATION_SAMPLE_INTERVAL);\n  }\n\n  val = val / CALIBARAION_SAMPLE_TIMES; // calculate the average value\n\n  ro = val / pow(10, ((log10(400) - CO2Curve[1]) / CO2Curve[0]));\n  // ro = val / CLEANAIRRS_RO;\n  // calculate ro from rs assuming 400 ppm of CO2\n\n  return ro;\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "ms1100-voc-sensor",
+          "title": "VOC Sensor (MS1100 / CJMCU-1100)",
+          "tags": [
+            "gas",
+            "voc",
+            "formaldehyde",
+            "toluene",
+            "benzene"
+          ],
+          "pageRange": [
+            51,
+            51
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "The MS1100 VOC sensor is similar in concept to the MQ-135: it has a resistive sensor that requires warm-up and provides analog + digital outputs."
+            },
+            {
+              "type": "p",
+              "text": "Unlike the MQ-135, the PDF notes it does not detect carbon dioxide, carbon monoxide, or ammonium. It is sensitive to formaldehyde, toluene, benzene, alcohol, and methane."
+            },
+            {
+              "type": "p",
+              "text": "The PDF suggests calibrating by recording the resistance in clean air and comparing future readings to that baseline."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p051.png",
+              "alt": "MS1100 VOC sensor",
+              "caption": "MS1100 VOC sensor section (source PDF p.51)"
+            }
+          ]
+        },
+        {
+          "id": "dust-sensor",
+          "title": "Dust Sensor (Optical)",
+          "tags": [
+            "dust",
+            "pm",
+            "air quality",
+            "analog"
+          ],
+          "pageRange": [
+            52,
+            56
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "This optical dust sensor uses an internal light source and detector to estimate dust concentration. The example code prints an estimated concentration in ug/m³."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p052.png",
+              "alt": "Dust sensor",
+              "caption": "Dust sensor section (source PDF p.52)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Dust sensor example (WaveShare)",
+              "language": "cpp",
+              "code": "/*************************************************************************\n********************************\n*\n* File                 : DustSensor\n* Hardware Environment:\n* Build Environment    : Arduino\n* Version              : V1.0.5-r2\n* By                   : WaveShare\n*\n* (c) Copyright 2005-2011, WaveShare\n* http://www.waveshare.net\n* http://www.waveshare.com\n* All Rights Reserved\n*\n* Wiring Instructions:\n* GND -> Arduino GND\n* VCC -> Arduino 5V\n* LED -> Pin 7\n* OUT -> Analog Pin A0\n*\n* This code looks at the Dust sensor. It uses a light inside of it to detect\n* if there is any dust in the way. To test if your code is working and your\n* wiring is correct, try inserting something small (non-metal) into the hole.\n*\n* When there is nothing in the hole it should read 0.00 ug/m3.\n* When there is something in the hole it assumes dust and will be greater than 0.00.\n**************************************************************************\n*******************************/\n#define COV_RATIO 0.2 // ug/mmm / mv\n#define NO_DUST_VOLTAGE 400 // mv\n#define SYS_VOLTAGE 5000\n\n/*\nI/O define\n*/\nconst int iled = 7;   // drive the led of sensor\nconst int vout = A0;  // analog input\n\n/*\nvariable\n*/\nfloat density, voltage;\nint adcvalue;\n\n/*\nprivate function\n*/\nint Filter(int m)\n{\n  static int flag_first = 0, _buff[10], sum;\n  const int _buff_max = 10;\n  int i;\n\n  if (flag_first == 0)\n  {\n    flag_first = 1;\n    for (i = 0, sum = 0; i < _buff_max; i++)\n    {\n      _buff[i] = m;\n      sum += _buff[i];\n    }\n    return m;\n  }\n  else\n  {\n    sum -= _buff[0];\n    for (i = 0; i < (_buff_max - 1); i++)\n    {\n      _buff[i] = _buff[i + 1];\n    }\n    _buff[9] = m;\n    sum += _buff[9];\n\n    i = sum / 10.0;\n    return i;\n  }\n}\n\nvoid setup(void)\n{\n  pinMode(iled, OUTPUT);\n  digitalWrite(iled, LOW); // iled default closed\n  Serial.begin(9600);      // send and receive at 9600 baud\n  Serial.println(\"Initialized!\");\n}\n\nvoid loop(void)\n{\n  /*\n  get adcvalue\n  */\n  digitalWrite(iled, HIGH);\n  delayMicroseconds(280);\n  adcvalue = analogRead(vout);\n  digitalWrite(iled, LOW);\n  adcvalue = Filter(adcvalue);\n\n  /*\n  convert voltage (mv)\n  */\n  voltage = (SYS_VOLTAGE / 1024.0) * adcvalue * 11;\n\n  /*\n  voltage to density\n  */\n  if (voltage >= NO_DUST_VOLTAGE)\n  {\n    voltage -= NO_DUST_VOLTAGE;\n    density = voltage * COV_RATIO;\n  }\n  else\n    density = 0;\n\n  /*\n  display the result\n  */\n  Serial.print(\"The current dust concentration is: \");\n  Serial.print(density);\n  Serial.print(\" ug/m3\\n\");\n\n  delay(1000);\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "dht11-humidity-sensor",
+          "title": "Humidity + Temperature Sensor (DHT11)",
+          "tags": [
+            "humidity",
+            "temperature",
+            "dht11"
+          ],
+          "pageRange": [
+            56,
+            59
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "The DHT11 provides digital temperature and humidity readings. The PDF links to an Adafruit guide for wiring details."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p056.png",
+              "alt": "DHT11 wiring",
+              "caption": "DHT11 wiring diagram (source PDF p.56)"
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Library",
+              "text": "Install the DHT11 library (DHT11.h) to use the example sketch."
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "DHT11 temperature + humidity example",
+              "language": "cpp",
+              "code": "// Include the DHT11 library for interfacing with the sensor.\n#include <DHT11.h>\n\n// Create an instance of the DHT11 class.\n// - For Arduino: Connect the sensor to Digital I/O Pin 2.\nDHT11 dht11(2);\n\nvoid setup() {\n  // Initialize serial communication to allow debugging and data readout.\n  // Using a baud rate of 9600 bps.\n  Serial.begin(9600);\n\n  // Uncomment the line below to set a custom delay between sensor readings (in milliseconds).\n  // dht11.setDelay(500); // Set this to the desired delay. Default is 500ms.\n}\n\nvoid loop() {\n  int temperature = 0;\n  int humidity = 0;\n\n  // Attempt to read the temperature and humidity values from the DHT11 sensor.\n  int result = dht11.readTemperatureHumidity(temperature, humidity);\n\n  // Check the results of the readings.\n  // If the reading is successful, print the temperature and humidity values.\n  // If there are errors, print the appropriate error messages.\n  if (result == 0) {\n    Serial.print(\"Temperature: \");\n    Serial.print(temperature);\n    Serial.print(\" °C\\tHumidity: \");\n    Serial.print(humidity);\n    Serial.println(\" %\");\n  }\n}\n"
+            },
+            {
+              "type": "p",
+              "text": "Reference guide (from the PDF):"
+            },
+            {
+              "type": "link",
+              "label": "Adafruit DHT guide",
+              "url": "https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor"
+            }
+          ]
+        },
+        {
+          "id": "rain-sensor",
+          "title": "Rain Sensor (Capacitive plate + module)",
+          "tags": [
+            "rain",
+            "water",
+            "capacitive",
+            "analog"
+          ],
+          "pageRange": [
+            59,
+            60
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "The rain sensor uses a capacitive plate to detect moisture. The module provides a digital output (DO) with adjustable threshold and an analog output (AO) that varies with wetness."
+            },
+            {
+              "type": "p",
+              "text": "The PDF also notes the plate may include a heating element so droplets dry faster and readings reflect current rain intensity more directly."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p059.png",
+              "alt": "Rain sensor",
+              "caption": "Rain sensor section (source PDF p.59)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code (analog output)"
+            },
+            {
+              "type": "code",
+              "title": "Rain sensor range-mapping example",
+              "language": "cpp",
+              "code": "const int sensorMin = 0;     // sensor minimum\nconst int sensorMax = 1023;  // sensor maximum\n\nvoid setup() {\n  // initialize serial communication @ 9600 baud:\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  // read the sensor on analog A0:\n  int sensorReading = analogRead(A0);\n\n  // map the sensor range:\n  int range = map(sensorReading, sensorMin, sensorMax, 0, 4);\n\n  // range value:\n  switch (range) {\n\n    case 0:    // Sensor getting wet\n      Serial.println(\"Heavy Rain\");\n      break;\n\n    case 1:    // Sensor dry\n      Serial.println(\"Light Rain\");\n      break;\n\n    default:\n      Serial.println(\"No Rain\");\n      break;\n  }\n\n  delay(1000);  // delay between reads\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "soil-moisture-sensor",
+          "title": "Soil Moisture Sensor (Capacitive)",
+          "tags": [
+            "soil",
+            "moisture",
+            "analog"
+          ],
+          "pageRange": [
+            60,
+            62
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "Capacitive soil moisture sensors estimate how wet soil is. The PDF notes the sensor is not highly precise and should be calibrated to your use case."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p061.png",
+              "alt": "Soil moisture sensor",
+              "caption": "Soil moisture sensor wiring/photo (source PDF p.61)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code (air/water calibration)"
+            },
+            {
+              "type": "code",
+              "title": "Soil moisture calibration example",
+              "language": "cpp",
+              "code": "const int AirValue = 520;   // you need to change this value that you had recorded in the air\nconst int WaterValue = 260; // you need to change this value that you had recorded in the water\nint intervals = (AirValue - WaterValue) / 3;\nint soilMoistureValue = 0;\n\nvoid setup() {\n  Serial.begin(9600); // open serial port, set the baud rate to 9600 bps\n}\n\nvoid loop() {\n  soilMoistureValue = analogRead(A0); // put sensor into soil\n\n  if (soilMoistureValue > WaterValue && soilMoistureValue < (WaterValue + intervals)) {\n    Serial.println(\"Very Wet\");\n  }\n  else if (soilMoistureValue > (WaterValue + intervals) && soilMoistureValue < (AirValue - intervals)) {\n    Serial.println(\"Wet\");\n  }\n  else if (soilMoistureValue < AirValue && soilMoistureValue > (AirValue - intervals)) {\n    Serial.println(\"Dry\");\n  }\n\n  delay(100);\n}\n"
+            },
+            {
+              "type": "callout",
+              "variant": "tip",
+              "title": "Calibration",
+              "text": "Update AirValue and WaterValue after taking readings in air and in water, then adjust thresholds to fit your project."
+            }
+          ]
+        },
+        {
+          "id": "water-level-sensor",
+          "title": "Water Level Sensor (Capacitive plate)",
+          "tags": [
+            "water",
+            "level",
+            "analog"
+          ],
+          "pageRange": [
+            63,
+            65
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "These capacitive water sensors produce a signal when water contacts the long conductive traces on the sensor."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p063.png",
+              "alt": "Water level sensor",
+              "caption": "Water level sensor (source PDF p.63)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Water level sensor example",
+              "language": "cpp",
+              "code": "/*\n--------------------------------------------------------------------------\n----\n* This is example code of how to use the RED Water Level Sensor with the Arduino.\n--------------------------------------------------------------------------\n----\n* Wiring directions\n*\n* VCC -> Arduino 5V\n* GND -> Arduino GND\n* S -> A0\n*\n--------------------------------------------------------------------------\n----\nThis code is for the RED Water Sensor\n\nIt will detect if there is water present\nWhen it is submerged at all it is about 620\nIf there is any water on it (residual or a drop) it will be 150-500\nNo water = 0\n--------------------------------------------------------------------------\n----\n*/\n\nconst int analogPin = A0;\n\nvoid setup() {\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  int analogVal = analogRead(analogPin);\n\n  Serial.println(analogVal);\n\n  if (analogVal > 500) // arbitrary number\n  {\n    // do something\n  }\n  else\n  {\n    // do something else\n  }\n\n  delay(1000);\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "flow-sensor",
+          "title": "Flow Sensor (Hall effect)",
+          "tags": [
+            "flow",
+            "water",
+            "interrupts"
+          ],
+          "pageRange": [
+            65,
+            69
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "Flow sensors measure flow rate by counting pulses from a small turbine/propeller. The sensor outputs pulses at a rate proportional to flow."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p065.png",
+              "alt": "Flow sensor",
+              "caption": "Flow sensor (source PDF p.65)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Flow rate example (interrupt-based)",
+              "language": "cpp",
+              "code": "/*\nLiquid flow rate sensor - DIYhacking.com Arvind Sanjeev\n\nMeasure the liquid/water flow rate using this code.\nConnect Vcc and Gnd of sensor to arduino, and the signal line to arduino digital pin 2.\n*/\n\nbyte statusLed = 13;\n\nbyte sensorInterrupt = 2;\n// Yuankai: the return value should be the pin value. Or we can use the\n// recommended code: attachInterrupt(digitalPinToInterrupt(pin), ISR, mode).\nbyte sensorPin = 2;\n\n// The hall-effect flow sensor outputs approximately 4.5 pulses per second per\n// litre/minute of flow.\nfloat calibrationFactor = 7.4;\n\nvolatile byte pulseCount;\n\nfloat flowRate;\nunsigned int flowMilliLitres;\nunsigned long totalMilliLitres;\n\nunsigned long oldTime;\n\nvoid setup()\n{\n  // Initialize a serial connection for reporting values to the host\n  Serial.begin(9600);\n\n  // Set up the status LED line as an output\n  pinMode(statusLed, OUTPUT);\n  digitalWrite(statusLed, HIGH); // We have an active-low LED attached\n\n  pinMode(sensorPin, INPUT);\n  digitalWrite(sensorPin, HIGH);\n\n  pulseCount = 0;\n  flowRate = 0.0;\n  flowMilliLitres = 0;\n  totalMilliLitres = 0;\n  oldTime = 0;\n\n  // The Hall-effect sensor is connected to pin 2 which uses interrupt 0.\n  // Configured to trigger on a FALLING state change (transition from HIGH to LOW)\n  attachInterrupt(sensorInterrupt, pulseCounter, FALLING);\n\n  // Yuankai: or use the alternative recommended way to program:\n  // attachInterrupt(digitalPinToInterrupt(sensorPin), pulseCounter, FALLING);\n}\n\n/**\n * Main program loop\n */\nvoid loop()\n{\n  if ((millis() - oldTime) > 1000) // Only process counters once per second\n  {\n    // Disable the interrupt while calculating flow rate and sending the value to the host\n    detachInterrupt(sensorInterrupt);\n\n    // Scale the output based on time since last execution and apply calibrationFactor.\n    flowRate = ((1000.0 / (millis() - oldTime)) * pulseCount) / calibrationFactor;\n\n    oldTime = millis();\n\n    // Convert flow rate (L/min) to millilitres passed in 1 second\n    flowMilliLitres = (flowRate / 60) * 1000;\n\n    // Add the millilitres passed in this second to the cumulative total\n    totalMilliLitres += flowMilliLitres;\n\n    // Print the flow rate for this second in litres / minute\n    Serial.print(\"Flow rate: \");\n    Serial.print(int(flowRate));  // Print the integer part of the variable\n    Serial.print(\"L/min\");\n    Serial.print(\"\\t\");          // Print tab space\n\n    // Print the cumulative total of litres flowed since starting\n    Serial.print(\"Output Liquid Quantity: \");\n    Serial.print(totalMilliLitres);\n    Serial.println(\"mL\");\n    Serial.print(\"\\t\");          // Print tab space\n    Serial.print(totalMilliLitres / 1000);\n    Serial.print(\"L\");\n\n    // Reset the pulse counter so we can start incrementing again\n    pulseCount = 0;\n\n    // Enable the interrupt again now that we've finished sending output\n    attachInterrupt(sensorInterrupt, pulseCounter, FALLING);\n\n    // Yuankai: or use the alternative recommended way to program:\n    // attachInterrupt(digitalPinToInterrupt(sensorPin), pulseCounter, FALLING);\n  }\n}\n\n/*\nInterrupt Service Routine\n*/\nvoid pulseCounter()\n{\n  // Increment the pulse counter\n  pulseCount++;\n}\n"
+            },
+            {
+              "type": "callout",
+              "variant": "tip",
+              "title": "Note",
+              "text": "The PDF includes two attachInterrupt() styles. Use ONE of them (the 'digitalPinToInterrupt' form is recommended on many boards)."
+            }
+          ]
+        },
+        {
+          "id": "tds-sensor",
+          "title": "Total Dissolved Solids (TDS) Sensor",
+          "tags": [
+            "water quality",
+            "tds",
+            "ppm"
+          ],
+          "pageRange": [
+            69,
+            73
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "A TDS sensor estimates how many solids are dissolved in water, typically reported in parts per million (ppm)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p069.png",
+              "alt": "TDS sensor",
+              "caption": "TDS sensor overview/wiring (source PDF p.69)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "TDS meter example",
+              "language": "cpp",
+              "code": "/*\n--------------------------------------------------------------------------\n----\n* This is example code of how to use the TDS (total dissolved solids) water sensor with the Arduino.\n--------------------------------------------------------------------------\n----\n* Wiring directions\n*\n* S (green) -> Pin A0\n* VCC -> Arduino 5V\n* GND -> Arduino GND\n*/\n\n// Original source code:\n// https://wiki.keyestudio.com/KS0429_keyestudio_TDS_Meter_V1.0#Test_Code\n// Project details:\n// https://RandomNerdTutorials.com/arduino-tds-water-quality-sensor/\n\n#define TdsSensorPin A0\n#define VREF 5.0              // analog reference voltage(Volt) of the ADC\n#define SCOUNT  30            // sum of sample point\n\nint analogBuffer[SCOUNT];     // store the analog value in the array, read from ADC\nint analogBufferTemp[SCOUNT];\nint analogBufferIndex = 0;\nint copyIndex = 0;\n\nfloat averageVoltage = 0;\nfloat tdsValue = 0;\nfloat temperature = 16;       // current temperature for compensation\n\n// median filtering algorithm\nint getMedianNum(int bArray[], int iFilterLen){\n  int bTab[iFilterLen];\n  for (byte i = 0; i < iFilterLen; i++)\n    bTab[i] = bArray[i];\n\n  int i, j, bTemp;\n  for (j = 0; j < iFilterLen - 1; j++) {\n    for (i = 0; i < iFilterLen - j - 1; i++) {\n      if (bTab[i] > bTab[i + 1]) {\n        bTemp = bTab[i];\n        bTab[i] = bTab[i + 1];\n        bTab[i + 1] = bTemp;\n      }\n    }\n  }\n\n  if ((iFilterLen & 1) > 0){\n    bTemp = bTab[(iFilterLen - 1) / 2];\n  }\n  else {\n    bTemp = (bTab[iFilterLen / 2] + bTab[iFilterLen / 2 - 1]) / 2;\n  }\n  return bTemp;\n}\n\nvoid setup(){\n  Serial.begin(115200);\n  pinMode(TdsSensorPin, INPUT);\n}\n\nvoid loop(){\n  static unsigned long analogSampleTimepoint = millis();\n  if (millis() - analogSampleTimepoint > 40U){ // every 40ms, read the analog value from the ADC\n    analogSampleTimepoint = millis();\n    analogBuffer[analogBufferIndex] = analogRead(TdsSensorPin); // read and store into the buffer\n    analogBufferIndex++;\n    if (analogBufferIndex == SCOUNT){\n      analogBufferIndex = 0;\n    }\n  }\n\n  static unsigned long printTimepoint = millis();\n  if (millis() - printTimepoint > 800U){\n    printTimepoint = millis();\n    for (copyIndex = 0; copyIndex < SCOUNT; copyIndex++){\n      analogBufferTemp[copyIndex] = analogBuffer[copyIndex];\n    }\n\n    // read the analog value more stable by the median filtering algorithm, and convert to voltage value\n    averageVoltage = getMedianNum(analogBufferTemp, SCOUNT) * (float)VREF / 1024.0;\n\n    // temperature compensation formula: fFinalResult(25^C) = fFinalResult(current)/(1.0+0.02*(fTP-25.0));\n    float compensationCoefficient = 1.0 + 0.02 * (temperature - 25.0);\n\n    // temperature compensation\n    float compensationVoltage = averageVoltage / compensationCoefficient;\n\n    // convert voltage value to tds value\n    tdsValue = (133.42 * compensationVoltage * compensationVoltage * compensationVoltage\n                - 255.86 * compensationVoltage * compensationVoltage\n                + 857.39 * compensationVoltage) * 0.5;\n\n    Serial.print(\"TDS Value:\");\n    Serial.print(tdsValue, 0);\n    Serial.println(\"ppm\");\n  }\n}\n"
+            },
+            {
+              "type": "p",
+              "text": "Reference links included in the PDF:"
+            },
+            {
+              "type": "link",
+              "label": "Keyestudio TDS code",
+              "url": "https://wiki.keyestudio.com/KS0429_keyestudio_TDS_Meter_V1.0#Test_Code"
+            },
+            {
+              "type": "link",
+              "label": "Random Nerd Tutorials (TDS sensor)",
+              "url": "https://RandomNerdTutorials.com/arduino-tds-water-quality-sensor/"
+            }
+          ]
+        },
+        {
+          "id": "submerged-temperature-sensor",
+          "title": "Submerged Temperature Sensor (OneWire / DS18B20-style)",
+          "tags": [
+            "temperature",
+            "water",
+            "onewire"
+          ],
+          "pageRange": [
+            74,
+            75
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "One-wire submerged temperature sensors output digital data over a OneWire bus. The PDF uses the OneWire and DallasTemperature libraries."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p074.png",
+              "alt": "Submerged temperature sensor",
+              "caption": "Submerged temperature sensor (source PDF p.74)"
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "OneWire temperature example",
+              "language": "cpp",
+              "code": "#include <OneWire.h>\n#include <DallasTemperature.h>\n\n// Data wire is conntec to the Arduino digital pin 4\n#define ONE_WIRE_BUS 4\n\n// Setup a oneWire instance to communicate with any OneWire devices\nOneWire oneWire(ONE_WIRE_BUS);\n\n// Pass our oneWire reference to Dallas Temperature sensor\nDallasTemperature sensors(&oneWire);\n\nvoid setup(void)\n{\n  // Start serial communication for debugging purposes\n  Serial.begin(9600);\n\n  // Start up the library\n  sensors.begin();\n}\n\nvoid loop(void)\n{\n  // Call sensors.requestTemperatures() to issue a global temperature request to all devices on the bus\n  sensors.requestTemperatures();\n\n  Serial.print(\"Celsius temperature: \");\n  // Why \"byIndex\"? You can have more than one IC on the same bus. 0 refers to the first IC on the wire\n  Serial.print(sensors.getTempCByIndex(0));\n\n  Serial.print(\" - Fahrenheit temperature: \");\n  Serial.println(sensors.getTempFByIndex(0));\n\n  delay(1000);\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "tmp36-ambient-temperature",
+          "title": "Ambient Temperature Sensor (TMP36)",
+          "tags": [
+            "temperature",
+            "analog",
+            "tmp36"
+          ],
+          "pageRange": [
+            76,
+            77
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "Ambient temperature sensors measure air temperature around the sensor and output a voltage that can be read with an Arduino analog input (A0–A5)."
+            },
+            {
+              "type": "p",
+              "text": "The PDF highlights the TMP36 as a common analog temperature sensor used in this class."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p076.png",
+              "alt": "TMP36 sensor",
+              "caption": "TMP36 sensor photo (source PDF p.76)"
+            },
+            {
+              "type": "h3",
+              "text": "Pinout"
+            },
+            {
+              "type": "p",
+              "text": "With the flat side facing you and the legs pointing downward, the pins are: left = 2.7–5.5V in, middle = analog voltage out, right = ground (as shown in the PDF)."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p077.png",
+              "alt": "TMP36 pinout",
+              "caption": "TMP36 pinout image (source PDF p.77)"
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Draft note",
+              "text": "The PDF draft shows the TMP36 pinout but does not include an example sketch in this section."
+            }
+          ]
+        },
+        {
+          "id": "photoresistors",
+          "title": "Photoresistors",
+          "tags": [
+            "light",
+            "ldr",
+            "analog"
+          ],
+          "pageRange": [
+            77,
+            77
+          ],
+          "content": [
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Draft note",
+              "text": "The PDF includes a 'Photoresistors' heading but no additional content in the provided draft."
+            }
+          ]
+        },
+        {
+          "id": "uv-sensors",
+          "title": "UV Sensors",
+          "tags": [
+            "uv",
+            "light",
+            "i2c",
+            "analog"
+          ],
+          "pageRange": [
+            78,
+            80
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "The PDF includes three UV sensor examples: SI1145 (I2C), VEML6070 (I2C), and an analog UV sensor."
+            },
+            {
+              "type": "h3",
+              "text": "SI1145"
+            },
+            {
+              "type": "code",
+              "title": "SI1145 UV/Visible/IR example",
+              "language": "cpp",
+              "code": "#include <Wire.h>\n#include \"Adafruit_SI1145.h\"\n\n// This is the library specific to the Adafruit device\nAdafruit_SI1145 uv = Adafruit_SI1145();\n\nvoid setup() {\n  Serial.begin(9600);\n\n  Serial.println(\"UV deck reading\");\n\n  // Checks to see if the UV sensor is connected\n  if (!uv.begin()) {\n    Serial.println(\"Didn't find Si1145\");\n    while (1);\n  }\n\n  Serial.println(\"OK!\");\n}\n\nvoid loop() {\n  // You can pull three different values from the sensor: Visible, Infrared and Ultraviolet light\n  // The UV index is calculated based on the visible and IR light\n  // The board can potentially be used for proximity testing, but LED pin would need to be connected to three IR LEDs.\n  // The proximity value could then be read with uv.readProx()\n\n  float UVindex = uv.readUV();\n  float Visible = uv.readVisible();\n  float IR = uv.readIR();\n\n  // the index is multiplied by 100 so to get the integer index, divide by 100!\n  UVindex /= 100.0;\n\n  // This block prints the calculated UV Index and the raw visible and IR light values.\n  float Proximity = uv.readProx();\n\n  Serial.print(\"UV: \");\n  Serial.println(UVindex);\n  Serial.print(\"Visible: \");\n  Serial.println(Visible);\n  Serial.print(\"IR: \");\n  Serial.println(IR);\n\n  delay(1000);\n}\n"
+            },
+            {
+              "type": "h3",
+              "text": "VEML6070"
+            },
+            {
+              "type": "code",
+              "title": "VEML6070 UV example",
+              "language": "cpp",
+              "code": "#include <Wire.h>\n#include \"Adafruit_VEML6070.h\"\n\nAdafruit_VEML6070 uv = Adafruit_VEML6070();\n\nvoid setup() {\n  Serial.begin(9600);\n  Serial.println(\"VEML6070 Test\");\n  uv.begin(VEML6070_1_T);  // pass in the integration time constant\n}\n\nvoid loop() {\n  float UV = uv.readUV();\n  UV /= 100;\n\n  Serial.print(\"UV light level: \");\n  Serial.println(UV);\n\n  delay(1000);\n}\n"
+            },
+            {
+              "type": "h3",
+              "text": "Analog UV sensor"
+            },
+            {
+              "type": "code",
+              "title": "Analog UV read example",
+              "language": "cpp",
+              "code": "void setup() {\n  // Initializes serial monitor\n  Serial.begin(9600);\n}\n\nvoid loop() {\n  // Reads output from analog pin A0\n  int analogUV = analogRead(A0);\n\n  // Converts analog value into voltage, then multiplies by 10 to get UV index\n  float UV = 10.0 * analogUV * (5.0 / 1023.0);\n\n  Serial.print(\"UV light level: \");\n  Serial.println(UV);\n\n  delay(1000);\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "rgb-sensors",
+          "title": "RGB Sensors",
+          "tags": [
+            "rgb",
+            "color",
+            "i2c"
+          ],
+          "pageRange": [
+            81,
+            81
+          ],
+          "content": [
+            {
+              "type": "img",
+              "src": "assets/pages/p081.png",
+              "alt": "RGB sensors",
+              "caption": "RGB sensor examples (source PDF p.81)"
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Draft note",
+              "text": "The PDF shows example RGB sensor boards but does not include wiring/code in the provided draft pages."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "human-controls",
+      "title": "Human Sensing and Controls",
+      "description": "Buttons, touch, rotary encoders, keypads, and other input devices.",
+      "parts": [
+        {
+          "id": "buttons",
+          "title": "Buttons / Push Button",
+          "tags": [
+            "input",
+            "button"
+          ],
+          "pageRange": [
+            82,
+            82
+          ],
+          "content": [
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Draft note",
+              "text": "The PDF includes a 'Buttons' and 'Push Button' heading without additional wiring/code in the provided draft pages."
+            }
+          ]
+        },
+        {
+          "id": "touch-sensor",
+          "title": "Touch Sensor",
+          "tags": [
+            "input",
+            "touch",
+            "capacitive"
+          ],
+          "pageRange": [
+            82,
+            82
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "The PDF links to an external tutorial for a touch sensor."
+            },
+            {
+              "type": "link",
+              "label": "Touch Sensor with Arduino (Instructables)",
+              "url": "https://www.instructables.com/Touch-Sensor-With-Arduino/"
+            }
+          ]
+        },
+        {
+          "id": "rotary-encoder",
+          "title": "Rotary Encoder",
+          "tags": [
+            "input",
+            "encoder",
+            "rotation"
+          ],
+          "pageRange": [
+            82,
+            84
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "A rotary encoder produces pulses as it turns, allowing you to detect direction and count steps. Many modules also include a push button (SW)."
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Rotary encoder counter example",
+              "language": "cpp",
+              "code": "/*\n--------------------------------------------------------------------------\n----\n* This is example code of how to use the Rotary Encoder with the Arduino.\n--------------------------------------------------------------------------\n----\n* Wiring directions\n*\n* CLK -> Pin 2\n* DT  -> Pin 3\n* SW  -> Pin 4\n* +   -> Arduino 5V\n* GND -> Arduino GND\n*\n--------------------------------------------------------------------------\n----\nThis code uses the rotary encoder to increase and decrease a number.\nThe encoder has \"clicks\" when it rotates; each click will increase or decrease the number.\nIf you press the knob it will reset the value back to 0.\n--------------------------------------------------------------------------\n----\n*/\n\n// Rotary Encoder Inputs\n#define CLK 2\n#define DT  3\n#define SW  4\n\nint counter = 0;\nint currentStateCLK;\nint lastStateCLK;\nString currentDir = \"\";\nunsigned long lastButtonPress = 0;\n\nvoid setup() {\n  // Set encoder pins as inputs\n  pinMode(CLK, INPUT);\n  pinMode(DT, INPUT);\n  pinMode(SW, INPUT_PULLUP);\n\n  // Setup Serial Monitor\n  Serial.begin(9600);\n\n  // Read the initial state of CLK\n  lastStateCLK = digitalRead(CLK);\n}\n\nvoid loop() {\n  // Read the current state of CLK\n  currentStateCLK = digitalRead(CLK);\n\n  // If last and current state of CLK are different, then pulse occurred\n  // React to only 1 state change to avoid double count\n  if (currentStateCLK != lastStateCLK && currentStateCLK == 1) {\n\n    // If the DT state is different than the CLK state then\n    // the encoder is rotating CCW so decrement\n    if (digitalRead(DT) == currentStateCLK) {\n      counter--;\n      currentDir = \"CCW\";\n    } else {\n      // Encoder is rotating CW so increment\n      counter++;\n      currentDir = \"CW\";\n    }\n\n    Serial.print(\"Direction: \");\n    Serial.print(currentDir);\n    Serial.print(\" | Counter: \");\n    Serial.println(counter);\n  }\n\n  // Remember last CLK state\n  lastStateCLK = currentStateCLK;\n\n  // Read the button state\n  int btnState = digitalRead(SW);\n\n  // If we detect LOW signal, button is pressed\n  if (btnState == LOW) {\n    // if 50ms have passed since last LOW pulse, it means that the button has been pressed, released and pressed again\n    if (millis() - lastButtonPress > 50) {\n      Serial.println(\"Button pressed!\");\n      counter = 0;\n      Serial.print(\"Direction: \");\n      Serial.print(currentDir);\n      Serial.print(\" | Counter: \");\n      Serial.println(counter);\n    }\n\n    // Remember last button press event\n    lastButtonPress = millis();\n  }\n\n  // Put in a slight delay to help debounce the reading\n  delay(1);\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "keypad",
+          "title": "Keypad (4×3)",
+          "tags": [
+            "input",
+            "keypad",
+            "matrix"
+          ],
+          "pageRange": [
+            85,
+            86
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "A keypad is a matrix of push buttons indexed by row and column. The example code scans the rows/columns and reports key events in the serial monitor."
+            },
+            {
+              "type": "img",
+              "src": "assets/pages/p085.png",
+              "alt": "Keypad pinout",
+              "caption": "Keypad pinout image (source PDF p.85)"
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Library",
+              "text": "Install the 'Adafruit Keypad' library from the Arduino Library Manager."
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "Adafruit Keypad example",
+              "language": "cpp",
+              "code": "#include \"Adafruit_Keypad.h\"\n\nconst byte ROWS = 4; // rows\nconst byte COLS = 3; // columns\n\n// define the symbols on the buttons of the keypad\nchar keys[ROWS][COLS] = {\n  {'1','2','3'},\n  {'4','5','6'},\n  {'7','8','9'},\n  {'*','0','#'}\n};\n\nbyte rowPins[ROWS] = {7, 6, 5, 4}; // connect to the row pinouts of the keypad\nbyte colPins[COLS] = {3, 2, 1};    // connect to the column pinouts of the keypad\n\n// initialize an instance of class NewKeypad\nAdafruit_Keypad customKeypad = Adafruit_Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);\n\nvoid setup() {\n  Serial.begin(9600);\n  customKeypad.begin();\n}\n\nvoid loop() {\n  customKeypad.tick();\n\n  while (customKeypad.available()) {\n    keypadEvent e = customKeypad.read();\n    Serial.print((char)e.bit.KEY);\n\n    if (e.bit.EVENT == KEY_JUST_PRESSED) {\n      Serial.println(\" pressed\");\n      if ((char)e.bit.KEY == '1') digitalWrite(LED_BUILTIN, HIGH);\n    }\n    else if (e.bit.EVENT == KEY_JUST_RELEASED) {\n      Serial.println(\" released\");\n      if ((char)e.bit.KEY == '1') digitalWrite(LED_BUILTIN, LOW);\n    }\n  }\n\n  delay(10);\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "heart-rate-oximeter",
+          "title": "Heart Rate / Oximeter",
+          "tags": [
+            "health",
+            "pulse",
+            "spo2"
+          ],
+          "pageRange": [
+            86,
+            86
+          ],
+          "content": [
+            {
+              "type": "img",
+              "src": "assets/pages/p086.png",
+              "alt": "Heart rate / oximeter",
+              "caption": "Heart rate / oximeter module photos (source PDF p.86)"
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Draft note",
+              "text": "The PDF includes images for a heart rate/oximeter module, but does not include wiring/code on the provided draft page."
+            }
+          ]
+        },
+        {
+          "id": "mic-amp",
+          "title": "Mic Amp (Microphone Amplifier)",
+          "tags": [
+            "audio",
+            "microphone"
+          ],
+          "pageRange": [
+            87,
+            87
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "The PDF references an Adafruit microphone amplifier module."
+            },
+            {
+              "type": "link",
+              "label": "Adafruit Mic Amp product page",
+              "url": "https://www.adafruit.com/product/1063"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extras",
+      "title": "Extras",
+      "description": "Additional example code included near the end of the PDF.",
+      "parts": [
+        {
+          "id": "lcd-4pin-i2c",
+          "title": "4-Pin LCD Screen (LCD_I2C library)",
+          "tags": [
+            "lcd",
+            "display",
+            "i2c",
+            "pcf8574"
+          ],
+          "pageRange": [
+            87,
+            88
+          ],
+          "content": [
+            {
+              "type": "p",
+              "text": "This is an additional 16×2 LCD example that uses the LCD_I2C library (PCF8574-based backpack)."
+            },
+            {
+              "type": "h3",
+              "text": "Example code"
+            },
+            {
+              "type": "code",
+              "title": "LCD_I2C example",
+              "language": "cpp",
+              "code": "/*\nLCD_I2C - Arduino library to control a 16x2 LCD via an I2C adapter based on PCF8574\n\nCopyright (C) 2020 Blackhack <davidaristi.0504@gmail.com>\n\nThis program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program. If not, see <https://www.gnu.org/licenses/>.\n*/\n\n#include <LCD_I2C.h>\n\nLCD_I2C lcd(0x27, 16, 2); // Default address of most PCF8574 modules, change accordingly\n\nvoid setup()\n{\n  lcd.begin(); // If you are using more I2C devices using the Wire library use lcd.begin(false)\n               // this stops the library (LCD_I2C) from calling Wire.begin()\n\n  // Note: On ESP32 you would rather use:\n  //\n  //   lcd.begin(4,5);\n  //\n  // which maps 'Wire' SDA to pin 4 and SCL to pin 5 in this example.\n\n  lcd.backlight();\n}\n\nvoid loop()\n{\n  lcd.print(\"     Hello\"); // You can make spaces using well... spaces\n  lcd.setCursor(5, 1);     // Or setting the cursor in the desired position.\n  lcd.print(\"World!\");\n  delay(500);\n\n  // Flashing the backlight\n  for (int i = 0; i < 5; ++i)\n  {\n    lcd.backlight();\n    delay(50);\n    lcd.noBacklight();\n    delay(50);\n  }\n\n  lcd.backlight();\n  lcd.clear();\n  delay(500);\n}\n"
+            }
+          ]
+        },
+        {
+          "id": "stepper-motor-uln2003",
+          "title": "Stepper Motor (ULN2003 driver board)",
+          "tags": [
+            "motors",
+            "stepper",
+            "uln2003"
+          ],
+          "pageRange": [
+            88,
+            88
+          ],
+          "content": [
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Draft note",
+              "text": "The PDF begins a stepper motor section referencing MakerGuides, but the example code is not included in the provided draft page."
+            },
+            {
+              "type": "link",
+              "label": "MakerGuides (28BYJ-48 + ULN2003)",
+              "url": "https://www.makerguides.com"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
