@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 /* ===== Sidebar Navigation — tighter left alignment ===== */
+=======
+/* ===== Sidebar Navigation — DIMENSIONS (safe) ===== */
+>>>>>>> Stashed changes
 
 /* Keep containers flush */
 .side-bar,
@@ -12,6 +16,7 @@
 
 /* Give the header/title more horizontal room */
 .side-bar .site-header {
+<<<<<<< Updated upstream
   padding-left: 8px !important;   /* smaller than nav indent */
   padding-right: 8px !important;
 }
@@ -38,6 +43,7 @@
 
 /* Top-level (parents): start closer to the edge */
 .side-bar .nav-list > .nav-list-item > a {
+<<<<<<< Updated upstream
   padding-left: 8px !important;   /* was 12px */
 }
 

@@ -15,6 +15,7 @@
 }
 
 /* ===== Remove left gutter so sidebar hugs screen edge ===== */
+<<<<<<< Updated upstream
 /* Small, controlled gutter between screen edge and sidebar */
 .page-wrap {
   padding-left: 4px !important;  /* try 0px, 4px, 6px, 8px */
