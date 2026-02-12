@@ -20,6 +20,11 @@
 .page-wrap {
   padding-left: 4px !important;  /* try 0px, 4px, 6px, 8px */
   margin-left: 0 !important;
+=======
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+>>>>>>> Stashed changes
 }
 
 /* Keep browser default margin from reintroducing a gap */
