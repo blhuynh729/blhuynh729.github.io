@@ -1,5 +1,5 @@
 ---
-title: What are you Interested in sensing?
+title: What are you Interested in Detecting?
 has_children: true
 layout: page
 nav_order: 3
