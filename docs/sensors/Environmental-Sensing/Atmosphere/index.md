@@ -1,9 +1,9 @@
 ---
-title: Stuff in the Air 
+title: Atmosphere
 has_children: true
 layout: page
 nav_order: 2
-parent: What are you Interested in sensing?
+parent: Environmental Sensing 
 ---
 
 
