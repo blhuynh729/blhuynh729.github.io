@@ -4,28 +4,35 @@ div.highlighter-rouge {
   border-radius: 12px;
   overflow: hidden;
 
-  /* subtle Mac-like shadow */
-  box-shadow: 0 10px 26px rgba(0,0,0,0.14);
-  border: 1px solid rgba(0,0,0,0.10);
+  /* subtle modern elevation */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
   background: #ffffff;
 }
 
-/* Header bar with centered language label */
+/* Override theme's dark border on the inner div.highlight */
+div.highlighter-rouge div.highlight {
+  border: none !important;
+}
+
+/* Header bar with left-aligned language label */
 div.highlighter-rouge::before {
   content: attr(data-lang);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   height: 34px;
+  padding-left: 56px;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  font-size: 12.5px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 
-  /* Mac titlebar feel */
-  color: rgba(0,0,0,0.55);
-  background: linear-gradient(#f6f6f6, #e9e9e9);
-  border-bottom: 1px solid rgba(0,0,0,0.10);
+  /* Flat macOS Sequoia titlebar */
+  color: rgba(0,0,0,0.45);
+  background: #f4f4f4;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 /* Mac "traffic light" buttons on the left */
@@ -34,21 +41,22 @@ div.highlighter-rouge::after {
   position: absolute;
   top: 11px;
   left: 12px;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: #ff5f56;
-  box-shadow: 16px 0 0 #ffbd2e, 32px 0 0 #27c93f;
+  background: #ff5f57;
+  box-shadow: 20px 0 0 #febc2e, 40px 0 0 #28c840;
 }
 
 /* The code area */
 div.highlighter-rouge pre.highlight {
   margin: 0;
-  padding: 14px 16px 16px 16px;
+  padding: 16px 20px 20px 20px;
 
   /* Terminal light panel */
-  background: #fbfbfb;
+  background: #fafafa;
   overflow: auto;
+  tab-size: 2;
 }
 
 /* Inline code inside the block */
@@ -58,8 +66,18 @@ div.highlighter-rouge pre.highlight code {
   color: #111827;
 
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Show copy button on hover */
+div.highlighter-rouge .copy-code-btn {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+div.highlighter-rouge:hover .copy-code-btn {
+  opacity: 1;
 }
 
 /* ===== Arduino IDE–style syntax highlighting (Rouge) ===== */
@@ -97,7 +115,7 @@ div.highlighter-rouge pre.highlight code {
 
 
 /* Strings */
-.highlight .s, 
+.highlight .s,
 .highlight .sb,
 .highlight .sc,
 .highlight .sd,

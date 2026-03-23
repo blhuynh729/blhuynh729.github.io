@@ -3,6 +3,45 @@ body {
   background-color: #ffffff;
 }
 
+/* ===== Clean minimal headings ===== */
+
+.main-content h1 {
+  font-weight: 600;
+  font-size: 1.85rem;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.main-content h2 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: #2a2a2a;
+  letter-spacing: -0.005em;
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
+}
+
+.main-content h3 {
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: #3a3a3a;
+  margin-top: 1.5em;
+  margin-bottom: 0.4em;
+}
+
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-top: 1.3em;
+  margin-bottom: 0.3em;
+}
+
 .main-content-wrap {
   background-color: #f7f2e8;
   background-image: radial-gradient(

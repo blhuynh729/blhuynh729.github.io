@@ -1,35 +1,38 @@
-.side-bar { 
-  width: 320px; 
+/* ===== Sidebar & content layout ===== */
+
+.side-bar {
+  width: 300px;
   left: 0 !important;
-  padding: 20px; /* Add some space inside the sidebar */
+  padding: 16px 12px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.15) transparent;
 }
 
 @media (min-width: 50rem) {
-  .main { 
-    margin-left: 320px;
-  }  
+  .main {
+    margin-left: 300px;
+  }
+}
+
+@media (max-width: 49.99rem) {
+  .side-bar {
+    width: 100%;
+    max-width: 320px;
+  }
 }
 
 .main-content {
   max-width: 2000px;
 }
 
-/* ===== Remove left gutter so sidebar hugs screen edge ===== */
-<<<<<<< Updated upstream
-/* Small, controlled gutter between screen edge and sidebar */
+/* Remove gutter */
 .page-wrap {
-  padding-left: 4px !important;  /* try 0px, 4px, 6px, 8px */
+  padding-left: 0 !important;
   margin-left: 0 !important;
-=======
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
->>>>>>> Stashed changes
 }
 
-/* Keep browser default margin from reintroducing a gap */
 html, body {
   margin: 0 !important;
   padding: 0 !important;
 }
-
