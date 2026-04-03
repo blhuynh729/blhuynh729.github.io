@@ -1,91 +1,174 @@
-/* ===== UC Davis Sidebar Navigation — DESIGN (colors, states) ===== */
+/* ===== Sidebar Navigation — All styling & dimensions ===== */
 
+/* --- A: Color system --- */
 :root {
-  --ucd-blue: #022851;        /* Aggie Blue */
-  --ucd-gold: #FFBF00;        /* Aggie Gold */
-  --ucd-gold-soft: #ffe08a;   /* Hover gold */
+  /* UC Davis brand */
+  --ucd-blue:         #022851;
+  --ucd-blue-light:   #0B3D74;
+  --ucd-gold:         #FFBF00;
+  --ucd-gold-soft:    #FFD54F;
+
+  /* Sidebar derived */
+  --nav-bg:           var(--ucd-blue);
+  --nav-text:         #D6E0ED;
+  --nav-text-hover:   var(--ucd-gold);
+  --nav-text-active:  var(--ucd-gold);
+  --nav-hover-bg:     var(--ucd-blue-light);
+  --nav-active-bg:    rgba(255, 191, 0, 0.12);
+  --nav-active-bar:   var(--ucd-gold);
+  --nav-divider:      rgba(255, 255, 255, 0.15);
+  --nav-category-text:#A0B8D4;
 }
 
-/* Sidebar background color */
+
+/* --- B: Sidebar background & title --- */
+
 .side-bar {
-  background-color: var(--ucd-blue) !important;
+  background-color: var(--nav-bg) !important;
 }
 
-/* Site title color + weight */
 .site-title,
 .site-title a {
   color: var(--ucd-gold) !important;
-  font-weight: 800;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
   text-decoration: none !important;
+  display: block;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  max-width: none !important;
+  white-space: normal !important;
+  overflow: visible !important;
 }
 
-/* Link color baseline */
-.side-bar a,
-.side-bar .nav-list a {
-  color: var(--ucd-gold) !important;
-  text-decoration: none !important;
+
+.site-title:hover,
+.site-title a:hover {
+  background: var(--nav-hover-bg) !important;
+  border-radius: 6px;
 }
 
-/* Hover highlight (visual only; width/padding handled in nav-indent.css) */
+.side-bar .site-header {
+  padding: 8px 12px 14px;
+  border-bottom: 1px solid var(--nav-divider);
+  margin-bottom: 12px;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* --- C: Container resets --- */
+
+.side-bar .site-nav,
+.side-bar .nav-list,
+.side-bar .nav-list .nav-list {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+
+/* --- D: Base link styling --- */
+
+.side-bar .nav-list-item > a {
+  color: var(--nav-text) !important;
+  text-decoration: none !important;
+  padding: 8px 12px;
+  padding-right: 34px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, border-radius 0.15s ease;
+}
+
+/* --- E: Hover & active states (Option B — pill / highlight chip) --- */
+
 .side-bar .nav-list-item > a:hover {
-  color: var(--ucd-gold-soft) !important;
-  background: linear-gradient(
-    to right,
-    rgba(255,191,0,0.22),
-    rgba(255,191,0,0.00)
-  ) !important;
+  color: var(--nav-text-hover) !important;
+  background: var(--nav-hover-bg) !important;
+  border-radius: 20px;
+  /*transform: scale(1.01); */
 }
 
-/* Active page styling (visual only) */
+.side-bar .nav-list-item > a.active,
 .side-bar .nav-list-item.active > a {
-  color: var(--ucd-gold) !important;
-  font-weight: 800 !important;
-
-  background: linear-gradient(
-    to right,
-    rgba(255,191,0,0.28),
-    rgba(255,191,0,0.00)
-  ) !important;
-
-  position: relative;     /* needed for ::before */
-  overflow: hidden;       /* keeps bar clean with rounded corners */
+  color: var(--nav-text-active) !important;
+  background: var(--nav-active-bg) !important;
+  border-radius: 20px;
+  font-weight: 600;
 }
 
-/* Chevrons/toggles */
+
+
+
+/* --- F: Indentation hierarchy --- */
+
+/* Top-level items — section headers */
+.side-bar .nav-list > .nav-list-item > a {
+  padding-left: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--nav-category-text) !important;
+}
+
+/* Top-level hover/active override (restore gold) */
+.side-bar .nav-list > .nav-list-item.active > a,
+.side-bar .nav-list > .nav-list-item > a:hover {
+  color: var(--nav-text-hover) !important;
+}
+
+/* Level 1 children */
+.side-bar .nav-list .nav-list > .nav-list-item > a {
+  padding-left: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--nav-text) !important;
+}
+
+/* Level 2 children */
+.side-bar .nav-list .nav-list .nav-list > .nav-list-item > a {
+  padding-left: 32px;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+/* Level 3 children */
+.side-bar .nav-list .nav-list .nav-list .nav-list > .nav-list-item > a {
+  padding-left: 44px;
+  font-size: 0.83rem;
+  font-weight: 400;
+}
+
+/* --- G: Section dividers between top-level groups --- */
+
+.side-bar .nav-list > .nav-list-item + .nav-list-item {
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--nav-divider);
+}
+
+/* --- H: Chevron / expander styling --- */
+
 .side-bar .nav-list-expander,
 .side-bar .nav-list-expander svg {
+  color: var(--nav-category-text) !important;
+  transition: color 0.15s ease;
+}
+
+.side-bar .nav-list-expander:hover {
+  background-image: none !important;
+  background-color: var(--ucd-blue) !important;
+}
+
+.side-bar .nav-list-item > .nav-list-expander:hover svg,
+.side-bar .nav-list-item > a:hover ~ .nav-list-expander svg {
   color: var(--ucd-gold) !important;
 }
 
-/* ===== Arduino-like per-item bar for child tabs ===== */
-
-/* Only apply to children (items inside a nested nav-list) */
-.side-bar .nav-list .nav-list .nav-list-item > a {
-  position: relative;
+.side-bar .nav-list-item.active > .nav-list-expander svg {
+  color: var(--ucd-gold) !important;
 }
 
-/* Default small bar (light gray) */
-.side-bar .nav-list .nav-list .nav-list-item > a::before {
-  content: "";
-  position: absolute;
-  left: -12px;              /* sits on top of the container line area */
-  top: 10px;
-  bottom: 10px;
-  width: 3px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.18); /* light gray */
-  opacity: 0;               /* hidden until hover/active */
-  transition: opacity 0.15s ease, background 0.15s ease;
-}
-
-/* Hover: darker gray */
-.side-bar .nav-list .nav-list .nav-list-item > a:hover::before {
-  opacity: 1;
-  background: rgba(255,255,255,0.35);
-}
-
-/* Active: UC Davis gold */
-.side-bar .nav-list .nav-list .nav-list-item.active > a::before {
-  opacity: 1;
-  background: rgba(255,255,255,0.35);
-}

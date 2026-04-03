@@ -1,0 +1,96 @@
+/* ===== On-this-page TOC ===== */
+
+.page-toc {
+  position: fixed;
+  top: 5rem;
+  right: 2rem;
+  width: 200px;
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  z-index: 100;
+  scrollbar-width: thin;
+}
+
+.page-toc-title {
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #999;
+  margin-bottom: 0.6rem;
+  padding-left: 12px;
+}
+
+.page-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-toc li {
+  margin: 0;
+}
+
+.page-toc a {
+  display: block;
+  padding: 4px 12px;
+  color: #888;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.page-toc a:hover {
+  color: var(--ucd-blue, #022851);
+}
+
+.page-toc a.toc-active {
+  color: var(--ucd-blue, #022851);
+  border-left-color: var(--ucd-blue, #022851);
+  font-weight: 500;
+}
+
+/* H1 entries — bold top-level */
+.page-toc .toc-h1 a {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* Indent h2 entries under h1 */
+.page-toc .toc-h2 a {
+  padding-left: 20px;
+}
+
+/* Indent h3 entries */
+.page-toc .toc-h3 a {
+  padding-left: 32px;
+  font-size: 0.75rem;
+}
+
+/* Hide TOC on narrow screens — not enough room */
+@media (max-width: 80rem) {
+  .page-toc {
+    display: none;
+  }
+}
+
+/* Dark mode — TOC */
+[data-theme="dark"] .page-toc-title {
+  color: #777;
+}
+
+[data-theme="dark"] .page-toc a {
+  color: #888;
+}
+
+[data-theme="dark"] .page-toc a:hover {
+  color: var(--ucd-gold-soft, #FFD54F);
+}
+
+[data-theme="dark"] .page-toc a.toc-active {
+  color: var(--ucd-gold-soft, #FFD54F);
+  border-left-color: var(--ucd-gold, #FFBF00);
+}
