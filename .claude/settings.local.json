@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /e/ENG03/blhuynh729.github.io/_site -name *.css)"
+    ]
+  }
+}

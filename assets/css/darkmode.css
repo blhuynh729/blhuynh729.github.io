@@ -1,0 +1,234 @@
+/* ===== Dark mode colors ===== */
+
+html[data-theme="dark"],
+[data-theme="dark"] body {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .main-content-wrap {
+  background-color: #252525 !important;
+}
+
+[data-theme="dark"] .main-content {
+  color: #d4d4d4;
+}
+
+[data-theme="dark"] .main-content h1 {
+  color: #f0f0f0;
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] .main-content h2 {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .main-content h3 {
+  color: #d0d0d0;
+}
+
+[data-theme="dark"] .main-content h4,
+[data-theme="dark"] .main-content h5,
+[data-theme="dark"] .main-content h6 {
+  color: #c0c0c0;
+}
+
+[data-theme="dark"] .main-content a {
+  color: var(--ucd-gold-soft, #FFD54F);
+}
+
+[data-theme="dark"] .main-content a:hover {
+  color: var(--ucd-gold, #FFBF00);
+}
+
+[data-theme="dark"] .main-content hr {
+  border-color: rgba(255,255,255,0.08);
+}
+
+/* Dark mode — main header (search bar area) & aux nav */
+[data-theme="dark"] .main-header,
+[data-theme="dark"] #main-header {
+  background: #1e1e1e !important;
+  border-bottom-color: rgba(255,255,255,0.06) !important;
+}
+
+[data-theme="dark"] .main {
+  background: #1e1e1e !important;
+}
+
+[data-theme="dark"] .aux-nav a,
+[data-theme="dark"] .aux-nav .site-button {
+  color: var(--ucd-gold-soft, #FFD54F) !important;
+  background: transparent !important;
+}
+
+[data-theme="dark"] .aux-nav a:hover,
+[data-theme="dark"] .aux-nav .site-button:hover {
+  color: var(--ucd-gold, #FFBF00) !important;
+}
+
+[data-theme="dark"] .search-overlay {
+  background: rgba(0,0,0,0.6) !important;
+}
+
+/* Dark mode — code blocks */
+[data-theme="dark"] div.highlighter-rouge {
+  background: #2d2d2d;
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] div.highlighter-rouge div.highlight {
+  background: #2d2d2d !important;
+}
+
+[data-theme="dark"] div.highlighter-rouge::before {
+  background: #333333;
+  color: rgba(255,255,255,0.4);
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] div.highlighter-rouge pre.highlight {
+  background: #2d2d2d;
+}
+
+[data-theme="dark"] div.highlighter-rouge pre.highlight code {
+  color: #d4d4d4;
+}
+
+/* Dark mode — Arduino-style syntax highlighting (brightened for dark bg) */
+
+/* Keywords: void, if, for, while, return — bright blue */
+[data-theme="dark"] .highlight .k,
+[data-theme="dark"] .highlight .kd,
+[data-theme="dark"] .highlight .kn,
+[data-theme="dark"] .highlight .kp,
+[data-theme="dark"] .highlight .kr {
+  color: #5b9eff;
+}
+
+/* Types: int, float, long, boolean — bright teal */
+[data-theme="dark"] .highlight .kt {
+  color: #56d6db;
+}
+
+/* Function names — bright orange */
+[data-theme="dark"] .highlight .nf {
+  color: #ff8c42;
+}
+
+/* Strings — bright teal/cyan */
+[data-theme="dark"] .highlight .s,
+[data-theme="dark"] .highlight .sb,
+[data-theme="dark"] .highlight .sc,
+[data-theme="dark"] .highlight .sd,
+[data-theme="dark"] .highlight .s2,
+[data-theme="dark"] .highlight .se,
+[data-theme="dark"] .highlight .sh,
+[data-theme="dark"] .highlight .si,
+[data-theme="dark"] .highlight .sx,
+[data-theme="dark"] .highlight .sr,
+[data-theme="dark"] .highlight .s1,
+[data-theme="dark"] .highlight .ss {
+  color: #56d6db;
+}
+
+/* Numbers — bright sky blue */
+[data-theme="dark"] .highlight .m,
+[data-theme="dark"] .highlight .mi,
+[data-theme="dark"] .highlight .mf,
+[data-theme="dark"] .highlight .mh,
+[data-theme="dark"] .highlight .mo {
+  color: #6cb6ff;
+}
+
+/* Comments — lighter gray */
+[data-theme="dark"] .highlight .c,
+[data-theme="dark"] .highlight .cm,
+[data-theme="dark"] .highlight .c1,
+[data-theme="dark"] .highlight .cs {
+  color: #8b949e;
+}
+
+/* Constants: HIGH, LOW, INPUT, OUTPUT — bright sky blue */
+[data-theme="dark"] .highlight .no {
+  color: #6cb6ff;
+}
+
+/* Operators — light gray */
+[data-theme="dark"] .highlight .o {
+  color: #b0b0b0;
+}
+
+/* Variables / identifiers — light text */
+[data-theme="dark"] .highlight .n {
+  color: #d4d4d4;
+}
+
+/* Arduino built-in functions & user function calls — bright orange */
+[data-theme="dark"] .highlight .arduino-fn,
+[data-theme="dark"] .fn-call {
+  color: #ff8c42;
+}
+
+/* Punctuation — brackets, semicolons, commas, parens */
+[data-theme="dark"] .highlight .p {
+  color: #d4d4d4;
+}
+
+/* Dark mode — images */
+[data-theme="dark"] .doc-figure img {
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .doc-figure figcaption {
+  color: rgba(255,255,255,0.55);
+}
+
+/* Dark mode — cards */
+[data-theme="dark"] .site-card {
+  background: #2d2d2d;
+  border-color: rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] .site-card-title {
+  color: #f0f0f0;
+}
+
+[data-theme="dark"] .site-card-desc {
+  color: #aaa;
+}
+
+/* Dark mode — back-to-top & theme toggle */
+[data-theme="dark"] .back-to-top,
+[data-theme="dark"] .theme-toggle {
+  background: #333333;
+  color: #d4d4d4;
+  border-color: rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .back-to-top:hover,
+[data-theme="dark"] .theme-toggle:hover {
+  background: var(--ucd-gold, #FFBF00);
+  color: #1e1e1e;
+  border-color: var(--ucd-gold, #FFBF00);
+}
+
+/* Dark mode — last updated */
+[data-theme="dark"] .page-last-updated {
+  border-top-color: rgba(255,255,255,0.06);
+  color: #777;
+}
+
+/* Dark mode — anchor headings */
+[data-theme="dark"] .main-content .anchor-heading svg {
+  color: var(--ucd-gold-soft, #FFD54F) !important;
+}
+
+/* Dark mode — inline code */
+[data-theme="dark"] :not(pre, figure) > code {
+  background-color: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+  color: #ffa857 !important;
+}

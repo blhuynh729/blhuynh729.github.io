@@ -9,12 +9,14 @@ nav_order: 1
 
 The LSM303 has two sensors: an accelerometer and a magnetometer. The accelerometer detects the direction and magnitude of forces on the sensor, while the magnetometer detects the direction and magnitude of magnetic fields.
 
-# Wiring
+## Pinout
+
+## Wiring
 Connect the Vin to 5V and Gnd to ground. Connect the SCL and SDA pins to the respective pins on the arduino. To operate the board, you’ll need to download the “Adafruit_Sensor” and “Adafruit_LSM303DLHC” libraries in the Arduino IDE.
 
 
 
-# Example Code
+## Example Code
 ```cpp
 #include <Wire.h>
 #include <Adafruit_Sensor.h>

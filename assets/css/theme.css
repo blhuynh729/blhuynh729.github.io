@@ -1,31 +1,37 @@
+/* ===== Base theme — light mode typography & backgrounds ===== */
+
 html,
 body {
   background-color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 /* ===== Clean minimal headings ===== */
 
 .main-content h1 {
-  font-weight: 600;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
   font-size: 1.85rem;
   color: #1a1a1a;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   margin-bottom: 0.6em;
   padding-bottom: 0.35em;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .main-content h2 {
-  font-weight: 500;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
   font-size: 1.4rem;
   color: #2a2a2a;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   margin-top: 1.8em;
   margin-bottom: 0.5em;
 }
 
 .main-content h3 {
-  font-weight: 500;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
   font-size: 1.15rem;
   color: #3a3a3a;
   margin-top: 1.5em;
@@ -35,6 +41,7 @@ body {
 .main-content h4,
 .main-content h5,
 .main-content h6 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-weight: 500;
   font-size: 1rem;
   color: #4a4a4a;
@@ -42,12 +49,188 @@ body {
   margin-bottom: 0.3em;
 }
 
+.main-content {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.7;
+}
+
 .main-content-wrap {
-  background-color: #f7f2e8;
-  background-image: radial-gradient(
-    rgba(0,0,0,0.06) 0.6px,
-    transparent 0.6px
-  );
-  background-size: 14px 14px;
+  background-color: #F8F8F8   ;
   border-radius: 18px;
+}
+
+/* ===== Inline code styling ===== */
+
+:not(pre, figure) > code {
+  background-color: #f0f1f3 !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  border-radius: 5px !important;
+  padding: 0.15em 0.4em !important;
+  font-size: 0.85em !important;
+  color: #d35400 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ===== Breadcrumbs ===== */
+
+.breadcrumb-nav {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+}
+
+.breadcrumb-nav a {
+  color: #888;
+  text-decoration: none;
+}
+
+.breadcrumb-nav a:hover {
+  color: var(--ucd-blue, #022851);
+  text-decoration: underline;
+}
+
+/* ===== Smooth scroll ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Back-to-top button ===== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: #333;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--ucd-blue, #022851);
+  color: #fff;
+  border-color: var(--ucd-blue, #022851);
+}
+
+/* ===== Home page cards ===== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.site-card {
+  display: block;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.site-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.site-card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.site-card-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-bottom: 0.3rem;
+}
+
+.site-card-desc {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* ===== Dark mode toggle button ===== */
+
+.theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: #333;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--ucd-blue, #022851);
+  color: #fff;
+  border-color: var(--ucd-blue, #022851);
+}
+
+/* ===== Last updated footer ===== */
+
+.page-last-updated {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.78rem;
+  color: #999;
+}
+
+/* ===== Anchor heading styling ===== */
+
+.main-content .anchor-heading svg {
+  color: var(--ucd-blue, #022851) !important;
+  width: 0.9em;
+  height: 0.9em;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.main-content h1:hover > .anchor-heading svg,
+.main-content h2:hover > .anchor-heading svg,
+.main-content h3:hover > .anchor-heading svg,
+.main-content h4:hover > .anchor-heading svg,
+.main-content h5:hover > .anchor-heading svg,
+.main-content h6:hover > .anchor-heading svg,
+.main-content .anchor-heading:hover svg,
+.main-content .anchor-heading:focus svg {
+  visibility: visible !important;
+  opacity: 1;
+  color: var(--ucd-blue, #022851) !important;
 }
