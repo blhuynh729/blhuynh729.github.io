@@ -1,0 +1,70 @@
+/* ===== Search bar styling ===== */
+
+.search .search-input-wrap {
+  position: relative;
+}
+
+.search-input {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 0.9rem !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+@media (min-width: 50rem) {
+  .search-label {
+    padding-left: 0.75rem !important;
+  }
+  .search-input {
+    padding-left: 2.25rem !important;
+  }
+}
+
+.search-input:focus {
+  outline: none !important;
+  border: 1px solid var(--ucd-blue, #022851) !important;
+  box-shadow: 0 0 0 3px rgba(2,40,81,0.12) !important;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+.search-label .search-icon {
+  color: #999 !important;
+}
+
+.search .search-results {
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Dark mode — search */
+[data-theme="dark"] .search-input {
+  background: #2d2d2d !important;
+  border-color: rgba(255,255,255,0.1) !important;
+  color: #d4d4d4 !important;
+}
+
+[data-theme="dark"] .search-input:focus {
+  border-color: var(--ucd-gold, #FFBF00) !important;
+  box-shadow: 0 0 0 3px rgba(255,191,0,0.15) !important;
+}
+
+[data-theme="dark"] .search-input::placeholder {
+  color: #777;
+}
+
+[data-theme="dark"] .search-label .search-icon {
+  color: #777 !important;
+}
+
+[data-theme="dark"] .search-results {
+  background: #2d2d2d !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}

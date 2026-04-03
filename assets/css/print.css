@@ -1,0 +1,80 @@
+/* ===== Print styles ===== */
+
+@media print {
+  .side-bar,
+  .mobile-menu-btn,
+  .mobile-nav-overlay,
+  .back-to-top,
+  .theme-toggle,
+  .page-toc,
+  .search,
+  .search-overlay,
+  .aux-nav,
+  .main-header,
+  .site-footer,
+  .breadcrumb-nav,
+  .anchor-heading {
+    display: none !important;
+  }
+
+  .main {
+    margin-left: 0 !important;
+  }
+
+  .main-content {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .main-content-wrap {
+    background: #fff !important;
+    border-radius: 0 !important;
+  }
+
+  body, html {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .main-content h1,
+  .main-content h2,
+  .main-content h3 {
+    color: #000 !important;
+  }
+
+  .main-content a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  .main-content a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+
+  .main-content a[href^="#"]::after,
+  .main-content a[href^="javascript"]::after {
+    content: "";
+  }
+
+  .doc-figure img {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    max-width: 100% !important;
+  }
+
+  div.highlighter-rouge {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+  }
+
+  table {
+    break-inside: avoid;
+  }
+
+  .page-last-updated {
+    color: #666;
+  }
+}

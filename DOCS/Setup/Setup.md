@@ -40,7 +40,7 @@ This page will help you get your Arduino environment ready so you can run the ex
 2. The **ON** light on the Arduino should turn on.
 
 If nothing lights up:
-- try a different USB cable (some cables are “power-only”)
+- try a different USB cable (some cables are "power-only")
 - try a different USB port
 
 ---
@@ -66,19 +66,17 @@ Tip: If you’re unsure which port is correct, unplug the Arduino and see which 
 
 You should see the built-in LED on the Arduino blink once per second.
 
-If it worked ✅ you are ready for the course.
-
 ---
 
 ## Common issues and fixes
 
-### “Port not found” or no port shows up
+### "Port not found" or no port shows up
 - Try a different USB cable
 - Try a different USB port
 - Restart Arduino IDE
 - On Windows: install the driver for your board (common with CH340 clone boards)
 
-### “Upload failed” / “avrdude” errors
+### "Upload failed" / "avrdude" errors
 - Make sure **Tools → Board** and **Tools → Port** are correct
 - Close any program using the port (Serial Monitor, other IDEs)
 - Try pressing **Reset** once right before uploading

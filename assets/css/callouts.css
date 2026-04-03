@@ -1,0 +1,66 @@
+/* ===== Callout / admonition blocks ===== */
+/* Usage in markdown:
+   > **Note:** Some info here
+   {: .callout-note }
+
+   > **Warning:** Be careful!
+   {: .callout-warning }
+
+   > **Tip:** Try this approach
+   {: .callout-tip }
+*/
+
+.callout-note,
+.callout-warning,
+.callout-tip {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.callout-note {
+  background: #e8f0fe;
+  border-left-color: #1a73e8;
+  color: #1a3e5c;
+}
+
+.callout-warning {
+  background: #fef3e0;
+  border-left-color: #f9a825;
+  color: #5f3b00;
+}
+
+.callout-tip {
+  background: #e6f4ea;
+  border-left-color: #34a853;
+  color: #1b4332;
+}
+
+.callout-note > p:first-child > strong:first-child,
+.callout-warning > p:first-child > strong:first-child,
+.callout-tip > p:first-child > strong:first-child {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Dark mode — callouts */
+[data-theme="dark"] .callout-note {
+  background: rgba(26,115,232,0.1);
+  border-left-color: #5e9eff;
+  color: #b8d4ff;
+}
+
+[data-theme="dark"] .callout-warning {
+  background: rgba(249,168,37,0.1);
+  border-left-color: #ffc94d;
+  color: #ffe0a0;
+}
+
+[data-theme="dark"] .callout-tip {
+  background: rgba(52,168,83,0.1);
+  border-left-color: #5bdb7e;
+  color: #a0e8b8;
+}

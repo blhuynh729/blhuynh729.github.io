@@ -1,0 +1,82 @@
+/* ===== Table styling ===== */
+
+.table-wrapper {
+  border-radius: 10px !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+  border: 1px solid rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+/* Light mode */
+:root:not([data-theme="dark"]) thead th {
+  background: #f0f0f0 !important;
+  color: #333 !important;
+  font-weight: 600;
+  font-size: 0.85rem !important;
+  border-bottom: 2px solid rgba(0,0,0,0.08) !important;
+  border-left-color: rgba(0,0,0,0.04) !important;
+}
+
+:root:not([data-theme="dark"]) td {
+  background-color: #fff !important;
+  border-bottom-color: rgba(0,0,0,0.04) !important;
+  border-left-color: rgba(0,0,0,0.04) !important;
+}
+
+:root:not([data-theme="dark"]) tbody tr:nth-child(even) td {
+  background-color: #fafafa !important;
+}
+
+/* Dark mode — table wrapper */
+[data-theme="dark"] .table-wrapper {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3) !important;
+  border-color: rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] thead th {
+  background: #333333 !important;
+  color: #e0e0e0 !important;
+  border-bottom: 2px solid rgba(255,255,255,0.08) !important;
+  border-left-color: rgba(255,255,255,0.04) !important;
+}
+
+[data-theme="dark"] td {
+  background-color: #2d2d2d !important;
+  border-bottom-color: rgba(255,255,255,0.06) !important;
+  border-left-color: rgba(255,255,255,0.04) !important;
+  color: #d4d4d4 !important;
+}
+
+[data-theme="dark"] tbody tr:nth-child(even) td {
+  background-color: rgba(255,255,255,0.03) !important;
+}
+
+[data-theme="dark"] .main-content table {
+  border-color: rgba(255,255,255,0.08);
+  background: #2d2d2d;
+}
+
+[data-theme="dark"] .main-content th {
+  background: #333333;
+  color: #e0e0e0;
+  border-color: rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] .main-content td {
+  background: #2d2d2d;
+  border-color: rgba(255,255,255,0.06);
+  color: #d4d4d4;
+}
+
+[data-theme="dark"] .main-content tr:nth-child(even) td {
+  background: rgba(255,255,255,0.03);
+}
+
+[data-theme="dark"] .main-content tr:nth-child(odd) td {
+  background: #2d2d2d;
+}

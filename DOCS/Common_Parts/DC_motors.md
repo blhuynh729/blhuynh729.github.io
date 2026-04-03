@@ -1,25 +1,23 @@
 ---
 title: DC Motors
 layout: page
-nav_order: 2
+nav_order: 1
 parent: Common Components
 ---
 
 # DC Motors
----
+## About
 DC motors is an electric motor that uses direct current (DC) to produce mechanical energy. When connected to an Arduino, the motor can be used to create movement by spinning wheels, fans, or other rotating mechanisms. 
 
 
-{%include figure.html src="/assets/images/components/motors/dc_motor.png" caption="Image of DC Motor" width = "60%" %}
+{%include figure.html src="/assets/images/common_components/dc_motors/dc_motor.png" caption="Image of DC Motor" width = "60%" %}
 
-# Pinout of DC motor
---- 
-{% include figure.html src="/assets/images/pinouts/motors/dc_motor_pinout.png" caption="Pinout of a DC motor" link="https://microcontrollerslab.com/dc-motor-interfacing-atmega32-l293/" caption_prefix="Fig 2:" %}
-
+## Pinout
+{% include figure.html src="/assets/images/common_components/dc_motors/dc_motor_pinout.png" caption="Pinout of a DC motor" link="https://microcontrollerslab.com/dc-motor-interfacing-atmega32-l293/" width = "60%" caption_prefix="Fig 2:" %}
 
 
-# How to control a DC motor with an Arduino 
----
+
+## How to control a DC motor with an Arduino 
 As mentioned before, a DC motor is an electrical motor that uses direct current (DC) to produce mechanical force. Unlike Alternating Current (AC), whose current periodically reverses direction and changes magnitude, DC current flows steadily in one direction, typically from the positive terminal to the negative terminal. 
 
 To control a DC motor, the two terminals of the motor are connected to the positive and negative terminals of a DC power supply. In general, a DC motor does not have a fixed positive or negative terminal. Rather, the way the motor is connected determines the direction of rotation.
@@ -30,16 +28,18 @@ The speed of the motor depends on the magnitude of the applied voltage: higher v
 
  ***IMPORTANT NOTE:***
 A DC motor should never be powered directly with an Arduino. The digital output pins on an Arduino cannot supply enough current to safely drive a DC motor. Attempting to do so may damage the Arduino.
+{: .callout-warning }
 
 To properly control a DC motor, an external power supply must be used along with a motor driver (e.g. L293D), transistor, or relay. These components allow the Arduino to control the motor’s speed and direction while safely handling the higher current required to run the motor.
 
 
+
 For the following example, we will be using the L293D Motor Driver to control a single DC motor. You can reference the section on the L293D and how to use it in the Motor Driver Section. 
 
-# Pinout of L293D for Two DC Motor:
+## Pinout of L293D for Two DC Motor:
 ---
 
-{% include figure.html src="/assets/images/pinouts/motors/L293D_motor_driver.png" caption= "Pinout of L293D Motor Driver" link="https://lastminuteengineers.com/l293d-dc-motor-arduino-tutorial/" width="60%" caption_prefix="Fig 3:" %}
+{% include figure.html src="/assets/images/common_components/dc_motors/L293D_motor_driver.png" caption= "Pinout of L293D Motor Driver" link="https://lastminuteengineers.com/l293d-dc-motor-arduino-tutorial/" width="60%" caption_prefix="Fig 3:" %}
 
 
 
@@ -69,17 +69,18 @@ For the following example, we will be using the L293D Motor Driver to control a 
 | OUT4 and OUT3 -> DC motor A | Pins connect to motor A |
 | OUT1 and OUT2 -> DC motor B | Pins connect to motor B |
 
-*Note, connection order for DC Terminals is arbitrary, only affects direction of motor and affects IN Pins output (for direction)
+Connection order for DC Terminals is arbitrary, only affects direction of motor and affects IN Pins output (for direction)
+{: .callout-note }
 
 ---
-# Wiring for DC motors
+## Wiring
 ---
 
 
-{% include figure.html src="/assets/images/wiring/motors/dc_motor_wiring.png" caption="Wiring of DC motors with L293D Motor Driver and Arduino" caption_prefix="Fig 4:" %}
+{% include figure.html src="/assets/images/common_components/dc_motors/dc_motor_wiring.png" caption="Wiring of DC motors with L293D Motor Driver and Arduino" caption_prefix="Fig 4:" %}
 
 --- 
-# Example Code for Two DC Motors:
+## Example Code
 ```cpp
 // Code from LastMinuteEngineers
 // https://lastminuteengineers.com/l293d-dc-motor-arduino-tutorial/

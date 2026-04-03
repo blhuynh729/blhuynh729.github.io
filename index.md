@@ -38,18 +38,22 @@ By the end of this course, you will be able to:
 
 ## How to use this site
 
-Use the navigation menu on the left to explore:
+Use the navigation menu on the left to explore. Each sensor page includes parts required, wiring diagrams, and example Arduino code.
 
-- **Setup** – Install the Arduino IDE and prepare your hardware
-- **Sensors** – Learn how to wire and program dozens of sensors
-- **Troubleshooting** – Fix common hardware and software issues
-- **Reference** – Pinouts, electrical basics, and quick guides
-
-Each sensor page includes:
-- Parts required
-- Wiring diagrams and tables
-- Example Arduino code
-
+<div class="card-grid" markdown="0">
+  <a href="docs/Setup/Setup" class="site-card">
+    <div class="site-card-title">Setup</div>
+    <div class="site-card-desc">Install the Arduino IDE and prepare your hardware</div>
+  </a>
+  <a href="docs/Setup" class="site-card">
+    <div class="site-card-title">Sensors</div>
+    <div class="site-card-desc">Learn how to wire and program dozens of sensors</div>
+  </a>
+  <a href="docs/Common_Parts/" class="site-card">
+    <div class="site-card-title">Common Parts</div>
+    <div class="site-card-desc">Motors, LCDs, and other commonly used components</div>
+  </a>
+</div>
 
 ---
 
@@ -64,4 +68,4 @@ If this is your first time using Arduino:
 
 ---
 
-We’re excited to have you in the course — let’s start building! 
+We’re excited to have you in the course — let’s start building!
