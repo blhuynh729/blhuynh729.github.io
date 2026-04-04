@@ -1,8 +1,9 @@
 ---
 title: How Far Away Is An Object? (Ultrasonic sensor)
-parent: Movement and Location
 layout: page
 nav_order: 1
+parent: "Proximity and Presence"
+grand_parent: "Motion and position sensing"
 ---
 
 # How Far Away Is An Object? (Ultrasonic sensor)
@@ -13,10 +14,10 @@ nav_order: 1
 The ultrasonic sensor measures distance by echolocation: it sends a sound wave, then measures how long it takes for the sound wave to bounce back to the sensor. Ultrasonic sensor commonly used for obstacle detection, parking sensors, and simple range finders. A commonly used ultrasonic sensor is the HC-SR04.
 
 
-{% include figure.html src="/assets/images/components/sensors/ultrasonic_sensor_image.png" caption="Image of the HC-SR04 ultrasonic sensor" caption_prefix="Fig 1:" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/ultrasonic/ultrasonic_sensor_pinout.png" caption="Image of the HC-SR04 ultrasonic sensor" caption_prefix="Fig 1:" %}
 
 ## Pinout
-{% include figure.html src="/assets/images/pinouts/sensors/ultrasonic_sensor_pinout.png" caption="Pinout of the HC-SR04 ultrasonic sensor" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/ultrasonic/ultrasonic_sensor_pinout.png" caption="Pinout of the HC-SR04 ultrasonic sensor" caption_prefix="Fig 2:" width="60%" %}
 
 A standard ultrasonic sensor has 4 pins: VCC, GND, Trig, Echo
 
@@ -29,7 +30,7 @@ A standard ultrasonic sensor has 4 pins: VCC, GND, Trig, Echo
 
 ## How to Connect HC-SR04 Ultrasonic Sensor to Arduino
 
-{% include figure.html src="/assets/images/wiring/sensors/ultrasonic_wiring.png" caption="Wiring for Ultrasonic Sensor to Arduino" caption_prefix="Fig 3:" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/ultrasonic/ultrasonic_wiring.png" caption="Wiring for Ultrasonic Sensor to Arduino" caption_prefix="Fig 3:" %}
 
 Connect the “Vcc” pin to 5V, the “Gnd” pin to ground, “Trig” to digital pin 10 and “Echo” to digital pin 9.
 

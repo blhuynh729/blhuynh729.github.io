@@ -1,8 +1,9 @@
 ---
 title: Did an Object Move? (PIR Sensor)
-parent: Movement and Location
 layout: page
-nav_order: 2
+nav_order: 1
+parent: "Motion Detection"
+grand_parent: "Motion and position sensing"
 ---
 
 # PIR Motion Sensor
@@ -11,13 +12,13 @@ PIR stands for [“passive infrared” or “passive IR”](https://learn.adafru
 
 All bodies emit infrared light, but warm bodies emit more infrared light. The PIR sensor has two pyroelectric sensors that detect infrared light; when the difference between the pyroelectric sensors changes, the PIR sensor registers this as detecting motion.
 
-{% include figure.html src="/assets/images/components/sensors/PIR_sensor_image_1.png" caption="PIR sensor" link="https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor/overview" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/PIR/PIR_sensor_image_1.png" caption="PIR sensor" link="https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor/overview" caption_prefix="Fig 1:" width="60%" %}
 
-{% include figure.html src="/assets/images/components/sensors/PIR_sensor_image_2.png" caption="A look under the plastic dome, revealing the pyroelectric sensor" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/PIR/PIR_sensor_image_2.png" caption="A look under the plastic dome, revealing the pyroelectric sensor" caption_prefix="Fig 2:" width="60%" %}
 
 ## Pinout
 
-{% include figure.html src="/assets/images/pinouts/sensors/PIR_pinout.png" caption="Pinout of PIR sensor" caption_prefix="Fig 3:" width="60%" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/PIR/PIR_pinout.png" caption="Pinout of PIR sensor" caption_prefix="Fig 3:" width="60%" %}
 
 
 A standard PIR sensor has 3 pins: VCC, OUT, and GND
@@ -33,7 +34,7 @@ A standard PIR sensor has 3 pins: VCC, OUT, and GND
 
 ## Wiring
 
-{% include figure.html src="/assets/images/wiring/sensors/PIR_wiring.png" caption="Wiring for PIR sensor with Arduino" caption_prefix="Fig 4:" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/PIR/PIR_wiring.png" caption="Wiring for PIR sensor with Arduino" caption_prefix="Fig 4:" %}
 
 
 | Pin Name | Arduino Pin |

@@ -59,6 +59,16 @@ body {
   border-radius: 18px;
 }
 
+/* ===== Link color ===== */
+
+.main-content a {
+  color: var(--ucd-blue, #022851);
+}
+
+.main-content a:hover {
+  color: var(--ucd-blue-light, #0B3D74);
+}
+
 /* ===== Inline code styling ===== */
 
 :not(pre, figure) > code {

@@ -1,17 +1,24 @@
 ---
 title: Which way is down? (accelerometer and compass)
-parent: Movement and Location
 layout: page
-nav_order: 1
+nav_order: 4
+parent: "Orientation and Navigation"
+grand_parent: "Motion and position sensing"
 ---
 
 # LSM303
 
 The LSM303 has two sensors: an accelerometer and a magnetometer. The accelerometer detects the direction and magnitude of forces on the sensor, while the magnetometer detects the direction and magnitude of magnetic fields.
 
+{% include figure.html src="/assets/images/motion_and_position_sensors/accelerometer_compass/LSM9DS1.png" caption="LSM303 Accelerometer and Compass" caption_prefix="Fig 1:" width="60%" %}
+
 ## Pinout
 
+{% include figure.html src="/assets/images/motion_and_position_sensors/accelerometer_compass/LSM9DS1_Pinout.png" caption="LSM303 Pinout" caption_prefix="Fig 2:" width="60%" %}
+
 ## Wiring
+
+{% include figure.html src="/assets/images/motion_and_position_sensors/accelerometer_compass/LSM9DS1_wiring.png" caption="LSM303 Wiring" caption_prefix="Fig 3:" width="80%" %}
 Connect the Vin to 5V and Gnd to ground. Connect the SCL and SDA pins to the respective pins on the arduino. To operate the board, you’ll need to download the “Adafruit_Sensor” and “Adafruit_LSM303DLHC” libraries in the Arduino IDE.
 
 
