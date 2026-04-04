@@ -1,7 +1,27 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find /e/ENG03/blhuynh729.github.io/_site -name *.css)"
+      "Bash(find /e/ENG03/blhuynh729.github.io/_site -name *.css)",
+      "Bash(mkdir:*)",
+      "Bash(mv ambient_temp_sensor.png ambient_temp_pinout.png ambient_temp_wiring.png ../environmental_sensors/ambient_temp/)",
+      "Bash(mv dust_sensor.png dust_sensor_2.png ../environmental_sensors/dust_sensors/)",
+      "Bash(mv gas_sensor.png gas_sensor_graph.png MS1100_VOC_sensor.png ../environmental_sensors/gas_sensor/)",
+      "Bash(mv uv_sensor.png SI1145_wiring.png VEML6070.png veml6070_wiring.png analog_uv_sensor.png analog_uv_sensor_wiring.png ../environmental_sensors/uv_sensor/)",
+      "Bash(mv rgb_sensor.png rbg_sensor_pinout.png rgb_sensor_wiring.png ../environmental_sensors/rgb_sensor/)",
+      "Bash(mv rain_sensor.png rain_sensor_components.png rain_sensor_pinout.png rain_sensor_wiring.png ../environmental_sensors/rain_sensor/)",
+      "Bash(mv soil_moisture_sensor.png soil_moisture_sensor_pinout.png soil_moisture_wiring.png ../environmental_sensors/soil_moisture/)",
+      "Bash(mv water_level_sensor.png water_level_sensor_pinout.png water_level_sensor_wiring.png ../environmental_sensors/water_level/)",
+      "Bash(mv flow_sensor.png flow_sensor_pinout.png flow_sensor_wiring.png ../environmental_sensors/flow_sensor/)",
+      "Bash(mv tds_sensor.png tds_sensor_pinout.png tds_wiring.png ../environmental_sensors/tds_sensor/)",
+      "Bash(mv force_sensitive_resistor.png force_sensitive_resistor_pinout.png force_sensitive_resistor_wiring.png ../motion_and_position_sensors/force_sensor/)",
+      "Bash(mv vibration_sensor.png vibration_sensor_pinout.png vibration_sensor_wiring.png ../motion_and_position_sensors/vibration/)",
+      "Bash(mv tilt_sensor.png tilt_sensor_pinout.png tilt_sensor_wiring.png ../motion_and_position_sensors/tilt_sensor/)",
+      "Bash(mv LSM9DS1.png LSM9DS1_Pinout.png LSM9DS1_wiring.png ../motion_and_position_sensors/accelerometer_compass/)",
+      "Bash(mv pushbutton.png ../human_sensing_and_controls/push_button/)",
+      "Bash(mv rotary_encoder.png rotary_encoder_pinout.png rotary_encoder_wiring.png ../human_sensing_and_controls/rotary_encoder/)",
+      "Bash(mv keypad.png keypad_pinout.png keypad_wiring.png ../human_sensing_and_controls/keypad/)",
+      "Bash(mv heart_rate_sensor.png heart_rate_sensor_pinout.png heartrate_sensor_wiring.png ../human_sensing_and_controls/heart_rate/)",
+      "Bash(mv oximeter.png oximeter_pinout.png oximeter_wiring.png ../human_sensing_and_controls/oximeter/)"
     ]
   }
 }
