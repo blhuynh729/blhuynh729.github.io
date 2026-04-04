@@ -9,14 +9,24 @@ parent: Common Components
 Micro servo motors are compact and precise actuators used in robotics, hobby projects, and RC vehicles. They typically offer 180 degrees of rotation and operate on 4.8V-6V DC. 
 
 
-{% include figure.html src="/assets/images/common_components/servo_motors/servo_motor.png" caption="Image of Servo Continuous motor" link="https://www.newark.com/dfrobot/dfr0063/lcd-display-module-i2c-16x2-arduino/dp/52AJ4987" width = "60%" caption_prefix="Fig 1:" %}
+{% include figure.html src="/assets/images/common_components/servo_motors/servo_motor.jpg" caption="Image of Servo Continuous motor" link="https://www.newark.com/dfrobot/dfr0063/lcd-display-module-i2c-16x2-arduino/dp/52AJ4987" width = "60%" caption_prefix="Fig 1:" %}
 
 
 ## Pinout
 
+{% include figure.html src="/assets/images/common_components/servo_motors/servo_motor_pinout.png" caption="Pinout of micro Servo motor" link="https://lastminuteengineers.com/servo-motor-arduino-tutorial/" caption_prefix="Fig 2:" width="60%" %}
+
+| Pin | Function | Description |
+| :---- | :---- | :---- |
+| 5V (red wire) | Power | Supplies 5V to micro servo |
+| GND (brown wire) | Ground | Ground pin |
+| Data/Control (yellow wire) | Control Signal from Arduino | Receives PWM (Pulse Width Modulation) signal. Controls rotation position |
 
 ## Wiring
 
+{% include figure.html src="/assets/images/common_components/servo_motors/servo_motor_wiring.png" caption="Servo Motor Wiring" caption_prefix="Fig 3:" width="80%" %}
+
+On the servo motor, wire the brown pin to ground (GND), the red pin to 5V, and the orange wire to 9.
 
 ## Example Code
 
