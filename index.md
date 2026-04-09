@@ -61,7 +61,7 @@ Use the navigation menu on the left to explore. Each sensor page includes parts 
 
 If this is your first time using Arduino:
 
-1. Go to **Setup** in the sidebar
+1. Go to **Need Some Help?** and then **Setup** in the sidebar
 2. Complete the installation steps
 3. Upload the Blink example
 4. Start exploring the sensor lessons

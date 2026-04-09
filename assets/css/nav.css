@@ -10,15 +10,16 @@
 
   /* Sidebar derived */
   --nav-bg:           var(--ucd-blue);
-  --nav-text:         #D6E0ED;
-  --nav-text-hover:   var(--ucd-gold);
-  --nav-text-active:  var(--ucd-gold);
-  --nav-hover-bg:     var(--ucd-blue-light);
-  --nav-active-bg:    rgba(255, 191, 0, 0.12);
+  --nav-text:         rgba(255, 255, 255, 0.7);
+  --nav-text-hover:   #fff;
+  --nav-text-active:  #fff;
+  --nav-hover-bg:     transparent;
+  --nav-active-bg:    transparent;
   --nav-active-bar:   var(--ucd-gold);
-  --nav-divider:      rgba(255, 255, 255, 0.15);
-  --nav-category-text:#A0B8D4;
+  --nav-divider:      rgba(255, 255, 255, 0.12);
+  --nav-category-text:rgba(255, 255, 255, 0.5);
 }
+
 
 
 /* --- B: Sidebar background & title --- */
@@ -29,23 +30,31 @@
 
 .site-title,
 .site-title a {
-  color: var(--ucd-gold) !important;
+  color: #fff !important;
   font-weight: 700;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   letter-spacing: 0.03em;
   text-decoration: none !important;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   text-align: left !important;
   justify-content: flex-start !important;
   max-width: none !important;
-  white-space: normal !important;
+  white-space: nowrap !important;
   overflow: visible !important;
 }
 
+.site-logo-img {
+  height: 32px;
+  width: auto;
+  flex-shrink: 0;
+}
 
 .site-title:hover,
 .site-title a:hover {
   background: var(--nav-hover-bg) !important;
+  color: var(--ucd-gold-soft) !important;
   border-radius: 6px;
 }
 
@@ -55,16 +64,52 @@
   margin-bottom: 12px;
   height: auto !important;
   max-height: none !important;
+  position: sticky;
+  top: 0;
+  background-color: var(--nav-bg);
+  z-index: 10;
 }
 
 /* --- C: Container resets --- */
 
 .side-bar .site-nav,
-.side-bar .nav-list,
-.side-bar .nav-list .nav-list {
+.side-bar .site-header,
+.side-bar .site-footer {
+  width: 100% !important;
+}
+
+.side-bar .site-nav,
+.side-bar .nav-list {
   margin-left: 0 !important;
   padding-left: 0 !important;
+  padding-right: 0 !important;
 }
+
+
+/* Nested lists: hidden by default, shown when parent is active */
+.side-bar .nav-list .nav-list {
+  display: none;
+  margin-left: 12px !important;
+  padding-left: 0 !important;
+  position: relative;
+}
+
+.side-bar .nav-list-item.active > .nav-list {
+  display: block;
+}
+
+/* Grandparent track — removed gray line, keep spacing */
+.side-bar .site-nav {
+  position: relative;
+  padding-left: 3px;
+}
+
+/* Parent & child tracks — sized by content */
+.side-bar .nav-list .nav-list {
+  border-left: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+
 
 
 /* --- D: Base link styling --- */
@@ -72,74 +117,95 @@
 .side-bar .nav-list-item > a {
   color: var(--nav-text) !important;
   text-decoration: none !important;
-  padding: 8px 12px;
-  padding-right: 34px;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  line-height: 1.35;
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, border-radius 0.15s ease;
+  padding: 10px 14px;
+  padding-right: 28px;
+  position: relative;
+  border-radius: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 
-/* --- E: Hover & active states (Option B — pill / highlight chip) --- */
+/* Left bar indicator — positioned over the track line */
+.side-bar .nav-list-item > a::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  z-index: 2;
+  transition: background 0.15s ease;
+}
+
+/* --- E: Hover & active states (TOC-style left border) --- */
 
 .side-bar .nav-list-item > a:hover {
   color: var(--nav-text-hover) !important;
-  background: var(--nav-hover-bg) !important;
-  border-radius: 20px;
-  /*transform: scale(1.01); */
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 0;
+}
+
+.side-bar .nav-list-item > a:hover::before {
+  background: var(--ucd-gold-soft);
 }
 
 .side-bar .nav-list-item > a.active,
 .side-bar .nav-list-item.active > a {
   color: var(--nav-text-active) !important;
-  background: var(--nav-active-bg) !important;
-  border-radius: 20px;
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+.side-bar .nav-list-item > a.active::before,
+.side-bar .nav-list-item.active > a::before {
+  background: var(--nav-active-bar);
 }
 
 
 
 
 /* --- F: Indentation hierarchy --- */
-
-/* Top-level items — section headers */
+/* Top-level items — grandparents */
 .side-bar .nav-list > .nav-list-item > a {
   padding-left: 12px;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 1.0rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   color: var(--nav-category-text) !important;
 }
 
-/* Top-level hover/active override (restore gold) */
+/* Top-level hover/active override */
 .side-bar .nav-list > .nav-list-item.active > a,
 .side-bar .nav-list > .nav-list-item > a:hover {
   color: var(--nav-text-hover) !important;
 }
 
-/* Level 1 children */
+/* Level 1 — parents (nav-list offset 12px, text lands at 20px) */
 .side-bar .nav-list .nav-list > .nav-list-item > a {
-  padding-left: 20px;
+  padding-left: 8px;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   text-transform: none;
   letter-spacing: normal;
   color: var(--nav-text) !important;
 }
 
-/* Level 2 children */
+/* Level 2 — children (nav-list offset 24px, text lands at 32px) */
 .side-bar .nav-list .nav-list .nav-list > .nav-list-item > a {
-  padding-left: 32px;
-  font-size: 0.85rem;
+  padding-left: 8px;
+  font-size: 1.05rem;
   font-weight: 400;
 }
 
-/* Level 3 children */
+/* Level 3 — grandchildren (nav-list offset 36px, text lands at 44px) */
 .side-bar .nav-list .nav-list .nav-list .nav-list > .nav-list-item > a {
-  padding-left: 44px;
-  font-size: 0.83rem;
-  font-weight: 400;
+  padding-left: 8px;
+  font-size: 1.0rem;
+  font-weight: 300;
 }
 
 /* --- G: Section dividers between top-level groups --- */
@@ -152,6 +218,22 @@
 
 /* --- H: Chevron / expander styling --- */
 
+.side-bar .nav-list-expander {
+  position: relative;
+  z-index: 2;
+  padding: 8px;
+  min-width: 28px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-bar .nav-list-expander svg {
+  width: 18px;
+  height: 18px;
+}
+
 .side-bar .nav-list-expander,
 .side-bar .nav-list-expander svg {
   color: var(--nav-category-text) !important;
@@ -160,15 +242,16 @@
 
 .side-bar .nav-list-expander:hover {
   background-image: none !important;
-  background-color: var(--ucd-blue) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 4px;
 }
 
 .side-bar .nav-list-item > .nav-list-expander:hover svg,
 .side-bar .nav-list-item > a:hover ~ .nav-list-expander svg {
-  color: var(--ucd-gold) !important;
+  color: #fff !important;
 }
 
 .side-bar .nav-list-item.active > .nav-list-expander svg {
-  color: var(--ucd-gold) !important;
+  color: #fff !important;
 }
 

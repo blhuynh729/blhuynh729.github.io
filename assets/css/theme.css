@@ -111,18 +111,18 @@ html {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.1);
-  background: #fff;
+  border: 1.5px solid rgba(0,0,0,0.25);
+  background: #F8F8F8;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
   z-index: 999;
   display: flex;
   align-items: center;
@@ -134,10 +134,37 @@ html {
   pointer-events: auto;
 }
 
+.back-to-top::after {
+  content: 'Back to Top';
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  background: #333;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.back-to-top:hover::after {
+  opacity: 1;
+}
+
+[data-theme="dark"] .back-to-top::after {
+  background: #555;
+}
+
 .back-to-top:hover {
   background: var(--ucd-blue, #022851);
   color: #fff;
   border-color: var(--ucd-blue, #022851);
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(2,40,81,0.3);
 }
 
 /* ===== Home page cards ===== */
@@ -189,27 +216,55 @@ html {
 .theme-toggle {
   position: fixed;
   bottom: 2rem;
-  right: 5rem;
-  width: 40px;
-  height: 40px;
+  right: 6rem;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.1);
-  background: #fff;
+  border: 1.5px solid rgba(0,0,0,0.25);
+  background: #F8F8F8;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   color: #333;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   cursor: pointer;
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.25s ease, color 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-toggle::after {
+  content: 'Go to Dark Mode';
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  background: #333;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.theme-toggle:hover::after {
+  opacity: 1;
+}
+
+[data-theme="dark"] .theme-toggle::after {
+  content: 'Go to Light Mode';
+  background: #555;
 }
 
 .theme-toggle:hover {
   background: var(--ucd-blue, #022851);
   color: #fff;
   border-color: var(--ucd-blue, #022851);
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(2,40,81,0.3);
 }
 
 /* ===== Last updated footer ===== */
