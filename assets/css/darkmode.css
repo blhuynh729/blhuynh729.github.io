@@ -247,7 +247,7 @@ html[data-theme="dark"],
 /* ===== Dark mode — sidebar ===== */
 
 [data-theme="dark"] .side-bar {
-  background-color: #252525 !important;
+  background-color: var(--ucd-blue, #022851) !important;
 }
 
 /* Track lines */
@@ -269,7 +269,7 @@ html[data-theme="dark"],
 /* Section dividers */
 [data-theme="dark"] .side-bar .site-header {
   border-bottom-color: rgba(255, 255, 255, 0.1);
-  background-color: #252525;
+  background-color: var(--ucd-blue, #022851);
 }
 
 [data-theme="dark"] .side-bar .nav-list > .nav-list-item + .nav-list-item {
