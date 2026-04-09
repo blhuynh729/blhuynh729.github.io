@@ -9,15 +9,15 @@
   --ucd-gold-soft:    #FFD54F;
 
   /* Sidebar derived */
-  --nav-bg:           var(--ucd-blue);
-  --nav-text:         rgba(255, 255, 255, 0.7);
-  --nav-text-hover:   #fff;
-  --nav-text-active:  #fff;
+  --nav-bg:           #F8F8F8;
+  --nav-text:         #555;
+  --nav-text-hover:   var(--ucd-blue);
+  --nav-text-active:  var(--ucd-blue);
   --nav-hover-bg:     transparent;
   --nav-active-bg:    transparent;
-  --nav-active-bar:   var(--ucd-gold);
-  --nav-divider:      rgba(255, 255, 255, 0.12);
-  --nav-category-text:rgba(255, 255, 255, 0.5);
+  --nav-active-bar:   var(--ucd-blue);
+  --nav-divider:      rgba(0, 0, 0, 0.08);
+  --nav-category-text:#666;
 }
 
 
@@ -30,7 +30,7 @@
 
 .site-title,
 .site-title a {
-  color: #fff !important;
+  color: var(--ucd-blue) !important;
   font-weight: 700;
   font-size: 1.25rem;
   letter-spacing: 0.03em;
@@ -54,7 +54,7 @@
 .site-title:hover,
 .site-title a:hover {
   background: var(--nav-hover-bg) !important;
-  color: var(--ucd-gold-soft) !important;
+  color: var(--ucd-blue-light) !important;
   border-radius: 6px;
 }
 
@@ -106,7 +106,7 @@
 
 /* Parent & child tracks — sized by content */
 .side-bar .nav-list .nav-list {
-  border-left: 3px solid rgba(255, 255, 255, 0.15);
+  border-left: 3px solid rgba(0, 0, 0, 0.12);
 }
 
 
@@ -143,18 +143,18 @@
 
 .side-bar .nav-list-item > a:hover {
   color: var(--nav-text-hover) !important;
-  background: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(2, 40, 81, 0.06) !important;
   border-radius: 0;
 }
 
 .side-bar .nav-list-item > a:hover::before {
-  background: var(--ucd-gold-soft);
+  background: var(--ucd-blue-light);
 }
 
 .side-bar .nav-list-item > a.active,
 .side-bar .nav-list-item.active > a {
   color: var(--nav-text-active) !important;
-  background: rgba(255, 255, 255, 0.12) !important;
+  background: rgba(2, 40, 81, 0.08) !important;
   border-radius: 0;
   font-weight: 500;
 }
@@ -242,16 +242,16 @@
 
 .side-bar .nav-list-expander:hover {
   background-image: none !important;
-  background-color: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(2, 40, 81, 0.06) !important;
   border-radius: 4px;
 }
 
 .side-bar .nav-list-item > .nav-list-expander:hover svg,
 .side-bar .nav-list-item > a:hover ~ .nav-list-expander svg {
-  color: #fff !important;
+  color: var(--ucd-blue) !important;
 }
 
 .side-bar .nav-list-item.active > .nav-list-expander svg {
-  color: #fff !important;
+  color: var(--ucd-blue) !important;
 }
 
