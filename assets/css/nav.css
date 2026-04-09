@@ -10,15 +10,16 @@
 
   /* Sidebar derived */
   --nav-bg:           #F8F8F8;
-  --nav-text:         #888;
+  --nav-text:         #555;
   --nav-text-hover:   var(--ucd-blue);
   --nav-text-active:  var(--ucd-blue);
   --nav-hover-bg:     transparent;
   --nav-active-bg:    transparent;
   --nav-active-bar:   var(--ucd-blue);
   --nav-divider:      rgba(0, 0, 0, 0.08);
-  --nav-category-text:#999;
+  --nav-category-text:#666;
 }
+
 
 
 /* --- B: Sidebar background & title --- */
@@ -31,17 +32,24 @@
 .site-title a {
   color: var(--ucd-blue) !important;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   letter-spacing: 0.03em;
   text-decoration: none !important;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   text-align: left !important;
   justify-content: flex-start !important;
   max-width: none !important;
-  white-space: normal !important;
+  white-space: nowrap !important;
   overflow: visible !important;
 }
 
+.site-logo-img {
+  height: 32px;
+  width: auto;
+  flex-shrink: 0;
+}
 
 .site-title:hover,
 .site-title a:hover {
@@ -56,15 +64,27 @@
   margin-bottom: 12px;
   height: auto !important;
   max-height: none !important;
+  position: sticky;
+  top: 0;
+  background-color: var(--nav-bg);
+  z-index: 10;
 }
 
 /* --- C: Container resets --- */
 
 .side-bar .site-nav,
+.side-bar .site-header,
+.side-bar .site-footer {
+  width: 100% !important;
+}
+
+.side-bar .site-nav,
 .side-bar .nav-list {
   margin-left: 0 !important;
   padding-left: 0 !important;
+  padding-right: 0 !important;
 }
+
 
 /* Nested lists: hidden by default, shown when parent is active */
 .side-bar .nav-list .nav-list {
@@ -78,9 +98,10 @@
   display: block;
 }
 
-/* Grandparent track — runs full height of nav */
+/* Grandparent track — sized by content, adjusts on collapse/expand */
 .side-bar .site-nav {
   position: relative;
+  padding-left: 3px;
 }
 
 .side-bar .site-nav::before {
@@ -91,22 +112,16 @@
   bottom: 0;
   width: 3px;
   background: rgba(0, 0, 0, 0.15);
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
 }
 
-/* Parent & child tracks — one per nested level */
-.side-bar .nav-list .nav-list::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: rgba(0, 0, 0, 0.12);
-  pointer-events: none;
-  z-index: 0;
+/* Parent & child tracks — sized by content */
+.side-bar .nav-list .nav-list {
+  border-left: 3px solid rgba(0, 0, 0, 0.12);
 }
+
+
 
 
 /* --- D: Base link styling --- */
@@ -114,15 +129,26 @@
 .side-bar .nav-list-item > a {
   color: var(--nav-text) !important;
   text-decoration: none !important;
-  padding: 6px 14px;
-  padding-right: 36px;
-  border-left: 2px solid transparent;
+  padding: 10px 14px;
+  padding-right: 28px;
   position: relative;
-  z-index: 1;
   border-radius: 0;
   font-size: 1.1rem;
   line-height: 1.5;
-  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+/* Left bar indicator — positioned over the track line */
+.side-bar .nav-list-item > a::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  z-index: 2;
+  transition: background 0.15s ease;
 }
 
 /* --- E: Hover & active states (TOC-style left border) --- */
@@ -130,29 +156,35 @@
 .side-bar .nav-list-item > a:hover {
   color: var(--nav-text-hover) !important;
   background: rgba(2, 40, 81, 0.06) !important;
-  border-left-color: var(--ucd-blue) !important;
   border-radius: 0;
+}
+
+.side-bar .nav-list-item > a:hover::before {
+  background: var(--ucd-blue-light);
 }
 
 .side-bar .nav-list-item > a.active,
 .side-bar .nav-list-item.active > a {
   color: var(--nav-text-active) !important;
   background: rgba(2, 40, 81, 0.08) !important;
-  border-left-color: var(--nav-active-bar) !important;
   border-radius: 0;
   font-weight: 500;
+}
+
+.side-bar .nav-list-item > a.active::before,
+.side-bar .nav-list-item.active > a::before {
+  background: var(--nav-active-bar);
 }
 
 
 
 
 /* --- F: Indentation hierarchy --- */
-
 /* Top-level items — grandparents */
 .side-bar .nav-list > .nav-list-item > a {
   padding-left: 12px;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1.0rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--nav-category-text) !important;
@@ -168,7 +200,7 @@
 .side-bar .nav-list .nav-list > .nav-list-item > a {
   padding-left: 8px;
   font-weight: 500;
-  font-size: 1.0rem;
+  font-size: 1.1rem;
   text-transform: none;
   letter-spacing: normal;
   color: var(--nav-text) !important;
@@ -177,14 +209,14 @@
 /* Level 2 — children (nav-list offset 24px, text lands at 32px) */
 .side-bar .nav-list .nav-list .nav-list > .nav-list-item > a {
   padding-left: 8px;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 400;
 }
 
 /* Level 3 — grandchildren (nav-list offset 36px, text lands at 44px) */
 .side-bar .nav-list .nav-list .nav-list .nav-list > .nav-list-item > a {
   padding-left: 8px;
-  font-size: 0.9rem;
+  font-size: 1.0rem;
   font-weight: 300;
 }
 
@@ -198,6 +230,22 @@
 
 /* --- H: Chevron / expander styling --- */
 
+.side-bar .nav-list-expander {
+  position: relative;
+  z-index: 2;
+  padding: 8px;
+  min-width: 28px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-bar .nav-list-expander svg {
+  width: 18px;
+  height: 18px;
+}
+
 .side-bar .nav-list-expander,
 .side-bar .nav-list-expander svg {
   color: var(--nav-category-text) !important;
@@ -206,7 +254,8 @@
 
 .side-bar .nav-list-expander:hover {
   background-image: none !important;
-  background-color: transparent !important;
+  background-color: rgba(2, 40, 81, 0.06) !important;
+  border-radius: 4px;
 }
 
 .side-bar .nav-list-item > .nav-list-expander:hover svg,

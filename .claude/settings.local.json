@@ -21,7 +21,9 @@
       "Bash(mv rotary_encoder.png rotary_encoder_pinout.png rotary_encoder_wiring.png ../human_sensing_and_controls/rotary_encoder/)",
       "Bash(mv keypad.png keypad_pinout.png keypad_wiring.png ../human_sensing_and_controls/keypad/)",
       "Bash(mv heart_rate_sensor.png heart_rate_sensor_pinout.png heartrate_sensor_wiring.png ../human_sensing_and_controls/heart_rate/)",
-      "Bash(mv oximeter.png oximeter_pinout.png oximeter_wiring.png ../human_sensing_and_controls/oximeter/)"
+      "Bash(mv oximeter.png oximeter_pinout.png oximeter_wiring.png ../human_sensing_and_controls/oximeter/)",
+      "Bash(bundle show:*)",
+      "Bash(gem contents:*)"
     ]
   }
 }
