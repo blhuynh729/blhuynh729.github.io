@@ -10,14 +10,14 @@
 
   /* Sidebar derived */
   --nav-bg:           var(--ucd-blue);
-  --nav-text:         rgba(255, 255, 255, 0.7);
+  --nav-text:         #fff;
   --nav-text-hover:   #fff;
   --nav-text-active:  #fff;
   --nav-hover-bg:     transparent;
   --nav-active-bg:    transparent;
   --nav-active-bar:   var(--ucd-gold);
   --nav-divider:      rgba(255, 255, 255, 0.12);
-  --nav-category-text:rgba(255, 255, 255, 0.5);
+  --nav-category-text:#fff;
 }
 
 

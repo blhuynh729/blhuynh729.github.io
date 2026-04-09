@@ -31,7 +31,7 @@ div.highlighter-rouge::before {
 
   /* Flat macOS Sequoia titlebar */
   color: rgba(0,0,0,0.45);
-  background: #f4f4f4;
+  background: #ffffff;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
@@ -54,7 +54,7 @@ div.highlighter-rouge pre.highlight {
   padding: 16px 20px 20px 20px;
 
   /* Terminal light panel */
-  background: #fafafa;
+  background: #ffffff;
   overflow: auto;
   tab-size: 2;
 }
