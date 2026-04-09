@@ -232,3 +232,74 @@ html[data-theme="dark"],
   border-color: rgba(255,255,255,0.1) !important;
   color: #ffa857 !important;
 }
+
+/* ===== Dark mode — sidebar ===== */
+
+[data-theme="dark"] .side-bar {
+  background-color: #252525 !important;
+}
+
+/* Track lines */
+[data-theme="dark"] .side-bar .site-nav::before {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .side-bar .nav-list .nav-list::before {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Site title */
+[data-theme="dark"] .site-title,
+[data-theme="dark"] .site-title a {
+  color: var(--ucd-gold, #FFBF00) !important;
+}
+
+[data-theme="dark"] .site-title:hover,
+[data-theme="dark"] .site-title a:hover {
+  color: var(--ucd-gold-soft, #FFD54F) !important;
+}
+
+/* Section dividers */
+[data-theme="dark"] .side-bar .site-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .side-bar .nav-list > .nav-list-item + .nav-list-item {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Base link text */
+[data-theme="dark"] .side-bar .nav-list-item > a {
+  color: #888 !important;
+}
+
+/* Section header labels */
+[data-theme="dark"] .side-bar .nav-list > .nav-list-item > a {
+  color: #666 !important;
+}
+
+/* Hover */
+[data-theme="dark"] .side-bar .nav-list-item > a:hover {
+  color: var(--ucd-gold-soft, #FFD54F) !important;
+  border-left-color: var(--ucd-gold-soft, #FFD54F) !important;
+  background: rgba(255, 191, 0, 0.08) !important;
+}
+
+/* Active */
+[data-theme="dark"] .side-bar .nav-list-item > a.active,
+[data-theme="dark"] .side-bar .nav-list-item.active > a {
+  color: var(--ucd-gold, #FFBF00) !important;
+  border-left-color: var(--ucd-gold, #FFBF00) !important;
+  background: rgba(255, 191, 0, 0.1) !important;
+}
+
+/* Chevrons */
+[data-theme="dark"] .side-bar .nav-list-expander,
+[data-theme="dark"] .side-bar .nav-list-expander svg {
+  color: #555 !important;
+}
+
+[data-theme="dark"] .side-bar .nav-list-item > .nav-list-expander:hover svg,
+[data-theme="dark"] .side-bar .nav-list-item.active > .nav-list-expander svg {
+  color: var(--ucd-gold, #FFBF00) !important;
+}

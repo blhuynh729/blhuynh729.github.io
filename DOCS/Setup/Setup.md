@@ -1,5 +1,5 @@
 ---
-title: Help with Setup?
+title: Setup
 nav_order: 1
 parent: Need some Help?
 layout: page
