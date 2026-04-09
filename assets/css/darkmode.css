@@ -208,12 +208,23 @@ html[data-theme="dark"],
   border-color: rgba(255,255,255,0.1);
 }
 
+[data-theme="dark"] .theme-toggle:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(255,191,0,0.35);
+}
+
 [data-theme="dark"] .back-to-top:hover,
 [data-theme="dark"] .theme-toggle:hover {
   background: var(--ucd-gold, #FFBF00);
   color: #1e1e1e;
   border-color: var(--ucd-gold, #FFBF00);
 }
+
+[data-theme="dark"] .back-to-top:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(255,191,0,0.35);
+}
+
 
 /* Dark mode — last updated */
 [data-theme="dark"] .page-last-updated {
