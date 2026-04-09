@@ -240,10 +240,6 @@ html[data-theme="dark"],
 }
 
 /* Track lines */
-[data-theme="dark"] .side-bar .site-nav::before {
-  background: rgba(255, 255, 255, 0.12);
-}
-
 [data-theme="dark"] .side-bar .nav-list .nav-list::before {
   background: rgba(255, 255, 255, 0.08);
 }

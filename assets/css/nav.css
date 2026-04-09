@@ -98,22 +98,10 @@
   display: block;
 }
 
-/* Grandparent track — sized by content, adjusts on collapse/expand */
+/* Grandparent track — removed gray line, keep spacing */
 .side-bar .site-nav {
   position: relative;
   padding-left: 3px;
-}
-
-.side-bar .site-nav::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: rgba(0, 0, 0, 0.15);
-  z-index: 0;
-  pointer-events: none;
 }
 
 /* Parent & child tracks — sized by content */
