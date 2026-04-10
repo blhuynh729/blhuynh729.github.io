@@ -54,11 +54,11 @@
 
 /* Light mode: show light logo, hide dark logo */
 .site-logo-dark {
-  display: none;
+  display: none !important;
 }
 
 .site-logo-light {
-  display: inline;
+  display: inline !important;
 }
 
 .site-title:hover,

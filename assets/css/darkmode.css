@@ -257,11 +257,11 @@ html[data-theme="dark"],
 
 /* Site logo — swap for dark variant */
 [data-theme="dark"] .site-logo-light {
-  display: none;
+  display: none !important;
 }
 
 [data-theme="dark"] .site-logo-dark {
-  display: inline;
+  display: inline !important;
 }
 
 /* Site title */
