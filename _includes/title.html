@@ -1,3 +1,9 @@
-<img src="{{ '/assets/images/eepy_cat.png' | relative_url }}" alt="Site Logo" class="site-logo-img site-logo-light">
-<img src="{{ '/assets/images/eepy_cat_zzz.png' | relative_url }}" alt="Site Logo" class="site-logo-img site-logo-dark">
+<img
+  src="{{ '/assets/images/eepy_cat.png' | relative_url }}"
+  alt="Site Logo"
+  class="site-logo-img"
+  data-light-src="{{ '/assets/images/eepy_cat.png' | relative_url }}"
+  data-dark-src="{{ '/assets/images/eepy_cat_zzz.png' | relative_url }}"
+  id="site-logo"
+>
 {{ site.title }}

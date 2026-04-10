@@ -52,14 +52,6 @@
   margin-left: -35px;
 }
 
-/* Light mode: show light logo, hide dark logo */
-.site-logo-dark {
-  display: none !important;
-}
-
-.site-logo-light {
-  display: inline !important;
-}
 
 .site-title:hover,
 .site-title a:hover {
