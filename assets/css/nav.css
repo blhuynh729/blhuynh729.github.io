@@ -52,6 +52,15 @@
   margin-left: -35px;
 }
 
+/* Light mode: show light logo, hide dark logo */
+.site-logo-dark {
+  display: none;
+}
+
+.site-logo-light {
+  display: inline;
+}
+
 .site-title:hover,
 .site-title a:hover {
   background: var(--nav-hover-bg) !important;
