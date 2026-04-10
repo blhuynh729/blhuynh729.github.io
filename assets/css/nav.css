@@ -46,9 +46,10 @@
 }
 
 .site-logo-img {
-  height: 32px;
+  height: 48px;
   width: auto;
   flex-shrink: 0;
+  margin-left: -35px;
 }
 
 .site-title:hover,
