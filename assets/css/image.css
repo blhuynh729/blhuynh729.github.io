@@ -32,3 +32,16 @@
   display: none !important;
 }
 
+/* Mobile — images */
+@media (max-width: 49.99rem) {
+  .jd-lightbox {
+    padding: 1rem;
+  }
+
+  /* Override inline width styles on mobile so images don't overflow */
+  figure img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+

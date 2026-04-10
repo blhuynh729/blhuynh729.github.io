@@ -56,6 +56,18 @@
   padding-right: 2.5rem;
 }
 
+@media (max-width: 49.99rem) {
+  .main-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Push content below the hamburger button */
+  .main-header {
+    padding-top: 3.5rem;
+  }
+}
+
 /* Remove gutter */
 .page-wrap {
   padding-left: 0 !important;

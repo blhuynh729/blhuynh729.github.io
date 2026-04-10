@@ -23,7 +23,8 @@
       "Bash(mv heart_rate_sensor.png heart_rate_sensor_pinout.png heartrate_sensor_wiring.png ../human_sensing_and_controls/heart_rate/)",
       "Bash(mv oximeter.png oximeter_pinout.png oximeter_wiring.png ../human_sensing_and_controls/oximeter/)",
       "Bash(bundle show:*)",
-      "Bash(gem contents:*)"
+      "Bash(gem contents:*)",
+      "Bash(bundle exec:*)"
     ]
   }
 }

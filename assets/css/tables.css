@@ -5,6 +5,8 @@
   box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
   border: 1px solid rgba(0,0,0,0.06);
   overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 table {

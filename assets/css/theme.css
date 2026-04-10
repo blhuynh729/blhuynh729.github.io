@@ -267,6 +267,40 @@ html {
   box-shadow: 0 4px 16px rgba(2,40,81,0.3);
 }
 
+/* ===== Mobile adjustments ===== */
+
+@media (max-width: 49.99rem) {
+  .main-content h1 {
+    font-size: 1.45rem;
+  }
+
+  .main-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .main-content h3 {
+    font-size: 1.05rem;
+  }
+
+  .back-to-top,
+  .theme-toggle {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  .theme-toggle {
+    right: 2rem;
+    bottom: 5rem;
+  }
+
+  /* Hide tooltips on mobile — no hover */
+  .back-to-top::after,
+  .theme-toggle::after {
+    display: none;
+  }
+}
+
 /* ===== Last updated footer ===== */
 
 .page-last-updated {

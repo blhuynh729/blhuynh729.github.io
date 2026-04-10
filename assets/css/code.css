@@ -80,6 +80,27 @@ div.highlighter-rouge:hover .copy-code-btn {
   opacity: 1;
 }
 
+/* Mobile — code blocks */
+@media (max-width: 49.99rem) {
+  div.highlighter-rouge {
+    border-radius: 8px;
+  }
+
+  div.highlighter-rouge pre.highlight {
+    padding: 12px 14px 14px 14px;
+    font-size: 0.82rem;
+  }
+
+  div.highlighter-rouge pre.highlight code {
+    font-size: 0.82rem;
+  }
+
+  /* Always show copy button on mobile (no hover) */
+  div.highlighter-rouge .copy-code-btn {
+    opacity: 1;
+  }
+}
+
 /* ===== Arduino IDE–style syntax highlighting (Rouge) ===== */
 
 /* ===== Arduino IDE (classic) Light-ish syntax palette =====
