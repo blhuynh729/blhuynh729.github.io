@@ -66,6 +66,16 @@
   .main-header {
     padding-top: 3.5rem;
   }
+
+  /* Hide the theme's built-in menu button — our custom hamburger handles the drawer */
+  #menu-button {
+    display: none !important;
+  }
+
+  /* Force nav to always be visible inside the sidebar drawer */
+  .site-nav {
+    display: block !important;
+  }
 }
 
 /* Remove gutter */
