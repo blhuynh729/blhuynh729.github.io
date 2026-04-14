@@ -7,13 +7,13 @@ grand_parent: "Human Sensing and Controls"
 ---
 # Oximeter
 
-{% include figure.html src="/assets/images/human_sensing_and_controls/oximeter/oximeter.png" caption="Pulse Oximeter (MAX30102)" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/human_sensing_and_controls/oximeter/oximeter.png" caption="Pulse Oximeter (MAX30102)" link="https://www.amazon.com/Rakstore-MAX30102-Detection-Concentration-Arduino/dp/B099DPPSW9" caption_prefix="Fig 1:" width="60%" %}
 
 A pulse oximeter measures blood oxygen saturation (SpO2) by shining red and infrared light through the skin and comparing how much of each wavelength is absorbed. Oxygenated blood absorbs more infrared light, while deoxygenated blood absorbs more red light. The ratio between these measurements is used to estimate SpO2 percentage. A commonly used module is the MAX30102 or MAX30105.
 
 ## Pinout
 
-{% include figure.html src="/assets/images/human_sensing_and_controls/oximeter/oximeter_pinout.png" caption="MAX30102 Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/human_sensing_and_controls/oximeter/oximeter_pinout.png" caption="MAX30102 Pinout" link="https://docs.sunfounder.com/projects/umsk/en/latest/01_components_basic/14-component_max30102.html" caption_prefix="Fig 2:" width="60%" %}
 
 | Pin | Connect to Arduino | Description |
 | :---- | :---- | :---- |
@@ -25,7 +25,7 @@ A pulse oximeter measures blood oxygen saturation (SpO2) by shining red and infr
 
 ## Wiring
 
-{% include figure.html src="/assets/images/human_sensing_and_controls/oximeter/oximeter_wiring.png" caption="Oximeter Wiring" caption_prefix="Fig 3:" width="80%" %}
+{% include figure.html src="/assets/images/human_sensing_and_controls/oximeter/oximeter_wiring.png" caption="Oximeter Wiring" link="https://forum.arduino.cc/t/red-led-not-working-in-gy-30102/1024887" caption_prefix="Fig 3:" width="80%" %}
 
 Connect VIN to 3.3V (or 5V if the module has a voltage regulator), GND to ground, SDA to Arduino pin A4, and SCL to Arduino pin A5. Place your finger gently over the sensor window to take readings.
 

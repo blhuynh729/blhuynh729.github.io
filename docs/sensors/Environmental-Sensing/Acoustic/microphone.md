@@ -11,11 +11,11 @@ A microphone amplifier (mic amp) module detects sound and outputs an analog sign
 
 A commonly used module is the MAX4466 or MAX9814 electret microphone amplifier breakout.
 
-{% include figure.html src="/assets/images/environmental_sensors/acoustic/microphone_amp.png" caption="Microphone Amplifier Module" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/acoustic/microphone_amp.png" caption="Microphone Amplifier Module" link="https://www.adafruit.com/product/1713?srsltid=AfmBOorZY5-FQK52ayblhvqeEPnR02qrWt6GO-TZkDdzxfxOmsC1ytNu" caption_prefix="Fig 1:" width="60%" %}
 
 ## Pinout
 
-{% include figure.html src="/assets/images/environmental_sensors/acoustic/microphone_amp_pinout.png" caption="Microphone Amplifier Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/acoustic/microphone_amp_pinout.png" caption="Microphone Amplifier Pinout" link="https://www.datasheethub.com/max9814-microphone-amplifier-module/" caption_prefix="Fig 2:" width="60%" %}
 
 | Pin | Connect to Arduino | Description |
 | :---- | :---- | :---- |

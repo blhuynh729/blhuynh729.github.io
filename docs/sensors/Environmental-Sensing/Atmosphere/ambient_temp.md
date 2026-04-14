@@ -10,11 +10,11 @@ Ambient temperature sensors measure the air temperature around the sensor and ou
 
 One of the most common ambient temperature sensors used for this class is the TMP36. The TMP36 is an analog temperature sensor, meaning it outputs a voltage that changes smoothly with temperature. The Arduino reads that voltage using an analog input pin (A0–A5) and converts it into a temperature value.
 
-{% include figure.html src="/assets/images/environmental_sensors/ambient_temp/ambient_temp_sensor.png" caption="TMP36 Ambient Temperature Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/ambient_temp/ambient_temp_sensor.png" caption="TMP36 Ambient Temperature Sensor" link="https://www.adafruit.com/product/165?srsltid=AfmBOooTGwxKLsPFQ2FJ7tr43eBsvh276IYVaKMpOEjXb2NZx1ToVAF8" caption_prefix="Fig 1:" width="60%" %}
 
 ## Pinout
 
-{% include figure.html src="/assets/images/environmental_sensors/ambient_temp/ambient_temp_pinout.png" caption="TMP36 Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/ambient_temp/ambient_temp_pinout.png" caption="TMP36 Pinout" link="https://lastminuteengineers.com/tmp36-temperature-sensor-arduino-tutorial/" caption_prefix="Fig 2:" width="60%" %}
 
 With the flat side facing you and the legs pointing downward:
 
@@ -26,7 +26,7 @@ With the flat side facing you and the legs pointing downward:
 
 ## Wiring
 
-{% include figure.html src="/assets/images/environmental_sensors/ambient_temp/ambient_temp_wiring.png" caption="Wiring for TMP36 sensor" caption_prefix="Fig 3:" width="80%" %}
+{% include figure.html src="/assets/images/environmental_sensors/ambient_temp/ambient_temp_wiring.png" caption="Wiring for TMP36 sensor" link="https://lastminuteengineers.com/dht11-dht22-arduino-tutorial/" caption_prefix="Fig 3:" width="80%" %}
 
 To wire the TMP36 temperature sensor, connect the Arduino 5V to the sensor's +Vs pin, and connect the Arduino ground to the sensor's GND pin. To read the temperature data from the TMP36, connect the sensor's Vout (OUT) pin to an Arduino analog input pin. For our example, we connected Vout to A0.
 

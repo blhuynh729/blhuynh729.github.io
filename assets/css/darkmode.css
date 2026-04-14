@@ -201,20 +201,26 @@ html[data-theme="dark"],
 }
 
 /* Dark mode — back-to-top & theme toggle */
-[data-theme="dark"] .back-to-top,
-[data-theme="dark"] .theme-toggle {
+[data-theme="dark"] .back-to-top {
   background: #333333;
   color: #d4d4d4;
   border-color: rgba(255,255,255,0.1);
 }
 
-[data-theme="dark"] .theme-toggle:hover {
-  transform: scale(1.15);
-  box-shadow: 0 4px 16px rgba(255,191,0,0.35);
+[data-theme="dark"] .theme-toggle {
+  color: #d4d4d4;
 }
 
-[data-theme="dark"] .back-to-top:hover,
 [data-theme="dark"] .theme-toggle:hover {
+  color: var(--ucd-gold-soft, #FFD54F);
+  background: rgba(255, 191, 0, 0.08);
+}
+
+[data-theme="dark"] .theme-toggle:hover::before {
+  background: var(--ucd-gold-soft, #FFD54F);
+}
+
+[data-theme="dark"] .back-to-top:hover {
   background: var(--ucd-gold, #FFBF00);
   color: #1e1e1e;
   border-color: var(--ucd-gold, #FFBF00);

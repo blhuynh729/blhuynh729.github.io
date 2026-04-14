@@ -214,57 +214,51 @@ html {
 /* ===== Dark mode toggle button ===== */
 
 .theme-toggle {
-  position: fixed;
-  bottom: 2rem;
-  right: 6rem;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(0,0,0,0.25);
-  background: #F8F8F8;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  color: #333;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--nav-text, #fff);
+  font-size: 1.0rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 
-.theme-toggle::after {
-  content: 'Go to Dark Mode';
+/* Left bar indicator — matches nav items */
+.theme-toggle::before {
+  content: '';
   position: absolute;
-  bottom: calc(100% + 10px);
-  right: 0;
-  background: #333;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 6px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.theme-toggle:hover::after {
-  opacity: 1;
-}
-
-[data-theme="dark"] .theme-toggle::after {
-  content: 'Go to Light Mode';
-  background: #555;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background 0.15s ease;
 }
 
 .theme-toggle:hover {
-  background: var(--ucd-blue, #022851);
-  color: #fff;
-  border-color: var(--ucd-blue, #022851);
-  transform: scale(1.15);
-  box-shadow: 0 4px 16px rgba(2,40,81,0.3);
+  color: var(--nav-text-hover, #fff);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.theme-toggle:hover::before {
+  background: var(--ucd-gold-soft, #FFD54F);
+}
+
+.theme-toggle-icon {
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
 /* ===== Mobile adjustments ===== */
@@ -282,21 +276,14 @@ html {
     font-size: 1.05rem;
   }
 
-  .back-to-top,
-  .theme-toggle {
+  .back-to-top {
     width: 44px;
     height: 44px;
     font-size: 1.1rem;
   }
 
-  .theme-toggle {
-    right: 2rem;
-    bottom: 5rem;
-  }
-
   /* Hide tooltips on mobile — no hover */
-  .back-to-top::after,
-  .theme-toggle::after {
+  .back-to-top::after {
     display: none;
   }
 }

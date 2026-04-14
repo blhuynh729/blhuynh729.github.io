@@ -7,13 +7,13 @@ grand_parent: "Environmental Sensing"
 ---
 # Flow Sensor
 
-{% include figure.html src="/assets/images/environmental_sensors/flow_sensor/flow_sensor.png" caption="Flow Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/flow_sensor/flow_sensor.png" caption="Flow Sensor" caption_prefix="Fig 1:" link="https://www.adafruit.com/product/5066?gad_source=1&gad_campaignid=23438252138&gbraid=0AAAAADx9JvStAz8CRB88jf-4CvgViPVeZ&gclid=Cj0KCQjwy_fOBhC6ARIsAHKFB785GV5aDGnH-abW4p6xeRlFupDm5zDIgx3n_SOZQX6YZY0cRDtYG5YaAtQKEALw_wcB" width="60%" %}
 
 As the name may imply, the flow sensor measures the flowrate of the liquid flowing through it. As the water flows through the turbine, it spins a little propeller. This propeller has a magnet connected on a fin, and as the propeller spins, the sensor outputs a pulse per a certain number of rotations. The sensor roughly outputs one pulse per 2.25 milliliters of water that passes through the sensor.
 
 ## Pinout
 
-{% include figure.html src="/assets/images/environmental_sensors/flow_sensor/flow_sensor_pinout.png" caption="Flow Sensor Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/flow_sensor/flow_sensor_pinout.png" caption="Flow Sensor Pinout" link="https://microcontrollerslab.com/water-flow-sensor-pinout-interfacing-with-arduino-measure-flow-rate/" caption_prefix="Fig 2:" width="60%" %}
 
 | Wire Color | Connect to Arduino | Description |
 | :---- | :---- | :---- |
@@ -23,7 +23,7 @@ As the name may imply, the flow sensor measures the flowrate of the liquid flowi
 
 ## Wiring
 
-{% include figure.html src="/assets/images/environmental_sensors/flow_sensor/flow_sensor_wiring.png" caption="Flow Sensor Wiring" caption_prefix="Fig 3:" width="80%" %}
+{% include figure.html src="/assets/images/environmental_sensors/flow_sensor/flow_sensor_wiring.png" caption="Flow Sensor Wiring" caption_prefix="Fig 3:" link="https://www.instructables.com/How-to-Use-Water-Flow-Sensor-Arduino-Tutorial/" width="80%" %}
 
 To connect the flowrate sensor to an Arduino, connect the red wire to 5V, the black wire to ground, and connect the yellow wire to a digital pin. In the code below, that wire is connected to digital pin 2.
 

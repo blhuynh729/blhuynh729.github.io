@@ -9,7 +9,7 @@ grand_parent: "Environmental Sensing"
 
 There are several UV sensor options available for use with Arduino.
 
-{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/uv_sensor.png" caption="UV Sensors" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/uv_sensor.png" caption="UV Sensors" caption_prefix="Fig 1:" link="https://www.adafruit.com/product/1777?srsltid=AfmBOopa54S_ALWKZ8D6tx_udLVJz38WwnADzi0Y04JyjLUX1DP8CZB2" width="60%" %}
 
 ---
 
@@ -19,7 +19,7 @@ The SI1145 can read visible, infrared, and ultraviolet light. The UV index is ca
 
 ### Wiring
 
-{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/SI1145_wiring.png" caption="SI1145 Wiring" caption_prefix="Fig 2:" width="80%" %}
+{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/SI1145_wiring.png" caption="SI1145 Wiring" link="https://dronebotworkshop.com/arduino-uv-index-meter/" caption_prefix="Fig 2:" width="80%" %}
 
 Connect the sensor using I2C (SDA and SCL pins). Install the `Adafruit_SI1145` library.
 
@@ -71,9 +71,9 @@ void loop() {
 
 ## VEML6070
 
-{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/VEML6070.png" caption="VEML6070 UV Sensor" caption_prefix="Fig 3:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/VEML6070.png" caption="VEML6070 UV Sensor" link="https://www.cytron.io/p-veml6070-uv-index-sensor-module?srsltid=AfmBOoojlCoVYyCFV2GJbeHd0jR168gR_n6h3P8yRS5XH_87zVzL97-X" caption_prefix="Fig 3:" width="60%" %}
 
-{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/veml6070_wiring.png" caption="VEML6070 Wiring" caption_prefix="Fig 4:" width="80%" %}
+{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/veml6070_wiring.png" caption="VEML6070 Wiring" link="https://theorycircuit.com/arduino-projects/veml6070-uv-sensor-arduino-interface/" caption_prefix="Fig 4:" width="80%" %}
 
 ### Example Code
 
@@ -101,9 +101,9 @@ void loop() {
 
 ## Analog UV Sensor
 
-{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/analog_uv_sensor.png" caption="Analog UV Sensor" caption_prefix="Fig 5:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/analog_uv_sensor.png" caption="Analog UV Sensor" link="https://www.adafruit.com/product/1918?srsltid=AfmBOor058NrJqWa4SfD0Oe9LT_kRwo6st76fHY5EzFNXnGflay0mnUx" caption_prefix="Fig 5:" width="60%" %}
 
-{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/analog_uv_sensor_wiring.png" caption="Analog UV Sensor Wiring" caption_prefix="Fig 6:" width="80%" %}
+{% include figure.html src="/assets/images/environmental_sensors/uv_sensor/analog_uv_sensor_wiring.png" caption="Analog UV Sensor Wiring" link="https://electropeak.com/learn/interfacing-uvm30a-uv-light-sensor-module-with-arduino/?srsltid=AfmBOooDV6jxOELGB7tGn8gb1bnfsS0EtcXlDHWq0kMsgi21mgEliUrZ" caption_prefix="Fig 6:" width="80%" %}
 
 ### Wiring
 

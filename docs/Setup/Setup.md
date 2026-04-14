@@ -108,9 +108,3 @@ Each sensor page includes:
 - Blue/Green: **I2C/SPI lines** (when used)
 
 ---
-
-## Next steps
-
-Go to **Sensors** in the sidebar and start with:
-- **Movement and Location → PIR Motion Sensor**
-- **Movement and Location → Ultrasonic Sensor**

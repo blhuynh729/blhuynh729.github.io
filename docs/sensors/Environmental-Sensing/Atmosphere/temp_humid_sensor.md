@@ -11,7 +11,7 @@ Humidty sensors are devices that can measure the amount of water vapor in the ai
 A common humidity sensor is the DHT11. The DHT11 is a sensor that can measure both humidity and temperature, making it very useful in a variety of simple applications. 
 
 
-{% include figure.html src="/assets/images/environmental_sensors/humidity_temp/humidity_sensor_image.png" caption="DHT11 Temperature and Humidity Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/humidity_temp/humidity_sensor_image.png" caption="DHT11 Temperature and Humidity Sensor" link="https://wiki.keyestudio.com/Ks0034_keyestudio_DHT11_Temperature_and_Humidity_Sensor" caption_prefix="Fig 1:" width="60%" %}
 
 
 ## Pinout

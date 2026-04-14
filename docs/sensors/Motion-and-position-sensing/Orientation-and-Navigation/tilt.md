@@ -1,7 +1,7 @@
 ---
 title: Am I level? (digital tilt sensor)
 layout: page
-nav_order: 3
+nav_order: 4
 parent: "Orientation and Navigation"
 grand_parent: "Motion and position sensing"
 ---
@@ -9,13 +9,12 @@ grand_parent: "Motion and position sensing"
 
 The tilt sensor outputs a digital signal indicating whether or not the sensor is level. It is used to detect orientation. Inside the sensor, there is a ball that makes contact with the pins when the case is upright. Tilt the sensor over and the balls don't touch, thus not making a connection.
 
-{% include figure.html src="/assets/images/motion_and_position_sensors/tilt_sensor/tilt_sensor.png" caption="Tilt Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/tilt_sensor/tilt_sensor.png" caption="Tilt Sensor" caption_prefix="Fig 1:" link="https://www.dfrobot.com/product-77.html?srsltid=AfmBOopSmltBC2dgRDaqTfH3GknLbupRpcWZ0sWRBWJKcsAZjkriHYYi" width="60%" %}
 
-[More info](https://www.dfrobot.com/product-77.html)
 
 ## Pinout
 
-{% include figure.html src="/assets/images/motion_and_position_sensors/tilt_sensor/tilt_sensor_pinout.png" caption="Tilt Sensor Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/tilt_sensor/tilt_sensor_pinout.png" caption="Tilt Sensor Pinout" link="https://electropeak.com/learn/interfacing-tilt-switch-sensor-with-arduino/?srsltid=AfmBOoovu1MC3yc-suG_CNy6-cnkL2zLMYhqLDuAgY-cwYo6cvzMl0xh" caption_prefix="Fig 2:" width="60%" %}
 
 | Pin | Connect to Arduino | Description |
 | :---- | :---- | :---- |
@@ -25,7 +24,7 @@ The tilt sensor outputs a digital signal indicating whether or not the sensor is
 
 ## Wiring
 
-{% include figure.html src="/assets/images/motion_and_position_sensors/tilt_sensor/tilt_sensor_wiring.png" caption="Tilt Sensor Wiring" caption_prefix="Fig 3:" width="80%" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/tilt_sensor/tilt_sensor_wiring.png" caption="Tilt Sensor Wiring" caption_prefix="Fig 3:" link="https://www.circuitbasics.com/how-to-use-tilt-sensors-on-the-arduino/" width="80%" %}
 
 Connect OUT to a digital pin (pin 3 in the example), VCC to Arduino 5V, and GND to Arduino GND.
 

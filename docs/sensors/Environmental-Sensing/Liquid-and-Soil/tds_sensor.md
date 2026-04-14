@@ -7,13 +7,13 @@ grand_parent: "Environmental Sensing"
 ---
 # Total Dissolved Solids (TDS) Sensor
 
-{% include figure.html src="/assets/images/environmental_sensors/tds_sensor/tds_sensor.png" caption="TDS Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/tds_sensor/tds_sensor.png" caption="TDS Sensor" link="https://thepihut.com/products/gravity-analog-tds-sensor-meter-for-arduino?srsltid=AfmBOoprNNL752X1ntjNTqKYJHSKP2efikKXjvtQfWK30nnou1Rm7Pvp" caption_prefix="Fig 1:" width="60%" %}
 
 The total dissolved solids sensor reads and [prints out how many solids are dissolved in water, in parts per million](http://www.cqrobot.wiki/index.php/TDS_(Total_Dissolved_Solids)_Meter_Sensor_SKU:_CQRSENTDS01).
 
 ## Pinout
 
-{% include figure.html src="/assets/images/environmental_sensors/tds_sensor/tds_sensor_pinout.png" caption="TDS Sensor Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/tds_sensor/tds_sensor_pinout.png" caption="TDS Sensor Pinout" link="https://www.hackster.io/GAURAVK5/dfrobot-tds-meter-sensor-with-arduino-and-lcd-92853d" caption_prefix="Fig 2:" width="60%" %}
 
 | Pin | Connect to Arduino | Description |
 | :---- | :---- | :---- |

@@ -14,7 +14,7 @@ grand_parent: "Motion and position sensing"
 The ultrasonic sensor measures distance by echolocation: it sends a sound wave, then measures how long it takes for the sound wave to bounce back to the sensor. Ultrasonic sensor commonly used for obstacle detection, parking sensors, and simple range finders. A commonly used ultrasonic sensor is the HC-SR04.
 
 
-{% include figure.html src="/assets/images/motion_and_position_sensors/ultrasonic/ultrasonic_sensor_pinout.png" caption="Image of the HC-SR04 ultrasonic sensor" caption_prefix="Fig 1:" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/ultrasonic/ultrasonic_sensor.png" caption="Image of the HC-SR04 ultrasonic sensor" link="https://www.robotshop.com/products/hc-sr04-33v5v-ultrasonic-module-distance-measuring-transducer-sensor-for-arduino-rohs?srsltid=AfmBOooWc7Cf0K68NfnGgh4ofyYhatkzjSn37bgcw3JuEvWhsyvjpSxh" caption_prefix="Fig 1:" width="60%" %}
 
 ## Pinout
 {% include figure.html src="/assets/images/motion_and_position_sensors/ultrasonic/ultrasonic_sensor_pinout.png" caption="Pinout of the HC-SR04 ultrasonic sensor" caption_prefix="Fig 2:" width="60%" %}

@@ -17,13 +17,15 @@ Additionally, it is possible to calibrate these sensors to calculate the particu
 
 ## MQ-135
 
-{% include figure.html src="/assets/images/environmental_sensors/gas_sensor/gas_sensor.png" caption="MQ-135 Gas Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/gas_sensor/gas_sensor.png" caption="MQ-135 Gas Sensor" link="https://microcontrollerslab.com/interfacing-mq-135-gas-sensor-arduino/" caption_prefix="Fig 1:" width="60%" %}
 
 The MQ-135 is sensitive to carbon dioxide, carbon monoxide, ammonium, alcohol, toluene and acetone. The MQ-135 is a variable resistor that nonlinearly decreases in resistance with increasing concentration of gas. The relationship can be linearized on a log-log graph, as shown in the [device's data sheet](https://www.electronicoscaldas.com/datasheet/MQ-135_Hanwei.pdf). The resistor needs time to warm up, so the MQ-135 has a warm-up period of 3-5 minutes.
 
 The breakout board for the MQ-135 has a digital output pin, which goes "high" whenever the resistor value drops below a certain level. You can adjust the screw in the blue box to dial in what that threshold is.
 
 ### Pinout
+
+{% include figure.html src="/assets/images/environmental_sensors/gas_sensor/gas_sensor_pinout.png" caption="MQ-135 Gas Sensor" caption_prefix="Fig 2:" width="80%" %}
 
 To wire the sensor, connect VCC to 5V, GND to ground, then connect analog output to an analog input, or digital output to a digital socket, depending on which you prefer to use.
 

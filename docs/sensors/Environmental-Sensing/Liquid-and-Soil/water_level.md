@@ -15,7 +15,7 @@ grand_parent: "Environmental Sensing"
 
 ## Pinout
 
-{% include figure.html src="/assets/images/environmental_sensors/water_level/water_level_sensor_pinout.png" caption="Water Level Sensor Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/water_level/water_level_sensor_pinout.png" caption="Water Level Sensor Pinout" link="https://lastminuteengineers.com/water-level-sensor-arduino-tutorial/" caption_prefix="Fig 2:" width="60%" %}
 
 | Pin | Connect to Arduino | Description |
 | :---- | :---- | :---- |

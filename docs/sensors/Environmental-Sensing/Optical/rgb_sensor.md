@@ -9,11 +9,11 @@ grand_parent: "Environmental Sensing"
 
 The TCS34725 is a digital RGB color sensor that detects the red, green, and blue components of light, as well as clear (unfiltered) light intensity. It communicates over I2C and includes an IR blocking filter for more accurate color measurement. This sensor can be used in projects involving color sorting, color matching, or ambient light detection.
 
-{% include figure.html src="/assets/images/environmental_sensors/rgb_sensor/rgb_sensor.png" caption="RGB Color Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/rgb_sensor/rgb_sensor.png" caption="RGB Color Sensor" link="https://www.adafruit.com/product/1334?srsltid=AfmBOooCsJQEmlVn82cySGJbk3ObV2XMaplOYnqlzIRke3fyFVgjIUzp" caption_prefix="Fig 1:" width="60%" %}
 
 ## Pinout
 
-{% include figure.html src="/assets/images/environmental_sensors/rgb_sensor/rbg_sensor_pinout.png" caption="RGB Color Sensor Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/rgb_sensor/rbg_sensor_pinout.png" caption="RGB Color Sensor Pinout" link="https://electropeak.com/learn/interfacing-tcs34725-color-sensor-with-arduino/?srsltid=AfmBOop9B5PJpdfsL7wORdzTls7kr6y55IxnuLGTIIC_n0C9q0KWFGfJ" caption_prefix="Fig 2:" width="80%" %}
 
 | Pin | Connect to Arduino | Description |
 | :---- | :---- | :---- |
@@ -25,7 +25,7 @@ The TCS34725 is a digital RGB color sensor that detects the red, green, and blue
 
 ## Wiring
 
-{% include figure.html src="/assets/images/environmental_sensors/rgb_sensor/rgb_sensor_wiring.png" caption="RGB Color Sensor Wiring" caption_prefix="Fig 3:" width="80%" %}
+{% include figure.html src="/assets/images/environmental_sensors/rgb_sensor/rgb_sensor_wiring.png" caption="RGB Color Sensor Wiring" link="https://www.makerguides.com/tcs34725-rgb-color-sensor-with-arduino/" caption_prefix="Fig 3:" width="80%" %}
 
 Connect VIN to 5V and GND to ground. Connect SDA to Arduino pin A4 and SCL to Arduino pin A5 (the default I2C pins on the Arduino Uno). The onboard LED can be left connected by default to illuminate the surface being measured, or tied to a digital pin if you want to control it.
 

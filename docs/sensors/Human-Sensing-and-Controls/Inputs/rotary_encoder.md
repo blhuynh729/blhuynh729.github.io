@@ -7,7 +7,7 @@ grand_parent: "Human Sensing and Controls"
 ---
 # Rotary Encoder
 
-{% include figure.html src="/assets/images/human_sensing_and_controls/rotary_encoder/rotary_encoder.png" caption="Rotary Encoder" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/human_sensing_and_controls/rotary_encoder/rotary_encoder.png" caption="Rotary Encoder" link="https://rudysarduinoprojects.wordpress.com/2019/04/05/fun-with-arduino-25-rotary-encoder-with-switch/" caption_prefix="Fig 1:" width="60%" %}
 
 The rotary encoder can be used to increase and decrease a number. The encoder has "clicks" when it rotates — each click will increase or decrease the number. If you press the knob it will reset the value back to 0.
 
@@ -25,7 +25,7 @@ The rotary encoder can be used to increase and decrease a number. The encoder ha
 
 ## Wiring
 
-{% include figure.html src="/assets/images/human_sensing_and_controls/rotary_encoder/rotary_encoder_wiring.png" caption="Rotary Encoder Wiring" caption_prefix="Fig 3:" width="80%" %}
+{% include figure.html src="/assets/images/human_sensing_and_controls/rotary_encoder/rotary_encoder_wiring.png" caption="Rotary Encoder Wiring" link="https://circuitdigest.com/microcontroller-projects/rotary-encoder-module-interfacing-with-arduino" caption_prefix="Fig 3:" width="80%" %}
 
 Connect CLK to pin 2, DT to pin 3, SW to pin 4, + to Arduino 5V, and GND to Arduino GND.
 

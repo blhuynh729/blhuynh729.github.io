@@ -7,13 +7,13 @@ grand_parent: "Human Sensing and Controls"
 ---
 # Heart Rate Sensor
 
-{% include figure.html src="/assets/images/human_sensing_and_controls/heart_rate/heart_rate_sensor.png" caption="Heart Rate Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/human_sensing_and_controls/heart_rate/heart_rate_sensor.png" caption="Heart Rate Sensor" link="https://shop.openbci.com/products/pulse-sensor?srsltid=AfmBOoq2JoBNfwmvyQKz3LFO2fXroQMu2uw9Bk4OC7PctKdZaLHAWv5P" caption_prefix="Fig 1:" width="60%" %}
 
 A heart rate sensor detects your pulse by shining a light (usually green or infrared) into the skin and measuring the amount of light reflected back. As blood pulses through your veins, the amount of reflected light changes, allowing the sensor to detect each heartbeat. A commonly used module is the KY-039 or a basic pulse sensor (such as the PulseSensor from pulsesensor.com).
 
 ## Pinout
 
-{% include figure.html src="/assets/images/human_sensing_and_controls/heart_rate/heart_rate_sensor_pinout.png" caption="Heart Rate Sensor Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/human_sensing_and_controls/heart_rate/heart_rate_sensor_pinout.png" caption="Heart Rate Sensor Pinout" link="https://lastminuteengineers.com/pulse-sensor-arduino-tutorial/" caption_prefix="Fig 2:" width="60%" %}
 
 | Pin | Connect to Arduino | Description |
 | :---- | :---- | :---- |
@@ -23,7 +23,7 @@ A heart rate sensor detects your pulse by shining a light (usually green or infr
 
 ## Wiring
 
-{% include figure.html src="/assets/images/human_sensing_and_controls/heart_rate/heartrate_sensor_wiring.png" caption="Heart Rate Sensor Wiring" caption_prefix="Fig 3:" width="80%" %}
+{% include figure.html src="/assets/images/human_sensing_and_controls/heart_rate/heartrate_sensor_wiring.png" caption="Heart Rate Sensor Wiring" link="https://lastminuteengineers.com/pulse-sensor-arduino-tutorial/" caption_prefix="Fig 3:" width="80%" %}
 
 Connect the signal pin (S) to an analog input pin (A0 in the example below), the + pin to 5V (or 3.3V depending on the module), and the - pin to GND. Place your fingertip gently on the sensor surface to get a reading.
 

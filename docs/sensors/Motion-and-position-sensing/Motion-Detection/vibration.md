@@ -9,7 +9,7 @@ grand_parent: "Motion and position sensing"
 
 The vibration sensor converts vibration into an electric signal.
 
-{% include figure.html src="/assets/images/motion_and_position_sensors/vibration/vibration_sensor.png" caption="Vibration Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/motion_and_position_sensors/vibration/vibration_sensor.png" caption="Vibration Sensor" link="https://www.keyestudio.com/products/keyestudio-analog-piezoelectric-ceramic-vibration-sensor-for-arduino" caption_prefix="Fig 1:" width="60%" %}
 
 ## Pinout
 

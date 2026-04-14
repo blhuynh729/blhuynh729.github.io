@@ -9,11 +9,11 @@ grand_parent: "Environmental Sensing"
 
 The capacitive soil moisture sensor measures how wet soil is. This sensor is not terribly precise, and does not calibrate to output data in any particular units. To use the sensor it must be calibrated in a way that serves its intended use. [The code below requires that you collect the analog value for air and for water, then divides the values between those values into three categories: very wet, wet, and dry](https://www.datocms-assets.com/28969/1662716326-hw-101-hw-moisture-sensor-v1-0.pdf). There are other ways to calibrate the sensor and define its values, such as measuring fully wet soil, but ultimately the sensor will deliver qualitative, not quantitative measurements.
 
-{% include figure.html src="/assets/images/environmental_sensors/soil_moisture/soil_moisture_image.png" caption="Soil Moisture Sensor" caption_prefix="Fig 1:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/soil_moisture/soil_moisture_sensor.png" caption="Soil Moisture Sensor" link="https://protosupplies.com/product/capacitive-soil-moisture-sensor-module/" caption_prefix="Fig 1:" width="60%" %}
 
 ## Pinout
 
-{% include figure.html src="/assets/images/environmental_sensors/soil_moisture/soil_moisture_pinout.png" caption="Soil Moisture Sensor Pinout" caption_prefix="Fig 2:" width="60%" %}
+{% include figure.html src="/assets/images/environmental_sensors/soil_moisture/soil_moisture_pinout.png" caption="Soil Moisture Sensor Pinout" link="https://lastminuteengineers.com/capacitive-soil-moisture-sensor-arduino/" caption_prefix="Fig 2:" width="60%" %}
 
 | Pin | Connect to Arduino | Description |
 | :---- | :---- | :---- |
@@ -23,7 +23,7 @@ The capacitive soil moisture sensor measures how wet soil is. This sensor is not
 
 ## Wiring
 
-{% include figure.html src="/assets/images/environmental_sensors/soil_moisture/soil_moisture_wiring.png" caption="Soil Moisture Sensor Wiring" caption_prefix="Fig 3:" width="80%" %}
+{% include figure.html src="/assets/images/environmental_sensors/soil_moisture/soil_moisture_wiring.png" caption="Soil Moisture Sensor Wiring" link="https://lastminuteengineers.com/capacitive-soil-moisture-sensor-arduino/" caption_prefix="Fig 3:" width="80%" %}
 
 Connect VCC to 5V, GND to ground, and AOUT to an analog input pin (A0 in the example below). Insert the sensor into the soil to take readings.
 

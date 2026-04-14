@@ -8,7 +8,7 @@ layout: page
 # Breadboards
 
 A **breadboard** is a reusable prototyping board that lets you build circuits **without soldering**. It’s perfect for quickly testing ideas with an Arduino, sensors, LEDs, resistors, and ICs.
-
+{% include figure.html src="/assets/images/setup/breadboard.png" caption="Image of Bread Board" caption_prefix="Fig 1:" link="https://www.adafruit.com/product/64?srsltid=AfmBOoo6FAHBGvnsuws7KIT_R8fx2nvBL9ZO-4yphzk5PkkIkS3MAa5R" width="80%" %}
 ---
 
 ## What a breadboard is made of
@@ -19,11 +19,18 @@ A typical breadboard has:
 - **Power rails** (long columns on the sides, usually marked red/blue)
 - A **center gap** (the trench down the middle for DIP chips)
 
+
+{% include figure.html src="/assets/images/setup/breadboard_conductive_strips.png" caption="Image of Breadboard Conductive Strips" caption_prefix="Fig 2:" link="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard" width="80%" %}
+
+
 ---
 
 ## How the connections work
 
 ### Terminal strips (main grid)
+
+{% include figure.html src="/assets/images/setup/breadboard_connections.png" caption="Image of Breadboard Conductive Strips" caption_prefix="Fig 3:" link="https://arduinotogo.com/2016/08/22/chapter-2-using-a-breadboard/" width="80%" %}
+
 
 In the middle area, holes are connected in **groups of 5**:
 
@@ -54,7 +61,7 @@ The rails run vertically down the side(s):
 - Typically connected **vertically** along the rail
 - Some breadboards have rails that are **split in the middle** (top half not connected to bottom half)
 
-✅ **Always verify if your rails are continuous or split** using:
+**Always verify if your rails are continuous or split** using:
 - the breadboard markings, or
 - a quick continuity check with a multimeter, or
 - a simple LED test circuit.
@@ -63,41 +70,19 @@ The rails run vertically down the side(s):
 
 ## Common breadboard patterns
 
-### 1) Supplying power
+### Supplying power
 
 1. Connect Arduino **5V** to the **+ rail**
 2. Connect Arduino **GND** to the **- rail**
 3. If you use both left and right rails, **bridge them** with jumper wires:
    - + to +, and - to -
 
----
+{% include figure.html src="/assets/images/setup/breadboard_with_arduino.png" caption="Image of Breadboard Conductive Strips" caption_prefix="Fig 4:"  width="80%" %}
 
-### 2) Placing a resistor + LED (basic series circuit)
-
-Typical safe LED wiring:
-
-- Arduino digital pin → **resistor** → **LED anode (+)**
-- LED cathode (-) → **GND rail**
-
-Suggested resistor values:
-- 220 Ω (bright)
-- 330 Ω (slightly dimmer)
-- 1 kΩ (dim but very safe)
 
 ---
 
-### 3) Adding a button (with a pull-down)
 
-A stable button input needs a pull-up or pull-down resistor.
-
-Example pull-down:
-- One side of button → **5V**
-- Other side of button → Arduino input pin
-- Input pin → **10 kΩ** → GND
-
-(Alternative: use `pinMode(pin, INPUT_PULLUP)` and wire button to GND.)
-
----
 
 ## Common mistakes (and how to avoid them)
 
@@ -134,15 +119,9 @@ A misplaced jumper can connect + to - directly.
 - [ ] Arduino 5V goes to **+ rail**
 - [ ] Arduino GND goes to **- rail**
 - [ ] Components that should be connected share the **same 5-hole row**
-- [ ] DIP chips straddle the **center gap**
+- [ ] DIP chips bridge the **center gap**
 - [ ] Rails are bridged if they’re split
 - [ ] External supplies share **common ground**
 - [ ] No accidental + to - shorts
 
 ---
-
-## Next steps
-
-- Try building: **LED + resistor**
-- Then: **button input**
-- Then: a simple IC (like **L293D motor driver**) straddling the gap
