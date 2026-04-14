@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/images/ucd-eng-logo.png" alt="UC Davis Engineering" width="320">
-</p>
-
 <h1 align="center">ENG 03 Arduino Documentation Site</h1>
 
 <p align="center">
@@ -87,7 +83,7 @@ Once GitHub Pages is enabled, the site is available at: https://blhuynh729.githu
 ## Design & UX Highlights
 
 
-  <p align="center"><img src="assets/images/site-preview.png" alt="Site preview" width="800"></p>
+  <p align="center"><img src="assets/images/site_preview.png" alt="Site preview" width="800"></p>
 
 
 - UC Davis branding (Aggie Blue & Gold)
